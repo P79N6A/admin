@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="../addons/purchasing/static/css/bootstrap.min.css">
+<script type="text/javascript" src="../web/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../addons/purchasing/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../addons/purchasing/static/js/order.js"></script>
+<style type="text/css">
+	.recharge-area{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.4);display: none;}
+	.recharge-main{width: 30%;height: 30vw;margin: 5% auto;background: #fff;}
+	.recharge-head{width: 100%;text-align: center;font-size: 20px;line-height: 30px;padding: 0 10px;}
+	.recharge-body{width: 100%;overflow-y: auto;}
+	.table>tbody>tr>td>input[type=text]{width: 100%;border: 0;height: 22px;text-align: center;}
+	.table>tbody>tr.input-txt>td{padding: 0;text-align: center;vertical-align: middle;}
+	.btn{border: 1px solid #3e3e3e;background-color: #3e3e3e;color: #fff;padding: 3px 7px;margin-right: 10px;margin-bottom: 5px;}
+	input[type=checkbox]{}
+	.btn:hover{background: #fff;color: #333}
+	.pack{background: #fff;color: #333;}
+	.btn-red{background: #f00;}
+	.btn-blue{background: #00f;}
+	.btn-green{background: #0f0;}
+	select{height: 100%;height: 22px;}
+	.pack{background: #fff;color: #333;}
+	.order-ul{list-style: none;}
+	.order-ul li{float: left;}
+</style>
+<div class="col-xs-12" style="padding: 5px 10px;">
+	<div class="col-xs-4" style="padding: 0;overflow-y: auto;height: 98%;">
+		<div class="col-xs-12" style="padding: 0;background-color: #3e3e3e;font-size: 18px;color: #FFF;text-align: center;">
+			单页
+		</div>
+		<table class="table" id="orderd">
+			
+		</table>
+	</div>
+	<div class="col-xs-8" style="padding: 0;overflow-y: auto;height: 98%;">
+		<div class="col-xs-12" style="padding: 0;background-color: #3e3e3e;font-size: 18px;color: #FFF;text-align: center;">
+			投注
+		</div>
+		<table class="table table-bordered" id="bet-table">
+			{loop $order $k $o}
+			<tr id="company{$k}" class="input-txt">
+				<td colspan="8">
+					<div class="col-xs-3" style="padding: 10px 0;">
+						<input type="text" name="number" value="{$o['number']}" id="number{$k}" placeholder="number" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'');" style="width: 100px;border: 1px solid #ddd;padding: 3px 0;text-align: center;font-weight: 600;">
+					</div>
+					<div class="col-xs-9" style="padding: 0;">
+						{loop $companys $com}
+						<a href="javascript:void(0);" id="com{$com['id']}_{$k}" class="btn {if in_array($com['id'],$o['company'])}pack{/if}" style="border-radius: 0;" data-value="{$com['id']}" onclick="var has = $(this).hasClass(\'pack\');check_com({$k},{$com['id']},has);">{$com['nickname']}</a>
+						{/loop}
+						<select name="type" id="type{$k}">
+							<option value="0">special</option>
+							<option value="1">BOX</option>
+							<option value="2">iBOX</option>
+							<option value="3">(0~9)包头</option>
+							<option value="4">(0~9)包尾</option>
+						</select>
+						<select name="rule" id="rule{$k}" onchange="set_pay({php echo $k+1})">
+							{loop $rule $r}
+							<option value="{$r['id']}" {if $o['play_type'] == $r['id']}selected{/if}>{$r['title']}</option>
+							{if $o['play_type'] == $r['id']}
+							{php $play = explode(',',$r['content']);}
+							{/if}
+							{/loop}
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr class="input-txt">
+				{loop $play $p $y}
+				<td>
+					<input type="text" id="pay{$p}_{$k}" value="{php echo $o['pay'][$p]?round($o['pay'][$p],2):0;}" class="odd_{$K}" onkeyup="num(this)">
+				</td>
+				{/loop}
+				<td>
+					<button class="btn"  style="border-radius: 0;margin: 0;background-color: #FFF;color: #333;border: 1px solid #333;height: 20px;padding: 1px 2px;font-size: 12px;" onclick="save_order({$o['id']},{$k})">save</button>
+				</td>
+			</tr>
+			{if !empty($o['out'])}
+			<tr class="input-txt">
+				{loop $play $p $y}
+				<td>
+					<input type="text" id="can_pay{$p}_{$k}" value="{php echo $o['out'][$y]?round($o['out'][$y],2):0;}" readonly class="out_{$k}" onkeyup="num(this)" style="background-color: #eee;">
+				</td>
+				{/loop}
+				<td>
+					<button class="btn"  style="border-radius: 0;margin: 0;background-color: #FFF;color: #333;border: 1px solid #333;height: 20px;padding: 1px 2px;font-size: 12px;" onclick="restore({$k})">还原</button>
+				</td>
+			</tr>
+			{else}
+			<tr class="input-txt">
+				{loop $play $p $y}
+				<td>
+					<input type="text" id="can_pay{$p}_{$k}" value="{php echo $o['pay'][$p]?round($o['pay'][$p],2):0;}" readonly class="out_{$k}" onkeyup="num(this)" style="background-color: #eee;">
+				</td>
+				{/loop}
+				<td>
+					<button disabled class="btn"  style="border-radius: 0;margin: 0;background-color: #FFF;color: #333;border: 1px solid #333;height: 20px;padding: 1px 2px;font-size: 12px;">还原</button>
+				</td>
+			</tr>
+			{/if}
+			{/loop}
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+	var order_id = "{$_GPC['id']}";
+	var company = [];
+	function get_company() {
+		$.post("{php echo $this->createMobileUrl('pc_xiazhu',array('op'=>'get_company'))}",{},function(result) {
+			company = result;
+			$('#company1').html(txt);
+		},'JSON');
+	}
+	function check_com(e,id,has) {
+		if (has == true) {
+			$('#com'+id+'_'+e).removeClass('pack');
+		}
+		else{
+			$('#com'+id+'_'+e).addClass('pack');
+		}
+	}
+	window.onload = function() {
+		$.post("{php echo $this->createMobileUrl('pc_xiazhu',array('op'=>'order_detail'))}",{id:order_id},function(result) {
+			if (result.status == 1) {
+				var txt = '';
+				txt = create_order(result);
+				$('#orderd').html(txt);
+			}
+		},'JSON');
+	}
+	function num(e) {
+		var cl = $(e).attr('id');
+		var max = $('#can_'+cl).val();
+		e.value=e.value.replace(/\D/g,'');
+		if (parseFloat(e.value) > parseFloat(max)) {
+			e.value = max;
+		}
+	}
+	function restore(k) {
+		var out = [];
+		$('.out_'+k).each(function() {
+			out.push($(this).val());
+		})
+		for (var i = 0 in out) {
+			$('#pay'+i+'_'+k).val(out[i]);
+		}
+	}
+	function save_order(id,k) {
+		var number = $('#number'+k).val();
+		var com = [];
+		var type = $('#type'+k).val();
+		var rule = $('#rule'+k).val();
+		for (var i = 0 in company) {
+			var has = $('#com'+company[i].id+'_'+k).hasClass('pack');
+			if (has == true) {
+				com.push(company[i].id);
+			}
+		}
+		for (var j = 0; j < 8; j++) {
+			var money = $('#pay'+j+'_'+k).val();
+			if (money != '') {
+				pay.push(money);
+			}
+			else{
+				pay.push(0);
+			}
+		}
+		var data = {"type":type,"number":number,"rule":ruler,"pay":pay,"company":com,"order_id":order_id};
+		$.post("{php echo $this->createMobileUrl('order_control',array('op'=>'edit_order'))}",data,function(result) {
+			alert(result.info);
+		},'JSON');
+	}
+</script>

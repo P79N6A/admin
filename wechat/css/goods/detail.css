@@ -1,0 +1,102 @@
+.price{
+	color: #f00;
+	font-size: 5vw;
+	text-indent: 1em;
+	margin-bottom: 5vw;
+}
+.middle-icon{
+	vertical-align: middle;
+	height: 100%;
+	margin-right: 2vw;
+}
+.get-property{
+	background: url(../../img/icon_arrow_roght.png) no-repeat right;
+	background-size: auto 50%;
+	margin: 0;
+}
+.bottom-icon{
+	padding: 2vw 2vw;
+	float: left;
+	width: 20%;
+}
+.bottom-icon img{
+	width: 30%;
+	margin: 0 auto;
+	display: block;
+}
+.bottom-icon p{
+	text-align: center;
+}
+#property{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 100;
+	display: none;
+}
+.property-div{
+	width: 100%;
+	background: #fff;
+	bottom: 0;
+	position: absolute;
+}
+.property-select{
+	padding-bottom: 5vw;
+	height: 20vw;
+	margin-bottom: 3vw;
+}
+.property-select p{
+	font-size: 4vw;
+	margin-bottom: 3vw;
+}
+.property-option{
+	float: left;
+	margin-right: 3vw;
+	display: block;
+}
+.property-option span{
+	padding: 2vw;
+	border: #ccc solid 1px;
+	border-radius: 5px;
+	color: #ccc;
+	display: block;
+}
+.minus{
+	width: 33%;
+	height: 10vw;
+	font-size: 5vw;
+	padding: 2vw;
+	text-align: center;
+	border: #eee solid 1px;
+	display: block;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	float: left;
+	color: #ffde00;
+}
+#select-amount input[type=text]{
+	width: 33%;
+	height: 10vw;
+	font-size: 5vw;
+	text-align: center;
+	border: 0;
+	display: block;
+	float: left;
+	border-top: #eee solid 1px;
+	border-bottom: #eee solid 1px;
+}
+.plus{
+	width: 33%;
+	height: 10vw;
+	font-size: 5vw;
+	padding: 2vw;
+	text-align: center;
+	border: #eee solid 1px;
+	display: block;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	float: left;
+	color: #ffde00;
+}

@@ -1,0 +1,320 @@
+{template 'header'}
+<style>
+	.recharge-area{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.4);display: none;}
+	.recharge-main{width: 50%;height: 20vw;margin: 5% auto;background: #fff;}
+	.recharge-head{width: 100%;text-align: center;border-bottom: 1px solid #aaa;font-size: 20px;line-height: 30px;}
+	.recharge-body{width: 100%;padding: 2vw 3vw;}
+	.recharge-body table tbody tr td input{width: 80%;border: 0;}
+	.btn{border: 1px solid #3e3e3e;background-color: #3e3e3e;border-radius: 20px;color: #fff;padding: 3px 7px;}
+	a:hover{text-indent: none;}
+	.btn:hover{background: #fff;color: #333}
+</style>
+{if $op == 'manager_eat'}
+<div class="col-xs-12">
+	<form class="form-inline" role="form" action="" method="get">
+		<input type="hidden" name="c" value="entry">
+		<input type="hidden" name="i" value="{$_GPC['i']}">
+		<input type="hidden" name="do" value="manager">
+		<input type="hidden" name="m" value="purchasing">
+		<input type="hidden" name="op" value="manager_eat">
+		<div class="col-xs-12" style="padding: 5px 0;">
+			<div class="form-group">
+				<label for="keyword">账号</label>
+				<input type="text" name="keyword" id="account" placeholder="请输入账号" class="form-control" value="{$_GPC['account']}">
+			</div>
+			<div class="form-group">
+				<input type="submit" name="search" class="btn btn-success" value="搜索">
+			</div>
+		</div>
+	</form>
+	<table class="table table-bordered">
+		<tr>
+			<td class="text-right" style="border: 0;">户口：</td>
+			<td colspan="8" style="border: 0;">{if $agent_id>0}{$account}{/if}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>账号</td>
+			<td>名称</td>
+			<td>状态</td>
+			<td>积分</td>
+			<td>分红/配套</td>
+			<td>最后修改时间</td>
+			<td>最后上线时间</td>
+			<td>登录IP</td>
+		</tr>
+		{loop $list $item}
+		<tr>
+			<td>
+				<a href="{php echo $this->createMobileUrl('manager_eat',array('op'=>'edit','agent_id'=>$item['id']))}">更改</a>
+			</td>
+			<td>{$item['account']}</td>
+			<td>{$item['nickname']}</td>
+			<td>
+				{if $item['user_type'] == 2}
+				<a href="javascript:void(0);" onclick="set_status({$item['id']},{$item['status']})">
+				{/if}
+					{if $item['status'] == 0}
+					<span style="color: #0f0;">活跃</span>
+					{elseif $item['status'] == 2}
+					<span style="color: #f00;">试用</span>
+					{else}
+					<span style="color: #ccc">禁用</span>
+					{/if}
+				{if $item['user_type'] == 2}
+				</a>
+				{/if}
+			</td>
+			<td>{$item['credit1']}</td>
+			<td>{if $item['user_type'] == 1}{$item['bonus']}%{else}{loop $item['used_odds'] $ud}<a href="javascript:void(0);" onclick="get_odds({$ud['id']})">{$ud['title']}</a> {/loop}{/if}</td>
+			<td>{if $item['last_edit_time']>0}{php echo date('Y-m-d H:i:s',$item['last_edit_time'])}{else}没有修改过{/if}</td>
+			<td>{if $item['last_login_time']>0}{php echo date('Y-m-d H:i:s',$item['last_login_time'])}{else}没有登陆过{/if}</td>
+			<td>{$item['last_login_ip']}</td>
+		</tr>
+		{/loop}
+	</table>
+	{$pager}
+</div>
+{elseif $op == 'edit'}
+<style type="text/css">
+	.inset_table tr td{padding: 2px 3px;}
+</style>
+<div class="col-xs-12">
+	<form action="{php echo $this->createMobileUrl('manager_eat',array('op'=>'edit_post'))}" method="post">
+		<input type="hidden" name="agent_id" value="{$agent}">
+		<div class="col-xs-4"  style="margin-bottom: 10px;">
+			<p>账号：{$member['account']}</p>
+			<table class="inset_table" style="border: 1px solid #ccc;">
+				<tr>
+					<td>吃字比例</td>
+					<td><input type="text" name="percent" value="{$eat['percent']}" style="width: 40px;">%</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4D类型</td>
+					<td>
+						<select name="type_4d" onchange="change_4d()">
+							<option value="1" {if $eat['type_4d'] == 1}selected="selected"{/if}>AMT</option>
+							<option value="2" {if $eat['type_4d'] == 2}selected="selected"{/if}>TOT</option>
+						</select>
+					</td>
+					<td>
+						<select name="type_count" onchange="change_4d()">
+							<option value="4" {if count($ordby) == 4}selected{/if}>4项</option>
+							<option value="3" {if count($ordby) == 3}selected{/if}>3项</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>3D类型</td>
+					<td>
+						<select name="type_3d" onchange="change_3d()">
+							<option value="1" {if $eat['type_3d'] == 1}selected="selected"{/if}>AMT</option>
+							<option value="2" {if $eat['type_3d'] == 2}selected="selected"{/if}>TOT</option>
+						</select>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>吃字分红</td>
+					<td>
+						{if $member['level'] == 4}
+						<label>
+							<input type="checkbox" name="is_filter" value="1" {if $eat['is_filter'] == 1} checked="checked"{/if}>
+							过滤
+						</label>
+						{/if}
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-12">
+			<table class="table table-bordered">
+				<tr style="background: #000;color: #fff">
+					<td>company</td>
+					{loop $bet_4D $b}
+					{if $b == 'mutiple'}
+					<td class="bet_4d bet_4d_{$b}" style="width: 260px;">
+						{loop $ordby $k $ord}
+						<select name="ordby[]" style="color: #333;width: 50px;">
+							<option value="B" {if $ord == 'B'}selected{/if}>B</option>
+							<option value="S" {if $ord == 'S'}selected{/if}>S</option>
+							<option value="4A" {if $ord == '4A'}selected{/if}>4A</option>
+							<option value="4ABC" {if $ord == '4ABC'}selected{/if}>4ABC</option>
+						</select>{if $k < count($ordby)-1}+{/if}
+						{/loop}
+					</td>
+					{else}
+					<td class="bet_4d bet_{$b}">{$b}</td>
+					{/if}
+					{/loop}
+					{loop $bet_3D $a}
+					{if $a == 'mutiple'}
+					<td class="bet_3d bet_3d_{$a}" style="width: 150px;">
+						{loop $ordby_3d $o $ord_3d}
+						<select name="ordby_3d[]" style="color: #333;width: 50px;">
+							<option value="A" {if $ord_3d == 'A'}selected{/if}>A</option>
+							<option value="3ABC" {if $ord_3d == '3ABC'}selected{/if}>3ABC</option>
+						</select>{if $o < count($ordby_3d)-1}+{/if}
+						{/loop}
+					</td>
+					{else}
+					<td class="bet_3d bet_{$a}">{$a}</td>
+					{/if}
+					{/loop}
+				</tr>
+				{loop $company $com}
+				<tr class="mating_item" data-value="{$com['id']}">
+					<td class="name_{$com['id']}">{$com['nickname']}</td>
+					{loop $bet_4D $b}
+					<td class="mating_{$com['id']}_{$b}"><input type="text" name="mating[4D][{$com['id']}][{$b}]" style="width: 100%;" value="{$mating_4D[$com['id']][$b]}"></td>
+					{/loop}
+					{loop $bet_3D $a}
+					<td class="mating_3d_{$com['id']}_{$a}"><input type="text" name="mating[3D][{$com['id']}][{$a}]" style="width: 100%;" value="{$mating_3D[$com['id']][$a]}"></td>
+					{/loop}
+				</tr>
+				{/loop}
+			</table>
+			<input type="submit" name="submit" value="保存" class="btn">
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+	function change_4d() {
+		var type = $('select[name=type_4d]').val();
+		var count = $('select[name=type_count]').val();
+		if (type == 1) {
+			var txt = '<td>company</td><td class="bet_4d bet_B">B</td><td class="bet_4d bet_S">S</td><td class="bet_4d bet_4A">4A</td><td class="bet_4d bet_4ABC">4ABC</td>';
+			$('.mating_item').each(function() {
+				var id = $(this).attr('data-value');
+				var name = $('.name_'+id).text();
+				var mating_txt = '<td class="name_'+id+'">'+name+'</td><td class="mating_'+id+'_B"><input type="text" name="mating['+id+'][4D][B]" style="width: 100%;"></td>';
+					mating_txt += '<td class="mating_'+id+'_S"><input type="text" name="mating[4D]['+id+'][S]" style="width: 100%;"></td>';
+					mating_txt += '<td class="mating_'+id+'_4A"><input type="text" name="mating[4D]['+id+'][4A]" style="width: 100%;"></td>';
+					mating_txt += '<td class="mating_'+id+'_4ABC"><input type="text" name="mating[4D]['+id+'][4ABC]" style="width: 100%;"></td>';
+					$('.mating_'+id+'_4B').prevAll().remove();
+					$('.mating_'+id+'_4B').before(mating_txt);
+			});
+			$('.bet_4B').prevAll().remove();
+			$('.bet_4B').before(txt);
+		}
+		if (type == 2) {
+			if (count == 4) {
+				var txt = '<td>company</td><td class="bet_4d bet_4d_mutiple" style="width: 260px;">';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '+';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '+';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '+';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '</td>';
+				$('.mating_item').each(function() {
+					var id = $(this).attr('data-value');
+					var name = $('.name_'+id).text();
+					var mating_txt = '<td class="name_'+id+'">'+name+'</td><td class="mating_'+id+'_mutiple"><input type="text" name="mating[4D]['+id+'][mutiple]" style="width: 100%;"></td>';
+						$('.mating_'+id+'_4B').prevAll().remove();
+						$('.mating_'+id+'_4B').before(mating_txt);
+				});
+				$('.bet_4B').prevAll().remove();
+				$('.bet_4B').before(txt);
+			}
+			if (count == 3) {
+				var txt = '<td>company</td><td class="bet_4d bet_4d_mutiple" style="width: 260px;">';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '+';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '+';
+					txt += '<select name="ordby[]" style="color: #333;width: 50px;">';
+					txt += '<option value="B">B</option>';
+					txt += '<option value="S">S</option>';
+					txt += '<option value="4A">4A</option>';
+					txt += '<option value="4ABC">4ABC</option>';
+					txt += '</select>';
+					txt += '</td>';
+					txt += '<td>ot</td>';
+				$('.mating_item').each(function() {
+					var id = $(this).attr('data-value');
+					var name = $('.name_'+id).text();
+					var mating_txt = '<td class="name_'+id+'">'+name+'</td><td class="mating_'+id+'_mutiple"><input type="text" name="mating[4D]['+id+'][mutiple]" style="width: 100%;"></td>';
+						mating_txt += '<td class="mating_'+id+'_ot"><input type="text" name="mating[4D]['+id+'][ot]" style="width: 100%;"></td>'
+						$('.mating_'+id+'_4B').prevAll().remove();
+						$('.mating_'+id+'_4B').before(mating_txt);
+				});
+				$('.bet_4B').prevAll().remove();
+				$('.bet_4B').before(txt);
+			}
+		}
+	}
+	function change_3d() {
+		var type = $('select[name=type_3d]').val();
+		if (type == 1) {
+			var txt = '<td class="bet_3d bet_A">A</td><td class="bet_3d bet_3ABC">3ABC</td>';
+			$('.mating_item').each(function() {
+				var id = $(this).attr('data-value');
+				var mating_txt = '<td class="mating_3d_'+id+'_A"><input type="text" name="mating[3D]['+id+'][A]" style="width: 100%;"></td>';
+					mating_txt += '<td class="mating_3d_'+id+'_3ABC"><input type="text" name="mating[3D]['+id+'][3ABC]" style="width: 100%;"></td>';
+					$('.mating_3d_'+id+'_mutiple').remove();
+					$('.mating_3d_'+id+'_C2').before(mating_txt);
+			});
+			$('.bet_3d_mutiple').remove();
+			$('.bet_C2').before(txt);
+		}
+		if (type == 2) {
+			var txt = '<td class="bet_3d bet_3d_mutiple" style="width: 150px;">';
+				txt += '<select name="ordby_3d[]" style="color: #333;width: 50px;">';
+				txt += '<option value="A">A</option>';
+				txt += '<option value="3ABC">3ABC</option>';
+				txt += '</select>';
+				txt += '+';
+				txt += '<select name="ordby_3d[]" style="color: #333;width: 50px;">';
+				txt += '<option value="A">A</option>';
+				txt += '<option value="3ABC">3ABC</option>';
+				txt += '</select>';
+				txt += '</td>';
+			$('.mating_item').each(function() {
+				var id = $(this).attr('data-value');
+				var mating_txt = '<td class="mating_3d_'+id+'_mutiple"><input type="text" name="mating[3D]['+id+'][mutiple]" style="width: 100%;"></td>';
+					$('.mating_3d_'+id+'_A').remove();
+					$('.mating_3d_'+id+'_3ABC').remove();
+					$('.mating_3d_'+id+'_C2').before(mating_txt);
+			});
+			$('.bet_A').remove();
+			$('.bet_3ABC').remove();
+			$('.bet_C2').before(txt);
+		}
+	}
+</script>
+{/if}
+{template 'footer'}

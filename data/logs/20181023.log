@@ -1,0 +1,21 @@
+2018-10-23 15:05:52 SQL Error :
+------------
+String:
+SQL: <br/>select id,password,mobile,nickname ,credit1 ,is_black,parent_agent,last_login_time,fail_login_times from `ims_member_system_member` where account=:account <hr/>Params: <br/>array (
+  ':account' => 'jb1001',
+)<hr/>SQL Error: <br/>Unknown column 'mobile' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/manji/inc/mobile/login.inc.php; line: 12; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-23 15:06:17 SQL Error :
+------------
+String:
+SQL: <br/>select id,password,mobile,nickname ,credit1 ,is_black,parent_agent,last_login_time,fail_login_times from `ims_member_system_member` where account=:account <hr/>Params: <br/>array (
+  ':account' => 'jb100',
+)<hr/>SQL Error: <br/>Unknown column 'mobile' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/manji/inc/mobile/login.inc.php; line: 12; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-23 15:06:30 SQL Error :
+------------
+String:
+SQL: <br/>select id,password,mobile,nickname ,credit1 ,is_black,parent_agent,last_login_time,fail_login_times from `ims_member_system_member` where account=:account <hr/>Params: <br/>array (
+  ':account' => 'jb1001',
+)<hr/>SQL Error: <br/>Unknown column 'mobile' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 167; <br />file: /framework/function/pdo.func.php; line: 40; <br />file: /addons/manji/inc/mobile/login.inc.php; line: 12; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

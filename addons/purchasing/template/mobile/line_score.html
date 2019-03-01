@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="../addons/purchasing/template/mobile/css/mui.min.css"" rel="stylesheet" />
+	<style type="text/css">
+			/*617 满屏*/
+			.mui-control-content {min-height: 617px;height: 100%;}
+		
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				/*重写tab选中的颜色*/
+				color: #333333;
+			}
+			
+			.green-ball {
+				/*设置下划线宽度*/
+				width: 30px;
+				height: 2px;
+				background-color: #333333;
+				/*margin-left: 52%;*/
+				margin-left: auto;
+				/*居中*/
+				margin-right: auto;
+				/*居中*/
+			}
+			
+			.block-style {
+				/*设置下划线宽度*/
+				width: 93%;
+				float: right;
+			}
+			
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+				/*去掉默认的分割线*/
+				/*border-top: 1px solid #c8c7cc;
+				border-bottom: 1px solid #c8c7cc;*/
+				border: none;
+			}
+			
+			.line10 {
+				border-top: 10px solid #eeeeee;
+			}
+			
+			.line {
+				border-top: 1px solid #eeeeee;
+			}
+			
+			.set-width {
+				width: 100%;
+				background-color: white;
+			}
+			
+			.item-left {
+				width: 50%;
+			}
+			
+			.item-right {
+				width: 50%;
+				float: right;
+			}
+			
+			.font-nickname {
+				height: 20px;
+				line-height: 20px;
+				color: #333333;
+				font-size: 13px;
+			}
+			
+			.font-userid {
+				height: 20px;
+				line-height: 20px;
+				color: #666666;
+				font-size: 13px;
+			}
+			
+			.font-time {
+				line-height: 20px;
+				height: 20px;
+				color: #999999;
+				font-size: 13px;
+			}
+			
+			.font-integral {
+				line-height: 60px;
+				color: #333333;
+				font-size: 15px;
+				text-align: right;
+				padding-right: 10px;
+			}
+			
+			.item-heght {
+				height: 60px;
+			}
+		</style>
+</head>
+<body>
+	<div class="mui-content">
+		<div id="slider" class="mui-slider" style="background-color: #eeeeee;">
+			<div style="width: 7%;height: 38px;background-color: white;float: left;text-align: center;">
+				<a href="" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="margin: 7px auto"></a>
+			</div>
+			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="width:93%;background-color: white;">
+				<a href="" class="mui-control-item">充值记录</a>
+				<a href="" class="mui-control-item">减值记录</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

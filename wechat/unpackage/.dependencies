@@ -1,0 +1,224 @@
+{
+  "html/mine/follow_list.html": {
+    "href": "html/mine/follow_list.html",
+    "resources": [],
+    "priority": 0
+  },
+  "html/login/forgetPassword2.html": {
+    "href": "html/login/forgetPassword2.html",
+    "resources": [],
+    "refer": [],
+    "priority": 1
+  },
+  "html/login/forgetPassword.html": {
+    "href": "html/login/forgetPassword.html",
+    "resources": [],
+    "refer": [],
+    "priority": 1
+  },
+  "html/login/register.html": {
+    "href": "html/login/register.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "html/login/login.html": {
+    "href": "html/login/login.html",
+    "resources": [],
+    "refer": [],
+    "priority": 1
+  },
+  "html/mine/bind_mobile.html": {
+    "href": "html/mine/bind_mobile.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "html/mine/bindzfb.html": {
+    "href": "html/mine/bindzfb.html",
+    "resources": [],
+    "priority": 3
+  },
+  "html/mine/presentrecord_sub.html": {
+    "href": "html/mine/presentrecord_sub.html",
+    "resources": [],
+    "priority": 4
+  },
+  "html/mine/presentrecord.html": {
+    "href": "html/mine/presentrecord.html",
+    "resources": [],
+    "refer": [],
+    "priority": 4
+  },
+  "html/mine/tobalance.html": {
+    "href": "html/mine/tobalance.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "html/mine/revenueDetails_sub.html": {
+    "href": "html/mine/revenueDetails_sub.html",
+    "resources": [],
+    "priority": 3
+  },
+  "html/mine/revenueDetails.html": {
+    "href": "html/mine/revenueDetails.html",
+    "resources": [],
+    "refer": [],
+    "priority": 3
+  },
+  "html/mine/sharerecord_sub.html": {
+    "href": "html/mine/sharerecord_sub.html",
+    "resources": [],
+    "priority": 4
+  },
+  "html/mine/sharerecord.html": {
+    "href": "html/mine/sharerecord.html",
+    "resources": [],
+    "refer": [],
+    "priority": 4
+  },
+  "html/mine/earning.html": {
+    "href": "html/mine/earning.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "html/login/updateAvatar.html": {
+    "href": "html/login/updateAvatar.html",
+    "resources": [],
+    "priority": 3
+  },
+  "html/login/updateNickname.html": {
+    "href": "html/login/updateNickname.html",
+    "resources": [],
+    "priority": 4
+  },
+  "html/login/userInfo.html": {
+    "href": "html/login/userInfo.html",
+    "resources": [],
+    "refer": [],
+    "priority": 3
+  },
+  "html/mine/accountBalance.html": {
+    "href": "html/mine/accountBalance.html",
+    "resources": [],
+    "priority": 4
+  },
+  "html/mine/getphonebook.html": {
+    "href": "html/mine/getphonebook.html",
+    "resources": [],
+    "priority": 5
+  },
+  "html/mine/customerService.html": {
+    "href": "html/mine/customerService.html",
+    "resources": [],
+    "priority": 6
+  },
+  "html/mine/orderDetail.html": {
+    "href": "html/mine/orderDetail.html",
+    "resources": [],
+    "priority": 7
+  },
+  "html/order/confirm.html": {
+    "href": "html/order/confirm.html",
+    "resources": [],
+    "priority": 8
+  },
+  "html/order/address_list.html": {
+    "href": "html/order/address_list.html",
+    "resources": [],
+    "priority": 9
+  },
+  "html/order/address.html": {
+    "href": "html/order/address.html",
+    "resources": [],
+    "priority": 10
+  },
+  "html/order/pay.html": {
+    "href": "html/order/pay.html",
+    "resources": [],
+    "refer": [],
+    "priority": 8
+  },
+  "html/mine/order.html": {
+    "href": "html/mine/order.html",
+    "resources": [],
+    "refer": [],
+    "priority": 7
+  },
+  "html/mine/productFaceback.html": {
+    "href": "html/mine/productFaceback.html",
+    "resources": [],
+    "priority": 8
+  },
+  "html/mine/updatePassword.html": {
+    "href": "html/mine/updatePassword.html",
+    "resources": [],
+    "priority": 9
+  },
+  "html/mine/setting.html": {
+    "href": "html/mine/setting.html",
+    "resources": [],
+    "refer": [],
+    "priority": 8
+  },
+  "html/mine/mine.html": {
+    "href": "html/mine/mine.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  },
+  "html/home/teambenefits.html": {
+    "href": "html/home/teambenefits.html",
+    "resources": [],
+    "priority": 1
+  },
+  "html/goods/detail.html": {
+    "href": "html/goods/detail.html",
+    "resources": [],
+    "priority": 2
+  },
+  "html/goods/goods_list.html": {
+    "href": "html/goods/goods_list.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "html/home/home-sub.html": {
+    "href": "html/home/home-sub.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  },
+  "html/home/home.html": {
+    "href": "html/home/home.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  },
+  "html/classify/classify.html": {
+    "href": "html/classify/classify.html",
+    "resources": [],
+    "refer": [],
+    "priority": 1
+  },
+  "html/shopping/shopping-sub.html": {
+    "href": "html/shopping/shopping-sub.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "html/shopping/shopping.html": {
+    "href": "html/shopping/shopping.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  }
+}

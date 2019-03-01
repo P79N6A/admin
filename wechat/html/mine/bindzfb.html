@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../../css/order/order.css" rel="stylesheet" />
+		<link href="../../css/common/common.css" rel="stylesheet"/>
+		<style type="text/css">
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.btn-radius-25 {
+				/*圆角按钮(复用)*/
+				margin-left: 8%;
+				width: 84%;
+				height: 11vw;
+				font-size: 4vw;
+				font-weight: 700;
+				text-align: center;
+				border-radius: 25px;
+				color: white;
+			}
+			
+			.btn-get-auth-code-25 {
+				/*边框的圆角按钮*/
+				margin-right: 4%;
+				width: 30%;
+				height: 8vw;
+				font-size: 4vw;
+				text-align: center;
+				border-radius: 25px;
+				color: #ffde00;
+			}
+			
+			.btn-stroke {
+				border: 1px solid #ffde00;
+				background-color: white;
+			}
+			.mui-table-view-cell{
+				padding: 8px 0px 8px 0px ;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #FAFAFA;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">绑定支付宝</h1>
+		</header>
+		<div id="content" class="mui-content" style="background-color: #fafafa;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">姓名</label>
+						<input type="text" placeholder="请输入真实姓名" id="real_name" :value="realname"/>
+					</div>
+
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">支付宝账号</label>
+						<input type="text" placeholder="请输入支付宝账号(必填)" id="account_zfb1" :value="zfb">
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">确认支付宝</label>
+						<input type="text" placeholder="请输入支付宝账号(必填)" id="account_zfb2" :value="zfb">
+					</div>
+				</li>
+				<li class="mui-table-view-cell" style="align-content: center;">
+					<label class="label_title" style="margin-left: 5vw;">验证码</label>
+					<input id='code' type="text" class="input-left" style="border:none;display: inline-block;width: 25%;margin-bottom: 3px;" placeholder="验证码">
+					<button id='getAuthCode' class="btn-get-auth-code-25 btn-stroke mui-pull-right" style="" onclick="getCode()">
+						获取验证码
+					</button>
+				</li>
+			</ul>
+
+			<div class="mui-content-padded" style="background: #fafafa;margin-top: 40px;">
+				<button type="button" class="btn-radius-25 btn_login" @click="bindzfb();">绑定</button>
+				<input type="hidden" id="address_id" value="0" />
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+	    <script src="../../js/mine/bindzfb.js"></script>
+       <script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

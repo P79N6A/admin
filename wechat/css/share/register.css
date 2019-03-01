@@ -1,0 +1,140 @@
+html, body {
+    height: 100%;
+}
+
+.main {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/img/bg.png?v1) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    padding-top: 55vh;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.register-form-box {
+    width: 6.2rem;
+    margin: 0 auto;
+    border-radius: 0.1rem;
+    font-size: 0.24rem;
+}
+
+.form-control {
+    height: 1.1rem;
+    line-height: 1.1rem;
+    color: #666;
+    position: relative;
+    margin-bottom: 0.25rem;
+}
+
+.phone_box{
+	background:  url(../../img/img/phone_icon.png) no-repeat center;  
+	background-size: cover;
+}
+
+.code_box{
+	background:  url(../../img/img/code.png) no-repeat center;  
+	background-size: cover;
+}
+.password_box{
+	background:  url(../../img/img/password_icon.png) no-repeat center;  
+	background-size: cover;
+} 
+
+.form-control label {
+    padding-left: 1rem;
+    font-size: 0.36rem;
+}
+
+.form-icon {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.9rem;
+    height: 1.1rem;
+    /*-webkit-transform: translateY(-50%);*/
+    /*transform: translateY(-50%);*/
+}
+
+.icon-phone {
+    background: url(../../img/img/icon_phone.png) no-repeat center;
+    -webkit-background-size: 0.4rem;
+    background-size: 0.4rem;
+}
+
+.icon-code {
+    background: url(../../img/img/icon_code.png) no-repeat center;
+    -webkit-background-size: 0.4rem;
+    background-size: 0.4rem;
+}
+
+.icon-password {
+    background: url(../../img/img/icon_password.png) no-repeat center;
+    -webkit-background-size: 0.4rem;
+    background-size: 0.4rem;
+}
+
+.form-control .input-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1.1rem;
+    padding-left: 0.5rem;
+}
+
+.form-control input {
+    font-size: 0.3rem;
+    width: 100%;
+    height: 1.1rem;
+    color: black
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    -webkit-appearance: none; /*去除系统默认的样式*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* 点击高亮的颜色*/
+}
+
+.auth-code {
+    position: absolute;
+    top: 50%;
+    right: 0.3rem;
+    color: #FFDE00;
+    font-size: 0.32rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.register-btn {
+    display: block;
+    width: auto;
+    height: 1.0rem;
+    line-height: 1.0rem;
+    text-decoration: none;
+    background: url(../../img/img/reg_icon_btn.png) no-repeat center;
+    background-size: cover;
+    border-radius:0.5rem ;
+}
+
+.register-tip {
+    color: #fff;
+    font-size: 0.28rem;
+    text-align: center;
+    padding-top: 0.3rem;
+    text-decoration: none;
+    display: block;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #666;
+}

@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/common/index.css" />
+		<link rel="stylesheet" href="../../css/shopping/shopping.css" />
+
+		<style type="text/css">
+			.mui-table-view:after {
+				/*重写表格底线样式*/
+				height: 10px;
+				background-color: #ffffff;
+			}
+			
+			.mui-numbox {
+				/*重写数量增加减样式*/
+				width: 80px;
+				height: 25px;
+				padding: 0 20px;
+			}
+			
+			html,
+			body {
+				background-color: white;
+			}
+			
+			.hide_div {
+				display: none;
+			}
+			
+			.btn_yellow {
+				width: 40%;
+				height: 40px;
+				margin-left: 30%;
+				margin-top: 50%;
+				margin-bottom: 10px;
+				color: #fff;
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+				border-radius: 25px;
+				font-size: 4.5vw;
+				text-align: center;
+				box-shadow: 0 3px 6px #ccc;
+			}
+			
+			.btn_yellow:enabled:active {
+				width: 40%;
+				height: 40px;
+				margin-left: 30%;
+				margin-top: 50%;
+				color: #fff;
+				border: 1px solid #e2c714;
+				background-color: #e2c714;
+				border-radius: 25px;
+				font-size: 4.5vw;
+				text-align: center;
+				box-shadow: 0 6px 6px #ccc;
+			}
+			
+			.btn_settlement {
+				margin-right: 4vw;
+				width: 25%;
+				height: 35px;
+				color: #fff;
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+				border-radius: 25px;
+				font-size: 4.5vw;
+				text-align: center;
+			}
+			
+			.btn_settlement:enabled:active {
+				margin-right: 4vw;
+				width: 25%;
+				height: 35px;
+				color: #fff;
+				border: 1px solid #e2c714;
+				background-color: #e2c714;
+				border-radius: 25px;
+				font-size: 4.5vw;
+				text-align: center;
+			}
+			
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.line {
+				border-top: 1px solid #fafafa;
+			}
+			
+			.item-check-btn {
+				width: 6vw;
+				height: 5.5vw;
+				background-image: url(../../img/icon_choose_nor.png);
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: contain;
+			}
+			
+			.item-check-btn.check {
+				width: 6vw;
+				height: 5.5vw;
+				background-image: url(../../img/icon_choose_pre.png);
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: contain;
+			}
+			
+			.mui-scrollbar {
+				display: none !important;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<h1 class="mui-title">购物车</h1>
+		</header>
+		<!--overflow-y: scroll;在ios手机上无效,在mac的浏览器有效-->
+		<div id="shopping" class="mui-content" style="background: white;margin-bottom: 12vw;">
+
+			<!--登录后购物车为空,显示随便看看,点击到首页-->
+			<div id="noData" style="height: 100%;" class="hide_div">
+				<button id='login' type="button" class="btn_yellow mui-pull-left">随便看看</button>
+			</div>
+			<div id="total" style="width:100%;position: fixed;bottom: 11.5vw;height: 13.5vw;z-index:2;background: white; margin:0 auto; overflow:hidden;border-top:1px solid #eee;">
+
+				<div class="mui-pull-left item-check-btn" id="selectAll" style="width: 5%;margin-left: 10px;margin-top: 10px;" v-bind:class="{'check':checkAllFlag}" @click="checkAll()">
+				</div>
+				<div class="mui-pull-left" style="display: inline-block;width: 60%;height:100%;text-indent: 10vw;">
+					<p style="float:right;display: block;margin-top: 10px;color: red;">总计: {{totalMoney| money("")}}</p>
+				</div>
+				<button id='settlement' type="button" class="btn_settlement mui-pull-right" style="margin-top: 2px;" @click="settle()">结算</button>
+			</div>
+
+			<div id="mui-scroll" class="mui-scroll" style="margin-bottom: 100px;">
+				<ul class="mui-table-view" style="list-style: none;">
+					<li v-for="item in shoppingList" class="item-heght" style="height: 40vw;">
+						<div style="height: 28vw;width:99%;display: flex;align-items: center;">
+							<div class="mui-pull-left item-check-btn" style="width: 5%;margin-left: 10px;" v-bind:class="{'check':item.checked}" @click="selectedProduct(item)">
+							</div>
+							<div class="mui-pull-left" style="width:15%;margin-left: 10px;" @tap="openProductDetail(item.productId)">
+								<img style="width: 20vw;height: 20vw;" v-bind:src="item.src" />
+							</div>
+							<div class="mui-pull-left" style="width: 35%;margin-left: 30px;" @tap="openProductDetail(item.productId)">
+								<span style="display: block;font-size: 5vw;color: #666666;" v-text="item.productName"></span>
+								<span style="display: block;font-size: 3vw;color: #999999;" v-if="item.propertyList.length>0" v-text="item.propertyList[0].propertyName+':'+item.propertyList[0].propertyValue" > </span>
+								<span style="display: block;font-size: 3vw;color: #999999;" v-if="item.propertyList.length>1" v-text="item.propertyList[1].propertyName+':'+item.propertyList[1].propertyValue" > </span>
+							</div>
+							<div style="float:right;width: 35%;text-align: center;margin-right: 2vw;">
+								<span style="display: block;font-size: 5vw;color: #666666;" v-text="'¥'+item.price"></span>
+								<div class="mui-numbox" style="margin-top: 5px;">
+									<button class="mui-btn mui-btn-numbox-minus" type="button" @click="changeMoney(item,-1)" style="width:25px;">-</button>
+									<input class="mui-input-numbox" type="number" v-model="item.productNumber" v-on:input="changeProductNum(item,item.productNumber)"></input>
+									<button class="mui-btn mui-btn-numbox-plus" type="button" @click="changeMoney(item,1)" style="width:25px;">+</button>
+								</div>
+								<div style="height:5vw;display: block;align-items: center;margin: 0 auto;" @click="delConfirm(item)">
+									<img style="width: 4vw;height: 4vw;" src="../../img/icon_delete.png" />
+									<span style="font-size: 4vw;color: #999999;line-height: 2;">删除</span>
+								</div>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div style="width:100%;height:10vw;text-align: center;line-height: 2.5;">
+							<div id="" class="mui-pull-right" style="height:10vw;text-align: center;line-height: 2.5;margin-right: 4vw;" v-text="'小计¥'+item.price*item.productNumber"></div>
+						</div>
+						<div class="line10" style="display: block;"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="index">
+			<nav class="mui-bar mui-bar-tab" style="background: white;">
+				<a class="mui-tab-item " href="../home/home.html">
+					<span class="mui-icon tab-botton-icon icon-home"></span>
+					<span class="tab-bottom">首页</span>
+				</a>
+				<a class="mui-tab-item" href="../classify/classify.html">
+					<span class="mui-icon tab-botton-icon icon-fenlei"></span>
+					<span class="tab-bottom">分类</span>
+				</a>
+				<a id="shoppingTab" class="mui-tab-item mui-active" href="shopping.html">
+					<span class="mui-icon tab-botton-icon icon-car"></span>
+					<span class="tab-bottom">购物车</span>
+				</a>
+				<a class="mui-tab-item" href="../mine/mine.html">
+					<span class="mui-icon tab-botton-icon icon-wode"></span>
+					<span class="tab-bottom">我的</span>
+				</a>
+			</nav>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/shopping/shopping.js"></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script>
+			mui.init({
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+
+			mui_plusReady(function() {
+				localStorage.setItem("selectAll", 1); //全选初始化(1,选中;2,未选中)
+				if(!get_user_login_state()) {
+					toLogin();
+				} else {
+					getShoppingData(function(data) {
+						var _this = this;
+						_this.shoppingList = data.list;
+						if(_this.shoppingList.length == 0) {
+							document.getElementById('noData').classList.remove("hide_div");
+							document.getElementById('total').classList.add("hide_div");
+						} else {
+							document.getElementById('noData').classList.add("hide_div");
+							document.getElementById('total').classList.remove("hide_div");
+						}
+					});
+				}
+				document.getElementById('noData').addEventListener('tap', function() {
+					toHome();
+				});
+			});
+		</script>
+	</body>
+
+</html>

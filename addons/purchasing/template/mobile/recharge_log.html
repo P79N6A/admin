@@ -1,0 +1,42 @@
+{template 'agent_header'}
+<div class="col-xs-12" style="padding: 5px 0;">
+	<div class="col-xs-12" style="padding: 10px 0;">
+		<a href="{php echo $this->createMobileUrl('recharge_log',array('op'=>'display'))}" class="btn" {if $op == 'display'}style="background:#fff;color: #333;"{/if}>代理</a>
+		<a href="{php echo $this->createMobileUrl('recharge_log',array('op'=>'member'))}" class="btn" {if $op == 'member'}style="background:#fff;color: #333;"{/if}>会员</a>
+	</div>
+	<form action="{php echo $this->createMobileUrl('recharge_log',array('agent_id'=>$_GPC['agent_id']));}" class="form-inline" role="form" method="get">
+		<div class="form-group" >
+			关键字：
+			<input type="text" name="keyword" value="{$_GPC['keyword']}">
+			开始日期:
+			<input type="text" name="stime" id="starttime" readonly="readonly" value="{$_GPC['stime']}">
+			结束日期:
+			<input type="text" name="etime" id="endtime" readonly="readonly" value="{$_GPC['etime']}">
+			<!--c=site&a=entry&eid=181-->
+			<input type="hidden" name="c" value="{$_GPC['c']}">
+			<input type="hidden" name="i" value="{$_GPC['i']}">
+			<input type="hidden" name="do" value="{$_GPC['do']}">
+			<input type="hidden" name="m" value="{$_GPC['m']}">
+			<input type="hidden" name="op" value="{$_GPC['op']}">
+			<input type="submit" value="查询" class="btn btn-info">
+		</div>
+	</form>
+	<table class="table table-bordered" style="margin-top: 10px;">
+		<tr>
+			<th>账号</th>
+			<th>昵称</th>
+			<th>金额</th>
+			<th>类型</th>
+			<th>时间</th>
+		</tr>
+		{loop $list $item}
+		<tr>
+			<td>{$item['account']}</td>
+			<td>{$item['nickname']}</td>
+			<td>{$item['score']}</td>
+			<td>{if $item['score_type'] == 1}充值{else}减值{/if}</td>
+			<td>{$item['create_time']}</td>
+		</tr>
+		{/loop}
+	</table>
+</div>

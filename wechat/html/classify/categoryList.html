@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="../../css/common/minirefresh.css" />
+		<link rel="stylesheet" href="../../css/common/common.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+
+		<style>
+			.minirefresh-wrap {
+				top: 90px;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色 (复用)*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色(复用)*/
+				color: #666666;
+			}
+			
+			.line1 {
+				/*分割线(复用)*/
+				border-top: 1px solid #fafafa;
+				clear: both;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 id="cate_title" class="mui-title"></h1>
+			<a id="sharecategorylist" class="mui-icon mui-pull-right">
+				<img src="../../img/mart_icon_share_black.png" style="width: 5vw;height: 5vw;" />
+			</a>
+		</header>
+
+		<div class="content">
+			<div class="line1"></div>
+			<div class="mui-col-xs-12" style="height: 13vw;background: #fff;position: fixed;margin-top: 44px;z-index: 100;">
+				<ul style="list-style: none;margin: 0;">
+					<li id="time" list-type="0" class="mui-col-xs-3 active" style="padding: 4vw 0;float: left;" onclick="getSort('time',0)">
+						<p class="sort">时间<img src="../../img/icon_arrow_down.png" class="sort_img" /></p>
+					</li>
+					<li id="sale" list-type="1" class="mui-col-xs-3" style="padding: 4vw 0;float: left;" onclick="getSort('sale',1)">
+						<p class="sort">销量<img src="../../img/icon_arrow_nor.png" class="sort_img" /></p>
+					</li>
+					<li id="hot" list-type="2" class="mui-col-xs-3" style="padding: 4vw 0;float: left;" onclick="getSort('hot',2)">
+						<p class="sort">人气<img src="../../img/icon_arrow_nor.png" class="sort_img" /></p>
+					</li>
+					<li id="price" list-type="3" class="mui-col-xs-3" style="padding: 4vw 0;float: left;" onclick="getSort('price',3)">
+						<p class="sort">价格<img src="../../img/icon_arrow_nor.png" class="sort_img" /></p>
+					</li>
+				</ul>
+			</div>
+			<div id="minirefresh" class="minirefresh-wrap">
+				<div class="minirefresh-scroll">
+					<ul id="categoryTime" class="data-list">
+						<li class="mui-col-xs-6" v-for="item in categoryTimeList" style="float: left;padding: 3vw;">
+							<a href="javascript:;" @tap="openProductDetail(item.productId)">
+								<img class="" style="display:block;width: 44vw;height: 50vw;position:absolute;z-index: 1;border-radius: 5px;" src="../../img/shade.png">
+								<p class="" style="color: white;padding-left:15px;padding-top:155px;position: absolute;z-index: 2;font-size: 4.5vw;">{{item.name}}</p>
+								<img class="" style="display:block;width: 44vw;height: 50vw;border-radius: 5px;" v-bind:src="item.thumb">
+								<span class="" style="float:left;color: red;font-size: 4vw;padding-top:1.7vw;">{{item.price*1| money("")}}</span>
+								<span class="" style="float:right; font-size: 4vw;padding-top:1.7vw;color: #333333;">{{item.order_num}}单</span>
+							</a>
+ 						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script type="text/javascript" src="../../js/common/vue.min.js"></script>
+		<script type="text/javascript" src="../../js/common/Config.js"></script>
+		<script type="text/javascript" src="../../js/common/util.js"></script>
+		<script type="text/javascript" src="../../js/common/minirefresh.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/classify/categoryList.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	    <script src="../../js/wx_share/cshare.js"></script>
+		<script>
+			mui.init();
+			
+			var sort_id = 0;
+			var title = '';
+			mui_plusReady(function() {
+				
+				var cate = mui_storage_get('cate_form_data');
+				console.log(cate);
+				var url = location.href;
+				console.log("share url "+url); 
+				 
+				$.post(SHARE_PATH,{url:url},function(response){
+					 if(response.status==200){
+					 	var we = response.signPackage;
+					 	wx.config({
+						    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						    appId:  we.appId, // 必填，公众号的唯一标识
+						    timestamp: we.timestamp, // 必填，生成签名的时间戳
+						    nonceStr: we.nonceStr, // 必填，生成签名的随机串
+						    signature: we.signature,// 必填，签名，见附录1
+						    jsApiList: [
+						        "onMenuShareAppMessage",
+						        "onMenuShareQQ",
+						        "onMenuShareQZone",
+						        "onMenuShareTimeline"
+						
+						    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+					 }
+				},'json');
+				
+			    ;
+				if(cate==null || cate.cateId == undefined){
+					sort_id = getQueryString('cateId');
+					title = getQueryString('cateName') ;
+				}else{
+					sort_id = cate.cateId
+					title = cate.cateName
+				}
+				 
+				$('#cate_title').html(title);
+				getNewData(sort_id, 0, '1', '1', function(data) {});
+			});
+		</script>
+	</body>
+
+</html>

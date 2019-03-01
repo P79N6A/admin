@@ -1,0 +1,111 @@
+ .table_view_mt{
+ 	margin-top: 15px;
+ }
+ 
+ .confirm_btn{
+ 	background: #ffde00;
+ 	border-radius: 44px;
+ 	color: white;
+ 	width: 70vw;
+ 	margin: 0 auto;
+ 	padding: 10px 0 ;
+ }
+ .mui-input-row .label_title{
+ 	color: #333;
+ 	padding: 11px 0px 11px 15px;
+ 
+ }
+ 
+ 
+ /***支付页面****/
+.payment{
+	width: 100%;
+	overflow: hidden;
+}
+ .order_total_price{
+ 	text-align: right;
+ 	color:#333 ;
+ 	padding: 15px 0;
+ }
+ 
+ .order_pay_left{
+ 	width: 85%;
+ 	float: left;
+ 	overflow: hidden;
+ }
+ .order_pay_left div{
+ 	display: block;
+ 	height: 100%;
+ 	line-height: 250%;
+ 	color: #333;
+ }
+ .order_pay_right{
+ 	width: 15%;
+ 	float: left;
+ 	margin: 0 auto;
+ 	text-align: center;
+ 	
+ }
+ 
+ .order_pay_right .select_img{
+ 	display:  block;
+ 	height: 10vw;
+ 	width: 10vw;;
+ }
+  
+ /**
+  * 订单确认页面
+  */
+  .order_left{
+ 	width: 70%;
+ 	float: left;
+ 	padding: 5px 0 ;
+ 	color: #333;
+ }
+ .order_right{
+ 	width: 30%;
+ 	float: left;
+ 	padding: 5px 0 ;
+ 	color: #333;
+ 	
+ }
+	
+.default_address_info{
+ 	color: #333;
+ }
+ 
+ .order_goods_attr{
+ 	color: #333;
+ }
+ .default_address_icon{
+ 	width: 5vw;
+ 	height: 5vw;
+ 	border-radius:50% ;
+ 	display: inline-block;
+ 	background: url(../../img/icon_choose_pre.png) no-repeat center;
+ }		
+ 
+  .not_default_address_icon{
+ 	width: 5vw;
+ 	height: 5vw;
+ 	border-radius:50% ;
+ 	display: inline-block;
+ 	background: url(../../img/icon_choose_pay_nor2.png) no-repeat center;
+ }	
+  
+ .address_left{
+ 	width: 50%;
+ 	float: left;
+ 	color: #333;
+ }
+ .address_right{
+ 	width: 50%;
+ 	float: left;
+ 	text-align: right;
+ }
+ .address_right *{
+ 	color: #999;
+ }	 
+ .edit_address_btn,.del_address_btn{
+ 	display:  inline-block;
+ }

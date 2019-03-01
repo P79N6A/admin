@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.efwww.com" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[万字]]></name>
+		<identifie><![CDATA[manji]]></identifie>
+		<version><![CDATA[1.0.6]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[万字]]></ability>
+		<description><![CDATA[万字]]></description>
+		<author><![CDATA[易福源码]]></author>
+		<url><![CDATA[http://www.efwww.com/]]></url>
+	</application>
+	
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="下注管理" do="order" />
+			<entry title="开奖管理" do="lottery" />
+			<entry title="报表管理" do="report" />
+		</menu>
+	</bindings>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

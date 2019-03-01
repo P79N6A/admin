@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.mui-bar-nav~.mui-content{
+				padding-top: 30px;
+			}
+			
+			.mui-media-body {
+				color: #333333;
+			}
+			.mui-media-body p{
+				font-size: 15px;
+				color: #666666;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">联系客服</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="phoneList" class="mui-table-view">
+				<!--<li class="mui-table-view-cell mui-media">
+					<a href="tel:18812351562">
+						<div class="mui-media-body">
+							客服一号
+							<p class='mui-ellipsis'>18814112413</p>
+						</div>
+					</a>
+				</li>-->
+			</ul>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/mine/customerService.js"></script>
+       <script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			getPhoneList();
+		</script>
+	</body>
+
+</html>

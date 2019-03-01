@@ -1,0 +1,28 @@
+{template 'common/header'}
+<div class="col-xs-12">
+	{if empty($manager)}
+	<a href="javascript:void(0)" class="btn btn-success">添加管理员</a>
+	{/if}
+</div>
+
+<table class="table table-bordered">
+	<tr>
+		<td>ID</td>
+		<td>账号</td>
+		<td>昵称</td>
+	</tr>
+	<tr>
+		<td>{$manager['id']}</td>
+		<td>{$manager['account']}</td>
+		<td>{$manager['nickname']}</td>
+	</tr>
+</table>
+<script type="text/javascript">
+	$('.btn').on('click',function() {
+		$.post("{php echo $this->createMobileUrl('agent',array('op'=>'add'))}",{},function(result) {
+			alert(result.info);
+		},'json')
+	})
+</script>
+
+{template 'common/footer'}

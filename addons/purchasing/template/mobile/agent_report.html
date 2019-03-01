@@ -1,0 +1,133 @@
+{template 'agent_header'}
+{if $op == 'cathectic'}
+<form action="{php echo $this->createMobileUrl('manager',array('op'=>'report','tab'=>'cathectic'));}" class="form-inline" role="form" method="get">
+{if empty($member_id)}
+<div class="form-group" >
+	期数:
+	<input type="text" name="periods" value="{$_GPC['periods']}">
+	投注人:
+	<input type="text" name="member" value="{$_GPC['member']}">
+	<!--c=site&a=entry&eid=181-->
+	<input type="hidden" name="c" value="{$_GPC['c']}">
+	<input type="hidden" name="i" value="{$_GPC['i']}">
+	<input type="hidden" name="do" value="{$_GPC['do']}">
+	<input type="hidden" name="m" value="{$_GPC['m']}">
+	<input type="hidden" name="op" value="report">
+	<input type="hidden" name="tab" value="cathectic">
+	<input type="submit" value="查询" class="btn btn-info">
+</div>
+{/if}
+
+<table class="table table-bordered" style="margin-top: 10px;">
+	<tr class="active">
+		<td>投注人</td>
+		<td>时间</td>
+		<td>期数</td>
+		<td>号码</td>
+		<td>B</td>
+		<td>S</td>
+		<td>A</td>
+		<td>3ABC</td>
+		<td>C2</td>
+		<td>C3</td>
+		<td>C4</td>
+		<td>C5</td>
+		<td>EC</td>
+		<td>4A</td>
+		<td>4ABC</td>
+		<td>4B</td>
+		<td>4C</td>
+		<td>4D</td>
+		<td>4E</td>
+		<td>EA</td>
+		<td>2A</td>
+		<td>2ABC</td>
+		<td>2B</td>
+		<td>2C</td>
+		<td>2D</td>
+		<td>2E</td>
+		<td>EX</td>
+	</tr>
+	{loop $list $item}
+	<tr>
+		<td>{$item['nickname']}</td>
+		<td>{php echo date('Y-m-d H:i',$item['createtime'])}</td>
+		<td>{$item['periods']}</td>
+		<td>{$item['number']}</td>
+		<td>{$item['pay_B']}</td>
+		<td>{$item['pay_S']}</td>
+		<td>{$item['pay_A']}</td>
+		<td>{$item['pay_3ABC']}</td>
+		<td>{$item['pay_C2']}</td>
+		<td>{$item['pay_C3']}</td>
+		<td>{$item['pay_C4']}</td>
+		<td>{$item['pay_C5']}</td>
+		<td>{$item['pay_EC']}</td>
+		<td>{$item['pay_4A']}</td>
+		<td>{$item['pay_4ABC']}</td>
+		<td>{$item['pay_4B']}</td>
+		<td>{$item['pay_4C']}</td>
+		<td>{$item['pay_4D']}</td>
+		<td>{$item['pay_4E']}</td>
+		<td>{$item['pay_EA']}</td>
+		<td>{$item['pay_2A']}</td>
+		<td>{$item['pay_2ABC']}</td>
+		<td>{$item['pay_2B']}</td>
+		<td>{$item['pay_2C']}</td>
+		<td>{$item['pay_2D']}</td>
+		<td>{$item['pay_2E']}</td>
+		<td>{$item['pay_EX']}</td>
+	</tr>
+	{/loop}
+</table>
+{$pager}
+</form>
+{elseif $op == 'reward'}
+<form action="{php echo $this->createMobileUrl('manager',array('op'=>'report','tab'=>'income'));}" class="form-inline" role="form" method="get">
+{if empty($member_id)}
+<div class="form-group" >
+	期数:
+	<input type="text" name="periods" value="{$_GPC['periods']}">
+	中奖人:
+	<input type="text" name="member" value="{$_GPC['member']}">
+	<!--c=site&a=entry&eid=181-->
+	<input type="hidden" name="c" value="{$_GPC['c']}">
+	<input type="hidden" name="i" value="{$_GPC['i']}">
+	<input type="hidden" name="do" value="{$_GPC['do']}">
+	<input type="hidden" name="m" value="{$_GPC['m']}">
+	<input type="hidden" name="op" value="reward">
+	<input type="submit" value="查询" class="btn btn-info">
+</div>
+{/if}
+
+<table class="table table-bordered" style="margin-top: 10px;">
+	<tr class="active">
+		<td>中奖人</td>
+		<td>开奖期数</td>
+		<td>下注时间</td>
+		<td>中奖单号</td>
+		<td>中奖号码</td>
+		<td>投注类别</td>
+		<td>中奖级别</td>
+		<td>投注金额</td>
+		<td>中奖金额</td>
+		<td>中奖赔率</td>
+	</tr>
+	{loop $list $item}
+	<tr>
+		<td>{$item['member_nikename']}</td>
+		<td>{$item['period_num']}</td>
+		<td>{php echo date('Y-m-d H:i',$item['order_time'])}</td>
+		<td>S:{$item['order_id']}</td>
+		<td>{$item['winner_number']}</td>
+		<td>{$item['winner_type']}</td>
+		<td>{$item['winner_number_type']}</td>
+		<td>{$item['bet_money']}</td>
+		<td>{$item['winner_money']}</td>
+		<td>{$item['winner_odds']}</td>
+	</tr>
+	{/loop}
+</table>
+{$pager}
+</form>
+{/if}

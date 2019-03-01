@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<link rel="stylesheet" href="../../css/common/index.css" />
+		<style type="text/css">
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.mui-icon {
+				/*重写mui图标大小*/
+				width: 35px;
+				height: 35px;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				/*重写九宫格边框线*/
+				border-right: 1px solid #fff;
+				border-bottom: 1px solid #fff;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.mine-account {
+				background-image: url(../../img/icon_list2.png);
+			}
+			
+			.mine-order {
+				background-image: url(../../img/icon_list6.png);
+			}
+			
+			.mine-income {
+				background-image: url(../../img/icon_list3.png);
+			}
+			
+			.mine-make-money {
+				background-image: url(../../img/icon_list4.png);
+			}
+			
+			.mine-collect {
+				background-image: url(../../img/icon_collect.png);
+			}
+			
+			.mine-other-set {
+				background-image: url(../../img/icon_list7.png);
+			}
+			
+			.mine-call {
+				background-image: url(../../img/icon_list8.png);
+			}
+			
+			.show_div {
+				visibility: visible;
+			}
+			
+			.hide_div {
+				display: none;
+			}
+			
+			.mui-media-body {
+				height: 4vw;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<h1 class="mui-title">我的</h1>
+		</header>
+
+		<div class="mui-content" id="userInfo" style="background: white;overflow-y: scroll;margin-bottom: 12vw;">
+			<div id="login" style="height:45vw;text-align:center;">
+				<img style="width:18vw;height: 18vw;border-radius:50%;margin-top:5vw;" src="../../img/um_empty_icom.png" />
+				<span style="display: block;margin-top: 2vw;font-size: 4.5vw;color: #333333;">请登录</span>
+			</div>
+			<!---->
+			<div id="loginIn" style="height:45vw;text-align:center;">
+				<div v-for="item in userInfos">
+					<img style="width:18vw;height: 18vw;border-radius:50%;margin-top:5vw;" v-bind:src="item.src" />
+					<span style="display: block;margin-top: 2vw;font-size: 4.5vw;color: #333333;" v-text="item.nickname"> </span>
+					<span style="display: block;font-size: 4vw;color: #666666;"  v-text="'ID:'+item.userId"> </span>
+					<span style="display: block;font-size: 4vw;color: #666666;"  v-text="item.sign"> </span>
+				</div>
+			</div>
+			<div class="line10"></div>
+			<div id="" style="background-color: white;">
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: white;border: none;">
+					<li id="accountBalance" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-account" style="background-size: contain;">
+							</span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">账户余额</div>
+						</a>
+					</li>
+					<li id="order" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-order" style="background-size: contain;"></span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">我的订单</div>
+						</a>
+					</li>
+
+					<li id="earning" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-income" style="background-size: contain;"></span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">我的收益</div>
+						</a>
+					</li>
+					<li id="share" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-make-money" style="background-size: contain;"></span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">我要赚钱</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: white;border: none;">
+					<li id="follow" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-collect" style="background-size: contain;">
+							</span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">我的收藏</div>
+						</a>
+					</li>
+					<li id="setting" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-other-set" style="background-size: contain;">
+							</span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">其它设置</div>
+						</a>
+					</li>
+					<li id="customerService" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<span class="mui-icon mine-call" style="background-size: contain;"></span>
+							<div class="mui-media-body" style="font-size: 3.5vw;">联系客服</div>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<div id="index">
+			<nav class="mui-bar mui-bar-tab" style="background: white;">
+				<a class="mui-tab-item" href="../home/home.html">
+					<span class="mui-icon tab-botton-icon icon-home"></span>
+					<span class="tab-bottom">首页</span>
+				</a>
+				<a class="mui-tab-item" href="../classify/classify.html">
+					<span class="mui-icon tab-botton-icon icon-fenlei"></span>
+					<span class="tab-bottom">分类</span>
+				</a>
+				<a class="mui-tab-item" href="../shopping/shopping.html">
+					<span class="mui-icon tab-botton-icon icon-car"></span>
+					<span class="tab-bottom">购物车</span>
+				</a>
+				<a class="mui-tab-item mui-active" href="mine.html">
+					<span class="mui-icon tab-botton-icon icon-wode"></span>
+					<span class="tab-bottom">我的</span>
+				</a>
+			</nav>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/mine/mine.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+			//个人信息数据
+			var userInfo = new Vue({
+				el: '#userInfo',
+				data: {
+					userInfos: []
+				}
+			});
+			mui_plusReady(function() {
+				appClosePageById('pay');
+				appClosePageById('goodsDetail');
+//				judgeNet();
+				/**
+				 * 判断网络状态
+				 */
+				function judgeNet() {
+					if(!get_user_login_state()) {
+						document.getElementById('login').classList.add("show_div");
+						document.getElementById('loginIn').classList.add("hide_div");
+					} else {
+						getUserInfo(function(data) {
+							if(data.status != 200) {
+								document.getElementById('login').classList.add("show_div");
+								document.getElementById('loginIn').classList.add("hide_div");
+								return;
+							}
+							document.getElementById('login').classList.add("hide_div");
+							document.getElementById('loginIn').classList.add("show_div");
+						});
+					}
+				}
+				var state = getState();
+				if(state.id!=undefined && state.token!=undefined) {
+					getUserInfo(function(data) {
+						if(data.status != 200) {
+							mui.toast(data.info);
+							localStorage.clear();
+							document.getElementById('login').classList.add("show_div");
+							document.getElementById('loginIn').classList.add("hide_div");
+							return;
+						}
+						document.getElementById('login').classList.add("hide_div");
+						document.getElementById('loginIn').classList.add("show_div");
+					});
+				} else {
+					document.getElementById('login').classList.add("show_div");
+					document.getElementById('loginIn').classList.add("hide_div");
+				}
+				$("#setting").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						location.href = '../../html/mine/setting.html';
+					}
+				});
+				$("#accountBalance").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						mui.openWindow({
+							id: 'accountBalance',
+							url: 'accountBalance.html',
+							show: {
+								autoShow: true,
+								aniShow: 'pop-in',
+								duration: 300
+							}
+						});
+					}
+				});
+				$("#order").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						mui.openWindow({
+							id: 'order',
+							url: 'order.html',
+							show: {
+								autoShow: true,
+								aniShow: 'pop-in',
+								duration: 300
+							}
+						});
+					}
+				});
+				$("#share").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						mui.openWindow({
+							id: 'share',
+							url: 'share.html',
+							show: {
+								autoShow: true,
+								aniShow: 'pop-in',
+								duration: 300
+							}
+						});
+					}
+				});
+				$("#earning").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						mui.openWindow({
+							id: 'earning',
+							url: 'earning.html',
+							show: {
+								autoShow: true,
+								aniShow: 'pop-in',
+								duration: 300
+							}
+						});
+					}
+				});
+				$("#follow").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						mui.openWindow({
+							id: 'collect',
+							url: 'collectList.html',
+							show: {
+								autoShow: true,
+								aniShow: 'pop-in',
+								duration: 300
+							}
+						});
+					}
+				});
+				$("#customerService").click(function() {
+					if(!get_user_login_state()) {
+						toLogin();
+					} else {
+						mui.openWindow({
+							id: 'customerService',
+							url: 'customerService.html',
+							show: {
+								autoShow: true,
+								aniShow: 'pop-in',
+								duration: 300
+							}
+						});
+					}
+				});
+				$("#login").click(function() {
+					toLogin();
+				});
+				$("#loginIn").click(function() {
+					mui.openWindow({
+						id: 'userInfo',
+						url: '../login/userInfo.html',
+						show: {
+							autoShow: true,
+							aniShow: 'pop-in',
+							duration: 300
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

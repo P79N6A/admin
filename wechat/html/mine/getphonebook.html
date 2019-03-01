@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			.item-check-btn {
+				width: 6vw;
+				height: 5.5vw;
+				background-image: url(../../img/icon_choose_nor.png);
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: contain;
+			}
+			
+			.item-check-btn.check {
+				width: 6vw;
+				height: 5.5vw;
+				background-image: url(../../img/icon_choose_pre.png);
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: contain;
+			}
+			.btn_recommend {
+				margin-right: 4vw;
+				width: 25%;
+				height: 35px;
+				color: #fff;
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+				border-radius: 25px;
+				font-size: 4.5vw;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #FAFAFA;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">推荐通讯录好友</h1>
+		</header>
+		<div id="phoneBookList" class="mui-content">
+			<div style="width:100%;position: fixed;bottom: 0;height: 40px;z-index:2;background: white; margin:0 auto; overflow:hidden;box-shadow:0px 1px 1px 1px rgba(0,0,0,0.4);">
+
+				<div class="mui-pull-left item-check-btn" id="selectAll" style="width: 5%;margin-left: 10px;margin-top: 10px;" v-bind:class="{'check':selectAll}" @click="checkAll()">
+				</div>
+				<div class="mui-pull-left" style="display: inline-block;width: 60%;height:100%;margin-left: 10px;margin-top: 10px;">
+					全选
+				</div>
+				<button id='recommend' type="button" class="btn_recommend mui-pull-right" style="margin-top: 2px;color: #000000;" @click="recommend()">推荐</button>
+			</div>
+			
+		<ul  class="mui-table-view">
+				<li v-for="item in phonebooklist" class="mui-table-view-cell mui-media">
+					<div class="mui-media-body mui-pull-left" style="align-items: center;">
+						{{item.name}}
+						<p class='mui-ellipsis'>{{item.phone}}</p>
+					</div>
+					<div class="mui-pull-right item-check-btn" style="width: 5%;margin-right: 10px;margin-top:3vw;float: right;" v-bind:class="{'check':item.checked}" @click="selectedPhone(item)"></div>
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script type="text/javascript" src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/mine/getphonebook.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+       <script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

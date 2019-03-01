@@ -1,0 +1,206 @@
+/**
+ * order.html 我的订单
+ * */
+
+.line1 {
+	/*分割线(复用)*/
+	border-top: 1px solid #fafafa;
+	clear: both;
+}
+
+.line5 {
+	/*分割线(复用)*/
+	border-top: 5px solid #fafafa;
+	clear: both;
+}
+
+.mui-bar .mui-btn-link {
+	/*重写mui返回键颜色 (复用)*/
+	color: black;
+}
+
+.mui-btn-link.mui-active:enabled,
+.mui-btn-link:enabled:active {
+	/*重写mui返回键点击颜色(复用)*/
+	color: #666666;
+}
+
+.btn-order-radius-25 {
+	/*圆角按钮(复用)*/
+	margin-right: 4vw;
+	padding-left: 3vw;
+	padding-top: 1.5vw;
+	padding-right: 3vw;
+	padding-bottom: 1.5vw;
+	height: 9vw;
+	font-size: 4vw;
+	text-align: center;
+	border-radius: 25px;
+	color: #333333;
+}
+
+.btn_order {
+	border: 1px solid #ffde00;
+	background-color: #ffde00;
+}
+
+.btn_order:enabled:active {
+	border: 1px solid #e2c714;
+	background-color: #e2c714;
+}
+
+.btn_cancel {
+	border: 1px solid #eeeeee;
+	background-color: #ffffff;
+}
+
+.btn_cancel:enabled:active {
+	border: 1px solid #eeeeee;
+	background-color: #eeeeee;
+}
+
+.navbar-header {
+	border-bottom: none;
+}
+
+.swiper-container {
+	position: absolute;
+	/*重写顶部距离*/
+	top: 80px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: white;
+}
+
+.minirefresh-wrap {
+	top: 0;
+}
+
+.nav-control {
+	/*重写导航标签距离顶端高度*/
+	top: 44px;
+	/*重写标签高度*/
+	height: 36px;
+	line-height: 25px;
+	/*内容滑动时,此标题固定*/
+	position: fixed;
+	z-index: 2;
+	background: white;
+}
+
+.nav-control p {
+	/*可以水平排放*/
+	display: inline-block;
+	/*重写导航标签宽度*/
+	width: 23%;
+	padding: 5px 0;
+	color: #333333;
+	font-size: 4.5vw;
+	font-weight: 600;
+}
+
+.nav-control .active {
+	/*重写导航标签下划线颜色*/
+	border-bottom: 2px solid #ffde00;
+	color: #ffde00;
+}
+
+
+/*
+ *订单业务相关的
+ * */
+
+.item_order_top {
+	height: 5vw;
+	padding-top: 5px;
+	margin-bottom: 10px;
+}
+
+.item_order_middle {
+	height: 28vw;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.item_order_bottom {
+	width: 100%;
+	height: 10vw;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+}
+
+.item_order_top_time {
+	float: left;
+	margin-left: 15px;
+	color: #999999;
+}
+
+.item_order_top_status {
+	float: right;
+	margin-right: 15px;
+	color: red
+}
+
+.item_order_middle_img_div {
+	width: 15%;
+	margin-left: 10px;
+}
+
+.item_order_middle_img {
+	width: 20vw;
+	height: 20vw;
+}
+
+.item_order_middle_product {
+	width: 40%;
+	margin-left: 30px;
+}
+
+.item_order_middle_product_name {
+	display: block;
+	font-size: 4vw;
+	color: #666666;
+}
+
+.item_order_middle_product_property {
+	display: block;
+	font-size: 3vw;
+	color: #999999;
+}
+
+.item_order_middle_product_right_div {
+	float: right;
+	width: 30%;
+	text-align: right;
+	margin-right: 15px;
+}
+
+.item_order_middle_product_right_font {
+	display: block;
+	font-size: 3vw;
+	color: #666666;
+}
+
+.item_order_bottom_deposit {
+	width: 100%;
+	height: 5vw;
+	text-align: right;
+	color: red;
+	font-size: 4vw;
+	padding-right: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.item_order_bottom_price {
+	width: 100%;
+	height: 5vw;
+	text-align: right;
+	color: #666666;
+	font-size: 4vw;
+	padding-right: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

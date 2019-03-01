@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<style type="text/css">
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.mui-table-view:before {
+				/*重写mui表格顶部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-table-view:after {
+				/*重写mui表格底部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-table-view-cell:after {
+				/*重写mui表格内部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.btn-radius-25 {
+				/*圆角按钮(复用)*/
+				margin-left: 8%;
+				width: 84%;
+				height: 11vw;
+				font-size: 4vw;
+				font-weight: 700;
+				text-align: center;
+				border-radius: 25px;
+				color: white;
+			}
+			
+			.btn_login {
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+			}
+			
+			.btn_login:enabled:active {
+				border: 1px solid #e2c714;
+				background-color: #e2c714;
+			}
+			
+			.hide_div {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">其它设置</h1>
+		</header>
+
+		<div class="mui-content" style="background-color: #fafafa;">
+
+			<ul id="updatePassword_div" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id='updatePassword' class="">修改密码</a>
+				</li>
+			</ul>
+			<!--<div class="line10"></div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id='cleanCache' class="">清除缓存
+						<span id="cache_value" class="mui-pull-right" style="display: inline-block;"></span>
+					</a>
+				</li>
+			</ul>-->
+			<div class="line10"></div>
+			<ul class="mui-table-view">
+				<!--<li class="mui-table-view-cell">
+					<a id='productFaceback' class="mui-navigate-right">意见反馈</a>
+				</li>-->
+				<li class="mui-table-view-cell">
+					<a id='address' class="mui-navigate-right">收货地址</a>
+				</li>
+				<li id="updateVersion" class="mui-table-view-cell">
+					<a id='' class="">版本更新</a>
+				</li>
+				<!--<li id="cache" class="mui-table-view-cell">
+					<a id='' class="">去评分</a>
+				</li>-->
+			</ul>
+
+			<div class="line10"></div>
+			<button id='loginOut' type="button" class="btn-radius-25 btn_login" @tap="loginOut()" style="margin-top: 15px;">
+					退出登录
+				</button>
+		</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/mine/setting.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui_plusReady(function() {
+				var state = getState();
+				if(state.type == 'mobile') {
+					document.getElementById('updatePassword_div').classList.remove("hide_div");
+				} else {
+					document.getElementById('updatePassword_div').classList.add("hide_div");
+				}
+				document.getElementById('updatePassword').addEventListener('tap', function() {
+					mui.openWindow({
+						id: 'updatePassword',
+						url: 'updatePassword.html',
+						show: {
+							autoShow: true,
+							aniShow: 'pop-in',
+							duration: 300
+						}
+					});
+				});
+				document.getElementById('updateVersion').addEventListener('tap', function() {
+					mui.toast('已是最新版本');
+				});
+				document.getElementById('address').addEventListener('tap', function() {
+					localStorage.setItem('address_back_type',1);
+//					location.href = '../../html/address/address_list.html';
+					mui.openWindow({
+						url: '../../html/address/address_list.html',
+						id: 'address_list',
+						show: {
+							autoShow: true,
+							aniShow: 'pop-in',
+							duration: 300
+						}
+					});
+				});
+
+				//				var cache_value = document.getElementById("cache_value");
+				//				plus.cache.calculate(function(size) { //H5计算应用缓存
+				//					var sizeCache = size;
+				//					cache_value.innerHTML = parseFloat(sizeCache / (1024 * 1024)).toFixed(2) + "M";
+				//				});
+				//				document.getElementById('cleanCache').addEventListener('tap', function() {
+				//					plus.cache.calculate(function(size) {
+				//						console.log(size)
+				//						var sizeCache = size;
+				//						mui.confirm("您目前的系统缓存为" + parseFloat(sizeCache / (1024 * 1024)).toFixed(2) + "M？", "清除缓存", ["取消", "确认"], function(e) {
+				//							if(e.index == 0) {} else {
+				//								plus.cache.clear(function() {
+				//									mui.toast('缓存清除完毕');
+				//								});
+				//							}
+				//						});
+				//					});
+				//				});
+
+				document.getElementById('loginOut').addEventListener('tap', function() {
+					mui.confirm('你确定退出吗', ' ', ['取消', '确认'], function(e) {
+						if(e.index == 0) {
+							//nothing
+							mui.toast('已取消');
+						} else if(e.index == 1) {
+							loginOut();
+						}
+					});
+
+				});
+			});
+		</script>
+	</body>
+
+</html>

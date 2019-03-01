@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.line10 {
+				border-top: 10px solid:#fafafa;
+			}
+			
+			.line-vertical {
+				/*垂直分割线*/
+				width: 1px;
+				float: left;
+				background: #eeeeee;
+				margin-top: 3vw;
+				height: 10vm;
+				margin-bottom: 3vw;
+			}
+			
+			.mui-table-view:before {
+				/*重写mui表格顶部边框线*/
+				background-color: #fff;
+			}
+			
+			.mui-table-view:after {
+				/*重写mui表格顶部边框线*/
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">我的收益</h1>
+		</header>
+		<div class="mui-content" style="background-color: white;">
+			<div style="height: 35vw;text-align: center;visibility: visible;">
+				<img style="height: 15vw;width: 15vw;margin-top: 5vw;" src="../../img/gold.png" />
+				<div id="income_today"></div>
+				<!--<span id ="income_today" style="display:block;font-size: 4.5vw;color: #333333;">0.00元</span>-->
+			</div>
+		</div>
+
+		<div class="line10"></div>
+		<div class="mui-col-xs-12" style="background-color:white;">
+			<div class="mui-col-xs-6 mui-pull-left" style="width: 49%;background-color: white;padding: 3vw;">
+				<span style="font-size: 4.5vw;color: #999999;float: left;">可提现余额:</span>
+				<div id="payment_balance" style="float:left ;"></div>
+				<!--<span id="payment_balance" style="font-size: 3.5vw;color: #ff1313;">0.00元</span>-->
+			</div>
+			<div class="line-vertical"></div>
+
+			<div class="mui-col-xs-6 mui-pull-left" style="width: 49%;;background-color: white;padding: 3vw;">
+				<span style="font-size: 4.5vw;color: #999999;float: left;">累计收益:</span>
+				<div id="payment_total" style="float:left ;"></div>
+				<!--<span id="payment_all" style="font-size: 3.5vw;color: #ff1313;">0.00元</span>-->
+			</div>
+		</div>
+
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li id="revenueDetails" class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<img src="../../img/icon_earning1.png" style="vertical-align: middle;height: 6vw;" /> 收入明细
+					</a>
+				</li>
+				<li id="presentrecord" class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="#">
+						<img src="../../img/icon_earning2.png" style="vertical-align: middle;height: 6vw;" /> 取现明细
+					</a>
+				</li>
+				<li id="tobalance" class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="#">
+						<img src="../../img/icon_earning3.png" style="vertical-align: middle;height: 6vw;" /> 我要提现
+					</a>
+				</li>
+				<!--<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="#">
+						<img src="../../img/icon_earning4.png" style="vertical-align: middle;height: 6vw;"/>
+						余额兑换
+					</a>
+				</li>-->
+				<li id="sharerecord" class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<img src="../../img/icon_earning5.png" style="vertical-align: middle;height: 6vw;" /> 分享记录
+					</a>
+				</li>
+			</ul>
+
+		</div>
+
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/mine/earning.js"></script>
+
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			/*获取数据*/
+			getEarningData();
+			$("#sharerecord").click(function() {
+				mui.openWindow({
+					id: 'sharerecord',
+					url: 'sharerecord.html',
+					show: {
+						autoShow: true,
+						aniShow: 'pop-in',
+						duration: 300
+					}
+				});
+			});
+			$("#revenueDetails").click(function() {
+				mui.openWindow({
+					id: 'revenueDetails',
+					url: 'revenueDetails.html',
+					show: {
+						autoShow: true,
+						aniShow: 'pop-in',
+						duration: 300
+					}
+				});
+			});
+			$("#presentrecord").click(function() {
+				mui.openWindow({
+					id: 'presentrecord',
+					url: 'presentrecord.html',
+					show: {
+						autoShow: true,
+						aniShow: 'pop-in',
+						duration: 300
+					}
+				});
+			});
+			$("#tobalance").click(function() {
+				mui.openWindow({
+					id: 'tobalance',
+					url: 'tobalance.html',
+					show: {
+						autoShow: true,
+						aniShow: 'pop-in',
+						duration: 300
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

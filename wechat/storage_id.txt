@@ -1,0 +1,28 @@
+localstorage 页面数据传递key列表
+
+分类：
+cate_form_data:{cateId:'',cateName:''}
+
+地址
+address_form_data: {address_id:0}
+
+立即購買确认页面
+ buy_now_confirm_form_data ：{product_id: goods_id,number:number,contrast_id:contrast_id};
+
+商品详情 
+var extras = {goodsId:productId};
+mui_storage_set('goods_detail_form_data',extras);
+	
+
+忘记密码
+forget_pwd_form_data  {	mobile: accountBox,	password: encryptPassword,	code:code,	step:''};
+
+确认支付
+pay_form_data： {	paylog_id: paylog_id,	price: price};
+
+订单详情 
+order_detail_form_data :{orderId: item.orderId};
+
+购物车购买确认
+var extras = {cart_id: cartIdList};
+    mui_storage_set('confirm_order_form_data',extras);

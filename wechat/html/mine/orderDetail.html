@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<style type="text/css">
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.mui-table-view:before {
+				/*重写mui表格顶部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-table-view:after {
+				/*重写mui表格底部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-table-view-cell:after {
+				/*重写mui表格内部边框颜色*/
+				background-color: #fafafa;
+			}
+			/*.address {
+				font-size: 4vw;
+				color: #666666;
+				word-wrap: break-word;
+			}*/
+			
+			.line1 {
+				border-top: 1px solid #fafafa;
+			}
+			
+			.line5 {
+				border-top: 5px solid #fafafa;
+				clear: both;
+			}
+			
+			.btn-order-radius-25 {
+				/*圆角按钮(复用)*/
+				margin-right: 4vw;
+				padding-left: 3vw;
+				padding-top: 1.5vw;
+				padding-right: 3vw;
+				padding-bottom: 1.5vw;
+				height: 9vw;
+				font-size: 4vw;
+				text-align: center;
+				border-radius: 25px;
+				color: #333333;
+			}
+			
+			.btn_order {
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+			}
+			
+			.btn_order:enabled:active {
+				border: 1px solid #e2c714;
+				background-color: #e2c714;
+			}
+			
+			.btn_cancel {
+				border: 1px solid #eeeeee;
+				background-color: #ffffff;
+			}
+			
+			.btn_cancel:enabled:active {
+				border: 1px solid #eeeeee;
+				background-color: #eeeeee;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">订单详情</h1>
+		</header>
+
+		<div class="mui-content" style="background-color: white;margin-bottom: 50px;">
+			<ul id="orderDetail" class="mui-table-view" style="list-style: none;">
+				<li v-for="item in orderDetailList">
+					<div style="text-align: left;margin:5vw;">
+						<span style="font-size: 4.5vw;color: #333333;" v-text="item.orderAddress[0].name"></span>
+						<span style="font-size: 4.5vw;color: #333333;" v-text="item.orderAddress[0].phone"></span>
+						<div class="address" v-text="item.orderAddress[0].address +'' +item.orderAddress[0].addressDetail">
+							 
+						</div>
+					</div>
+					<div class="line10"></div>
+					<div v-for="itemProduct in item.productList" @tap="openProductDetail(itemProduct.productId)" style="display: flex;align-items: center;margin-left: 5vw;margin-right:5vw;margin-top: 3vw;">
+						<div class="mui-pull-left" style="width:15%;">
+							<img style="width: 20vw;height: 20vw;" v-bind:src="itemProduct.src" />
+						</div>
+						<div class="mui-pull-left" style="width: 40%;margin-left: 30px;">
+							<span style="display: block;font-size: 4vw;color: #666666;" v-text="itemProduct.productName"></span>
+							<span style="display: block;font-size: 3vw;color: #999999;" v-if="itemProduct.propertyList.length>0" v-text="itemProduct.propertyList[0].propertyTitle+':'+itemProduct.propertyList[0].propertyValue"></span>
+							<span style="display: block;font-size: 3vw;color: #999999;" v-if="itemProduct.propertyList.length>1" v-text="itemProduct.propertyList[1].propertyTitle+':'+itemProduct.propertyList[1].propertyValue"></span>
+						</div>
+						<div style="float:right;width: 35%;text-align: right;">
+							<span style="display:block;font-size: 3vw;color: #666666;" v-text="'¥'+itemProduct.productPrice"></span>
+							<span style="font-size: 3vw;color: #666666;" v-text="'x'+itemProduct.productNumber+'个'"></span>
+						</div>
+					</div>
+					<div class="line1"></div>
+					<div style="width:100%;height:5vw;text-align: right;color:red;font-size:4vw;padding-right:15px;margin-top: 5px;margin-bottom: 5px;" v-text="'定金:'+item.orderDeposit">
+						
+					</div>
+					<div style="width:100%;height:5vw;text-align: right;color:#666666;font-size:4vw;padding-right:15px;margin-top: 5px;margin-bottom: 10px;">
+						合计: {{item.orderTotalPrice*1| money("")}}(含运费{{item.orderFreight*1| money("")}})
+					</div>
+					<div class="line10"></div>
+					<div style="width:100%;height: 20vw;">
+						<p class="mui-pull-left" style="width:12%;height:100%;margin-left:5vw;margin-top:5vw;font-size: 5vw;color: #666666;margin-right: 3vw;">留言</p>
+						<!--<div class="address" style="">-->
+						<textarea style="width: 76%;border:none;height: 18vw;float: left;padding: 0 0;" v-text="item.orderComments"></textarea>
+
+						<!--</div>-->
+					</div>
+					<div class="line10"></div>
+					<div style="margin: 5vw;">
+						<span style="font-size: 5vw;color: #666666;">订单编号</span>
+						<span class="mui-pull-right" style="font-size: 4.5vw;color: #333333;" v-text="item.orderSn"></span>
+					</div>
+					<div class="line1"></div>
+					<div style="margin: 5vw;">
+						<span style="font-size: 5vw;color: #666666;">下单时间</span>
+						<span class="mui-pull-right" style="font-size: 4.5vw;color: #333333;" v-text="item.orderTime"></span>
+					</div>
+					<div class="line1"></div>
+					<!--<div style="width:100%;position: fixed;bottom: 0;height: 50px;z-index:2;background: white; padding-top: 3vw;border-top: 1px solid #eeeee;">
+						<button v-if="item.orderStatus==1" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_pay(item)">支付</button>
+						<button v-if="item.orderStatus==1" type="button" class="btn-order-radius-25 btn_cancel mui-pull-right" @tap="order_cancel(item)">取消</button>
+						<button v-if="item.orderStatus==3" type="button" class="btn-order-radius-25 btn_order mui-pull-right">收货</button>
+						<button v-if="item.orderStatus==4" type="button" class="btn-order-radius-25 btn_order mui-pull-right">评价</button>
+					</div>-->
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script type="text/javascript" src="../../js/common/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/common/minirefresh.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/mine/orderDetail.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../../css/order/order.css" rel="stylesheet" />
+		<link href="../../css/common/common.css" rel="stylesheet"/>
+		<style type="text/css">
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.btn-radius-25 {
+				/*圆角按钮(复用)*/
+				margin-left: 8%;
+				width: 84%;
+				height: 11vw;
+				font-size: 4vw;
+				font-weight: 700;
+				text-align: center;
+				border-radius: 25px;
+				color: white;
+			}
+			
+			.btn-get-auth-code-25 {
+				/*边框的圆角按钮*/
+				margin-right: 4%;
+				width: 30%;
+				height: 8vw;
+				font-size: 4vw;
+				text-align: center;
+				border-radius: 25px;
+				color: #ffde00;
+			}
+			
+			.btn-stroke {
+				border: 1px solid #ffde00;
+				background-color: white;
+			}
+			.mui-table-view-cell{
+				padding: 8px 0px 8px 0px ;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #FAFAFA;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">好友推荐</h1>
+		</header>
+		<div id="content" class="mui-content" style="background-color: #fafafa;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">姓名</label>
+						<input type="text" placeholder="请输入真实姓名" id="name"/>
+					</div>
+
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">手机号码</label>
+						<input type="text" placeholder="请输入手机号码" id="phone"  >
+					</div>
+				</li>
+				 
+			</ul>
+
+			<div class="mui-content-padded" style="background: #fafafa;margin-top: 40px;">
+				<button type="button" class="btn-radius-25 btn_login"  >推荐</button>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+        <script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			
+			 $(function(){
+			 	  $('button').click(function(){
+			 	  	  if(!get_user_login_state()){
+			 	  	  	 mui.toast('请先登陆');return;
+			 	  	  }
+			 	  	  var name = $('#name').val().trim();
+			 	  	  var phone = $('#phone').val().trim();
+			 	  	  if(name==''){
+			 	  	  	mui.toast('请输入好友姓名');return;
+			 	  	  }
+			 	  	  var err = mobile_validate(phone);
+			 	  	  if(err[0]){
+			 	  	  	mui.toast(err[1]);return;
+			 	  	  }
+			 	  	  var user = getState();
+			 	  	  var jstr=[{phone:phone,name:name}];
+			 	  	  jstr = JSON.stringify(jstr);
+			 	  	  var data = {user_id:user.id,token:user.token,json:jstr};
+			 	  	  $.post(HTTP_BASE_URL+"m=distribution_pattern&do=upload_phone_book",data,function(response){
+			 	  	  	mui.toast(response.info);
+			 	  	  	if(response.status==200){
+			 	  	  		setTimeout(function(){
+			 	  	  			location.reload(true);
+			 	  	  		},500);
+			 	  	  	}
+			 	  	  },'json');
+			 	  	  
+			 	  });
+			 });
+		</script>
+	</body>
+
+</html>

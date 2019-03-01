@@ -1,0 +1,101 @@
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('header', TEMPLATE_INCLUDEPATH)) : (include template('header', TEMPLATE_INCLUDEPATH));?>
+<style>
+	.recharge-area{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.4);display: none;}
+	.recharge-main{width: 50%;height: 20vw;margin: 5% auto;background: #fff;}
+	.recharge-head{width: 100%;text-align: center;border-bottom: 1px solid #aaa;font-size: 20px;line-height: 30px;}
+	.recharge-body{width: 100%;padding: 2vw 3vw;}
+	.recharge-body table tbody tr td input{width: 80%;border: 0;}
+	.btn{border: 1px solid #3e3e3e;background-color: #3e3e3e;border-radius: 20px;color: #fff;padding: 3px 7px;}
+	a:hover{text-indent: none;}
+	.btn:hover{background: #fff;color: #333}
+</style>
+<link rel="stylesheet" type="text/css" href="../addons/purchasing/static/css/bootstrap-datetimepicker.min.css">
+<script type="text/javascript" src="../addons/purchasing/static/js/bootstrap-datetimepicker.min.js"></script>
+<div class="col-xs-12">
+	<form class="form-inline" role="form" action="" method="get">
+		<input type="hidden" name="c" value="entry">
+		<input type="hidden" name="i" value="<?php  echo $_GPC['i'];?>">
+		<input type="hidden" name="do" value="order">
+		<input type="hidden" name="m" value="purchasing">
+		<input type="hidden" name="tab" value="users">
+		<div class="col-xs-12" style="padding: 5px 0;">
+			<div class="form-group">
+				<input type="text" name="date" id="date" value="<?php  echo $date;?>" style="width: 200px;border: 1px solid #ccc;background: url(../addons/purchasing/static/images/date.jpg) no-repeat;background-position: right;background-size: auto 100%;" readonly="readonly">
+			</div>
+			<div class="form-group">
+				<input type="submit" name="search" class="btn btn-success" value="搜索">
+			</div>
+		</div>
+	</form>
+	<div class="col-xs-12">
+		<span style="font-size: 18px;font-weight: 600;">户口销售</span>
+	</div>
+	<table class="table table-bordered">
+		<tr>
+			<td></td>
+			<td>账号</td>
+			<td>名称</td>
+			<td>状态</td>
+			<td>投注额</td>
+		</tr>
+		<?php  if(is_array($list)) { foreach($list as $item) { ?>
+		<tr>
+			<td>
+				<a href="<?php  echo $this->createMobileUrl('user_order',array('member_id'=>$item['id'],'date'=>$_GPC['date'],'user_type'=>$item['user_type']))?>">报告</a>|
+				<?php  if($item['child_num'] > 0) { ?>
+				<a href="<?php  echo $this->createMobileUrl('order',array('tab'=>'users','agent_id'=>$item['id'],'date'=>$_GPC['date']))?>">下线(<?php  echo $item['child_num'];?>)</a>
+				<?php  } else { ?>
+				下线(<?php  echo $item['child_num'];?>)
+				<?php  } ?>
+			</td>
+			<td><?php  echo $item['account'];?></td>
+			<td><?php  echo $item['nickname'];?></td>
+			<td>
+				<?php  if($item['status'] == 0) { ?>
+				<span style="color: #0f0;">活跃</span>
+				<?php  } else if($item['status'] == 2) { ?>
+				<span style="color: #f00;">试用</span>
+				<?php  } else { ?>
+				<span style="color: #ccc">禁用</span>
+				<?php  } ?>
+			</td>
+			<td><?php  echo round($item['order_amount'],2)?></td>
+		</tr>
+		<?php  } } ?>
+	</table>
+	<?php  echo $pager;?>
+</div>
+<script type="text/javascript">
+	var obj = [];
+	var sdate = '2018-07-04';
+	$.fn.datetimepicker.dates['zdy'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+        daysMin:  ["日", "一", "二", "三", "四", "五", "六"],
+        months: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+        monthsShort: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+        today: "今天",
+        format:"yyyy-mm-dd",
+        titleFormat:"yyyy-mm-",
+        weekStart:1,
+        suffix: [],
+        meridiem: ["上午", "下午"]
+      };
+      $('#date').datetimepicker({
+        language:  'zdy',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        startDate:sdate,
+        minView:2,
+        maxView:3,
+        onRenderDay: function(date) {
+          var date1 = date.getFullYear()+'-'
+            +(date.getMonth()<9?'0'+(date.getMonth()+1):date.getMonth()+1)
+            +'-'
+            +(date.getDate()<10?'0'+(date.getDate()-1):date.getDate()-1);
+
+        }
+      })
+</script>
+<?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('footer', TEMPLATE_INCLUDEPATH)) : (include template('footer', TEMPLATE_INCLUDEPATH));?>

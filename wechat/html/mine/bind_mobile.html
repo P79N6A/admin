@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<style type="text/css">
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.line {
+				border-top: 1px solid #eeeeee;
+				margin-left: 20px;
+				margin-right: 20px;
+				margin-top: -15px;
+			}
+			
+			.btn-radius-25 {
+				/*圆角按钮(复用)*/
+				margin-left: 8%;
+				width: 84%;
+				height: 11vw;
+				font-size: 5vw;
+				font-weight: 700;
+				text-align: center;
+				border-radius: 25px;
+				color: white;
+			}
+			
+			.btn-get-auth-code-25 {
+				/*边框的圆角按钮*/
+				margin-right: 4%;
+				width: 30%;
+				height: 8vw;
+				font-size: 3vw;
+				text-align: center;
+				border-radius: 25px;
+				color: #ffde00;
+			}
+			
+			.btn-stroke {
+				border: 1px solid #ffde00;
+				background-color: white;
+			}
+			
+			.btn-stroke:enabled:active {
+				border: 1px solid #ffde00;
+				background-color: #eeeeee;
+			}
+			
+			.btn_login {
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+			}
+			
+			.btn_login:enabled:active {
+				border: 1px solid #e2c714;
+				background-color: #e2c714;
+			}
+			
+			.login_img_big {
+				display: inline-block;
+				margin-left: 35%;
+				margin-top: 10%;
+				width: 30%;
+				height: 30%;
+			}
+			
+			.login_img_left {
+				display: inline-block;
+				margin-left: 5vw;
+				width: 4vw;
+				height: 5vw;
+			}
+			
+			.main_font_light {
+				font-size: 4vw;
+				color: #666666;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">绑定手机</h1>
+		</header>
+
+		<div class="mui-content" style="background-color: white;">
+			<img class="login_img_big" src="../../img/fx_logo.png" />
+			<div style="margin-top: 10%;">
+				<img class="login_img_left" src="../../img/icon_phone.png" />
+				<input id='account' type="text" class="input-left" style="border:none;display: inline-block;width: 80%;" placeholder="手机号">
+			</div>
+			<div class="line"></div>
+			<div style="margin-top: 5%;">
+				<img class="login_img_left" src="../../img/icon_code.png" />
+				<input id='code' type="text" class="input-left" style="border:none;display: inline-block;width: 25%;" placeholder="验证码">
+				<button id='getAuthCode' class="btn-get-auth-code-25 btn-stroke mui-pull-right" style="">
+					获取验证码
+				</button>
+			</div>
+			<div class="line"></div>
+			<button id='login' type="button" class="btn-radius-25 btn_login" style="margin-top: 15px;">绑定</button>
+		</div>
+		</form>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/md5.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+			var showPwd = false;
+			var state = getState();
+			mui_plusReady(function() {
+
+				$('#getAuthCode').click(function() {
+					var mobile = $('#account').val().trim();
+					var m_err = mobile_validate(mobile);
+					if(m_err[0]) {
+						mui.toast(m_err[1]);
+						return;
+					}
+					mobile = makeEncrypt(mobile);
+					console.log(mobile);
+					interface_aes(HTTP_USER_URL + 'sendsms', {
+						mobile: mobile
+					}, function(data) {
+						//					mui.post(HTTP_USER_URL + 'sendsms', { mobile:mobile}, function(data) {
+						mui.toast(data.status + ' ' + data.info);
+					}, 'json');
+				});
+
+				$('#login').click(function() {
+					var accountBox = $('#account').val().trim();
+					var code = $('#code').val().trim();
+					var m_err = mobile_validate(accountBox);
+					var c_err = verify_validate(code);
+					if(m_err[0]) {
+						mui.toast(m_err[1]);
+						return;
+					}
+					if(c_err[0]) {
+						mui.toast(c_err[1]);
+						return;
+					}
+
+					var loginInfo = {
+						user_id: state.id,
+						token: state.token,
+						mobile: accountBox,
+						code: code
+					};
+					var param = {
+						mobile: accountBox,
+						code: code
+					};
+					interface_aes(HTTP_USER_URL + 'editmobile', param, function(data) {
+						//					mui.post(HTTP_USER_URL+'editmobile', loginInfo,function(response){
+						console.log(response.status + "====")
+						mui.toast(response.info);
+						if(response.status == 200) {
+							//closePageById();
+							//返回我要提现
+							mui.openWindow({
+								url: 'tobalance.html',
+								id: 'tobalance',
+								show: {
+									autoShow: true,
+									aniShow: 'pop-in',
+									duration: 300
+								}
+
+							});
+						}
+					}, 'json');
+
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

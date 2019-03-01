@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../../css/order/order.css" rel="stylesheet" />
+		<link href="../../css/common/common.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-arrowleft"></span>
+			</button>
+			<h1 class="mui-title">添加地址</h1>
+		</header>
+		<div class="mui-content" style="background-color: #fafafa;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">收货人姓名：</label>
+						<input type="text" placeholder="请输入真实姓名" id="address_username" />
+					</div>
+
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">电话号码：</label>
+						<input type="text" placeholder="请输入电话号码" id="address_phone">
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<label class="label_title">收货地址：</label>
+						<input type="text" id="address" readonly="readonly" />
+						<div id='cityResult' class="ui-alert"></div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row">
+						<input type="text" placeholder="请输入详细地址" style="width: 100%;border: none;" id="address_detail">
+					</div>
+				</li>
+			</ul>
+
+			<div class="mui-content-padded" style="background: #fafafa;">
+				<button type="button" class="btn-radius-25 btn_login" onclick="post_address();">保存</button>
+				<input type="hidden" id="address_id" value="0" />
+			</div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/mine/mine.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/mui.picker.js"></script>
+		<script src="../../js/mui.poppicker.js"></script>
+		<script src="../../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/address/address.js"></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+			/**
+			 * 地址选择器
+			 * @param {Object} $
+			 * @param {Object} doc
+			 */
+			(function(mui, doc) {
+				mui.ready(function() {
+					var cityPicker = new mui.PopPicker({
+						layer: 3
+					});
+					cityPicker.setData(cityData3);
+					var showCityPickerButton = doc.getElementById('address');
+					var cityResult = doc.getElementById('cityResult');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+							var str = _get_address_param(items[0], 'text');
+							str += _get_address_param(items[1], 'text');
+							str += _get_address_param(items[2], 'text');
+
+							showCityPickerButton.value = str;
+							//返回 false 可以阻止选择框的关闭
+							// return false;
+						});
+					}, false);
+
+				});
+			})(mui, document);
+
+			mui_plusReady(function() {
+				var address_id = null;
+				if(isApp() == 1) {
+					var req = mui_storage_get('address_form_data');
+					address_id = req.address_id
+					console.log("address form data " + JSON.stringify(req));
+					appClosePageById('address_list');
+				} else {
+					address_id = getHrefParam();
+					console.log("非APP-AddressId=" + address_id);
+				}
+
+				if(address_id > 0) {
+					$('.mui-title').html('编辑地址');
+					get_address_info(address_id);
+				}
+			});
+		</script>
+	</body>
+
+</html>

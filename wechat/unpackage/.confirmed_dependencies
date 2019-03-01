@@ -1,0 +1,1023 @@
+{
+	"index.html": {
+		"resources": [
+			"img/�K.png",
+			"img/�\r\u0001.png",
+			"html/home/home.html",
+			"img/btn_class_pre.png",
+			"img/�K.png",
+			"img/�\r\u0001.png",
+			"html/mine/mine.html",
+			"js/common/index.js",
+			"js/mui.min.js",
+			"img/btn_car_nor.png",
+			"css/mui.min.css",
+			"img/btn_home_pre.png",
+			"css/common/index.css",
+			"img/btn_mine_nor.png",
+			"js/common/vue.min.js",
+			"img/btn_class_nor.png",
+			"img/btn_home_nor.png",
+			"img/btn_mine_pre.png",
+			"html/shopping/shopping.html",
+			"html/classify/classify.html",
+			"js/mui.help.js",
+			"img/btn_car_pre.png"
+		],
+		"refer": [
+			"html/classify/classify.html",
+			"html/home/home.html",
+			"html/mine/mine.html",
+			"html/shopping/shopping.html"
+		]
+	},
+	"html/home/home.html": {
+		"resources": [
+			"html/home/home-sub.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/home/home.js",
+			"img/btn_car_nor.png",
+			"img/myIncome.png",
+			"js/home/home-refresh.js",
+			"css/home/home.css",
+			"img/btn_home_pre.png",
+			"css/common/index.css",
+			"js/common/util.js",
+			"img/shade.png",
+			"img/btn_mine_nor.png",
+			"js/common/Config.js",
+			"img/myTeam.png",
+			"js/common/vue.min.js",
+			"img/btn_class_nor.png",
+			"img/btn_home_nor.png",
+			"img/btn_class_pre.png",
+			"img/btn_mine_pre.png",
+			"img/btn_car_pre.png",
+			"img/icon_arrow_roght.png",
+			"js/jquery.min.js",
+			"js/common/global.js",
+			"html/classify/classify.html",
+			"js/mui.help.js"
+		],
+		"refer": [
+			"html/home/home-sub.html",
+			"html/goods/goodsDetail.html",
+			"html/classify/categoryList.html",
+			"html/mine/earning.html",
+			"html/classify/classify.html",
+			"html/shopping/shopping.html",
+			"html/mine/mine.html",
+			"html/home/teambenefits.html"
+		]
+	},
+	"html/shopping/shopping.html": {
+		"resources": [
+			"html/shopping/shopping-sub.html",
+			"css/mui.min.css",
+			"css/shopping/shopping.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/shopping/shopping.js",
+			"img/icon_delete.png",
+			"img/icon_choose_nor.png",
+			"html/mine/mine.html",
+			"img/btn_mine_pre.png",
+			"js/common/global.js",
+			"js/jquery.min.js",
+			"img/btn_home_nor.png",
+			"css/common/index.css",
+			"js/mui.help.js",
+			"js/common/util.js",
+			"img/btn_mine_nor.png",
+			"js/common/Config.js",
+			"img/btn_car_pre.png",
+			"img/btn_class_nor.png"
+		],
+		"refer": [
+			"html/shopping/shopping-sub.html",
+			"html/mine/mine.html",
+			"html/classify/classify.html",
+			"html/home/home.html",
+			"html/goods/goodsDetail.html",
+			"html/order/confirm.html",
+			"html/login/login.html"
+		]
+	},
+	"html/shopping/shopping-sub.html": {
+		"resources": [
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"css/mui.min.css",
+			"img/icon_choose_nor.png",
+			"img/icon_choose_pre.png",
+			"js/jquery.min.js",
+			"js/shopping/shopping-refresh.js",
+			"js/common/jquery.js",
+			"img/icon_delete.png",
+			"js/shopping/shopping.js"
+		],
+		"refer": [
+			"html/order/confirm.html",
+			"html/shopping/shopping-sub.html",
+			"html/goods/goodsDetail.html"
+		]
+	},
+	"html/home/home-sub.html": {
+		"resources": [
+			"img/\u000f�1.png",
+			"img/\u000f�2.png",
+			"img/T{\u0018f.png",
+			"img/1�\u001f\u001f.png",
+			"img/\u0018k�\u001a.png",
+			"img/\u001fI��.png",
+			"img/P\u0027f.png",
+			"img/{qiX.png",
+			"img/fK\u0027\u0018.png",
+			"img/*z\u0018f.png",
+			"img/\u000f�1.png",
+			"img/\u000f�2.png",
+			"img/T{\u0018f.png",
+			"img/1�\u001f\u001f.png",
+			"img/\u0018k�\u001a.png",
+			"img/\u001fI��.png",
+			"img/P\u0027f.png",
+			"img/{qiX.png",
+			"img/fK\u0027\u0018.png",
+			"img/*z\u0018f.png",
+			"img/fK\u0027\u0018.png",
+			"img/fK\u0027\u0018.png",
+			"img/fK\u0027\u0018.png",
+			"img/gold.png",
+			"js/home/home-refresh.js",
+			"css/home/home.css",
+			"js/home/home.js",
+			"img/share.png",
+			"img/shade.png",
+			"css/common/bootstrap.min.css",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"img/icon_arrow_roght.png",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"css/mui.min.css",
+			"img/myIncome.png",
+			"img/myTeam.png"
+		],
+		"refer": [
+			"html/goods/goods_list.html",
+			"html/home/teambenefits.html",
+			"html/order/confirm.html",
+			"html/mine/mine.html",
+			"html/mine/earning.html",
+			"html/goods/goodsDetail.html",
+			"html/classify/categoryList.html"
+		]
+	},
+	"html/mine/mine.html": {
+		"refer": [
+			"html/mine/setting.html",
+			"html/mine/accountBalance.html",
+			"html/mine/order.html",
+			"html/mine/customerService.html",
+			"html/mine/earning.html",
+			"html/login/login.html",
+			"html/login/userInfo.html",
+			"html/mine/share.html",
+			"html/mine/follow_list.html",
+			"html/mine/collectList.html",
+			"html/goods/goodsDetail.html",
+			"html/home/home.html",
+			"html/shopping/shopping.html",
+			"html/classify/classify.html"
+		],
+		"resources": [
+			"img/icon_list7.png",
+			"img/icon_list3.png",
+			"img/banner.png",
+			"img/um_empty_icom.png",
+			"css/mine/mine.css",
+			"img/icon_collect.png",
+			"img/icon_list4.png",
+			"img/icon_list8.png",
+			"img/icon_list2.png",
+			"img/icon_list6.png",
+			"js/mine/mine.js",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"js/common/global.js",
+			"js/jquery.min.js",
+			"img/btn_car_nor.png",
+			"img/btn_home_nor.png",
+			"css/common/index.css",
+			"img/btn_mine_pre.png",
+			"img/btn_class_nor.png",
+			"html/home/home.html",
+			"html/shopping/shopping.html"
+		]
+	},
+	"html/mine/order.html": {
+		"resources": [
+			"html/mine/tab-top-subpage-1.html",
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"js/common/jquery.js",
+			"js/common/common.js",
+			"js/common/swiper.min.js",
+			"js/mine/order.js",
+			"fonts/mui.ttf",
+			"js/common/minirefresh.js",
+			"css/common/swiper.min.css",
+			"css/common/common.css",
+			"css/common/minirefresh.css",
+			"css/mui.min.css",
+			"css/mine/order.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/util.js"
+		],
+		"refer": [
+			"html/mine/tab-top-subpage-1.html",
+			"html/mine/tab-top-subpage-3.html",
+			"html/mine/tab-top-subpage-2.html",
+			"html/mine/tab-top-subpage-4.html",
+			"html/mine/tab-top-subpage-5.html",
+			"html/mine/mine.html",
+			"html/mine/orderDetail.html",
+			"html/order/pay.html",
+			"html/pay/pay.html"
+		]
+	},
+	"html/goods/goods_list.html": {
+		"resources": [
+			"img/\u000f�1.png",
+			"img/\u000f�1.png",
+			"css/mui.min.css",
+			"js/common/vue.min.js",
+			"js/jquery.min.js",
+			"js/common/Config.js",
+			"js/goods/list.js",
+			"js/mui.min.js",
+			"img/icon_arrow_down.png",
+			"img/icon_arrow_nor.png",
+			"img/icon_order2.png"
+		],
+		"refer": [
+			"html/goods/detail.html"
+		]
+	},
+	"html/login/login.html": {
+		"refer": [
+			"index.html",
+			"html/mine/mine.html",
+			"html/login/forgetPassword.html",
+			"html/login/register.html",
+			"html/shopping/shopping.html",
+			"html/goods/goodsDetail.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"img/icon_eye_nor.png",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/md5.js",
+			"js/common/util.js",
+			"js/login/login.js",
+			"img/fx_logo.png",
+			"img/icon_phone.png",
+			"img/icon_password.png",
+			"img/icon_wechat.png",
+			"img/icon_qq.png",
+			"img/icon_eye_pre.png",
+			"fonts/mui.ttf"
+		]
+	},
+	"html/login/userInfo.html": {
+		"refer": [
+			"html/login/updateNickname.html",
+			"html/login/updateAvatar.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"img/um_empty_icom.png"
+		]
+	},
+	"html/mine/setting.html": {
+		"refer": [
+			"html/mine/productFaceback.html",
+			"html/mine/updatePassword.html",
+			"html/mine/mine.html",
+			"html/home/home.html",
+			"html/address/address_list.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"js/mine/setting.js"
+		]
+	},
+	"html/classify/classify.html": {
+		"refer": [
+			"html/goods/goods_list.html",
+			"html/goods/onecontainer_multilist.html",
+			"html/classify/categoryList.html",
+			"html/home/home.html",
+			"html/shopping/shopping.html",
+			"html/mine/mine.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/classify/classify.css",
+			"js/common/vue.min.js",
+			"js/mui.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"js/classify/classify.js",
+			"js/common/global.js",
+			"js/jquery.min.js",
+			"img/btn_car_nor.png",
+			"css/common/index.css",
+			"img/btn_home_pre.png",
+			"img/btn_mine_nor.png",
+			"img/btn_class_nor.png",
+			"html/home/home.html",
+			"html/shopping/shopping.html",
+			"img/btn_home_nor.png",
+			"img/btn_class_pre.png",
+			"img/btn_car_pre.png"
+		]
+	},
+	"html/order/confirm.html": {
+		"refer": [
+			"html/order/pay.html",
+			"html/order/address_list.html",
+			"html/pay/pay.html",
+			"html/address/address_list.html",
+			"html/goods/goodsDetail.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"css/order/order.css",
+			"css/common/common.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/mine/mine.js",
+			"js/common/util.js",
+			"js/jquery.min.js",
+			"js/common/Config.js",
+			"js/order/address.js",
+			"fonts/mui.ttf",
+			"js/address/address.js",
+			"js/order/order.js"
+		]
+	},
+	"html/order/pay.html": {
+		"refer": [
+			"html/mine/order.html",
+			"html/order/confirm.html",
+			"html/order/address_list.html",
+			"html/order/address.html",
+			"html/order/pay.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"css/order/order.css",
+			"css/common/common.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js",
+			"js/mine/mine.js",
+			"js/jquery.min.js",
+			"js/common/Config.js",
+			"js/order/beecloud.js",
+			"js/order/address.js",
+			"img/icon_recharge.png",
+			"img/icon_whatpay.png",
+			"img/icon_linepay.png",
+			"img/icon_choose_pay_nor.png",
+			"img/icon_alipay.png",
+			"img/icon_black.png",
+			"img/icon_choose_pay_pre.png"
+		]
+	},
+	"html/order/address_list.html": {
+		"refer": [
+			"html/order/address.html",
+			"html/order/confirm.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"css/order/order.css",
+			"css/common/common.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js",
+			"js/mine/mine.js",
+			"js/jquery.min.js",
+			"js/common/Config.js",
+			"js/order/address.js"
+		]
+	},
+	"html/order/address.html": {
+		"refer": [
+			"html/order/address_list.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"css/mui.picker.css",
+			"css/mui.poppicker.css",
+			"css/order/order.css",
+			"css/common/common.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/mine/mine.js",
+			"js/common/util.js",
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"js/city.data-3.js",
+			"js/common/Config.js",
+			"js/common/jquery.js",
+			"js/order/address.js"
+		]
+	},
+	"html/mine/share.html": {
+		"refer": [
+			"html/mine/getphonebook.html",
+			"html/mine/sharerecord.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/util.js",
+			"js/mine/share.js",
+			"img/fenxiao_share_bg.png",
+			"img/fenxiao_share_share_now.png",
+			"img/fenxiao_share_phonebook.png",
+			"img/team_benefits_icon.png",
+			"fonts/mui.ttf"
+		]
+	},
+	"html/mine/sharerecord.html": {
+		"resources": [
+			"html/mine/sharerecord_sub.html",
+			"css/mui.min.css",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"html/mine/sharerecord_sub.html"
+		]
+	},
+	"html/mine/follow_list.html": {
+		"href": "html/mine/follow_list.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/common/vue.min.js",
+			"js/jquery.min.js",
+			"js/common/Config.js",
+			"js/goods/list.js",
+			"img/icon_arrow_down.png",
+			"img/icon_arrow_nor.png",
+			"img/icon_arrow_up.png",
+			"js/mui.min.js",
+			"img/icon_order2.png"
+		],
+		"refer": [
+			"html/goods/goodsDetail.html"
+		],
+		"priority": 0
+	},
+	"html/login/forgetPassword2.html": {
+		"href": "html/login/forgetPassword2.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"js/common/jquery.js",
+			"js/mui.min.js",
+			"js/common/Config.js",
+			"js/common/md5.js",
+			"js/common/util.js",
+			"img/icon_password.png",
+			"fonts/mui.ttf",
+			"js/mui.help.js",
+			"js/common/vue.min.js"
+		],
+		"refer": [
+			"html/login/login.html"
+		],
+		"priority": 0
+	},
+	"html/login/forgetPassword.html": {
+		"href": "html/login/forgetPassword.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"js/common/jquery.js",
+			"js/mui.min.js",
+			"js/common/Config.js",
+			"js/common/md5.js",
+			"js/CryptoJS/crypto-js.js",
+			"js/common/util.js",
+			"img/fx_logo.png",
+			"img/icon_phone.png",
+			"img/icon_code.png",
+			"img/icon_password.png",
+			"js/crypto/crypto-js.js",
+			"js/mui.help.js",
+			"fonts/mui.ttf",
+			"js/common/vue.min.js"
+		],
+		"refer": [
+			"html/login/forgetPassword2.html"
+		],
+		"priority": 0
+	},
+	"html/login/register.html": {
+		"href": "html/login/register.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/md5.js",
+			"js/CryptoJS/crypto-js.js",
+			"js/common/util.js",
+			"img/fx_logo.png",
+			"img/icon_phone.png",
+			"img/icon_code.png",
+			"img/icon_password.png"
+		],
+		"refer": [
+			"html/login/login.html"
+		],
+		"priority": 0
+	},
+	"html/mine/bind_mobile.html": {
+		"href": "html/mine/bind_mobile.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"js/common/jquery.js",
+			"js/mui.min.js",
+			"js/common/Config.js",
+			"js/common/md5.js",
+			"js/common/util.js",
+			"img/fx_logo.png",
+			"img/icon_phone.png",
+			"img/icon_code.png"
+		],
+		"refer": [
+			"html/mine/tobalance.html"
+		],
+		"priority": 0
+	},
+	"html/mine/bindzfb.html": {
+		"href": "html/mine/bindzfb.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"css/mui.picker.css",
+			"css/mui.poppicker.css",
+			"css/order/order.css",
+			"css/common/common.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/jquery.js",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"js/mine/bindzfb.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/presentrecord_sub.html": {
+		"href": "html/mine/presentrecord_sub.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/mine/presentrecord.js",
+			"js/common/util.js",
+			"js/common/Config.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/presentrecord.html": {
+		"href": "html/mine/presentrecord.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"js/mui.min.js",
+			"html/mine/presentrecord_sub.html"
+		],
+		"refer": [
+			"html/mine/presentrecord_sub.html"
+		],
+		"priority": 0
+	},
+	"html/mine/tobalance.html": {
+		"href": "html/mine/tobalance.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"css/common/common.css",
+			"js/common/jquery.js",
+			"js/mui.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"fonts/mui.ttf",
+			"js/common/vue.min.js"
+		],
+		"refer": [
+			"html/mine/bind_mobile.html",
+			"html/mine/bindzfb.html",
+			"html/mine/presentrecord.html",
+			"html/mine/tixian_rule.html",
+			"html/rule/tixian_rule.html"
+		],
+		"priority": 0
+	},
+	"html/mine/revenueDetails_sub.html": {
+		"href": "html/mine/revenueDetails_sub.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/Config.js",
+			"js/common/common.js",
+			"js/common/util.js",
+			"js/mine/revenueDetails.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/revenueDetails.html": {
+		"href": "html/mine/revenueDetails.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/mine/revenueDetails.js",
+			"html/mine/revenueDetails_sub.html"
+		],
+		"refer": [
+			"html/mine/revenueDetails_sub.html"
+		],
+		"priority": 0
+	},
+	"html/mine/sharerecord_sub.html": {
+		"href": "html/mine/sharerecord_sub.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/mine/shareRecord.js",
+			"js/common/util.js",
+			"js/common/Config.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/earning.html": {
+		"href": "html/mine/earning.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"js/mine/earning.js",
+			"img/gold.png",
+			"img/icon_earning1.png",
+			"img/icon_earning2.png",
+			"img/icon_earning3.png",
+			"img/icon_earning5.png",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/mine/tobalance.html",
+			"html/mine/revenueDetails.html",
+			"html/mine/sharerecord.html",
+			"html/mine/presentrecord.html"
+		],
+		"priority": 0
+	},
+	"html/login/updateAvatar.html": {
+		"href": "html/login/updateAvatar.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/login/feedback.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js",
+			"js/login/feedback.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/login/updateNickname.html": {
+		"href": "html/login/updateNickname.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/accountBalance.html": {
+		"href": "html/mine/accountBalance.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/mine/mine.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/mine/mine.js",
+			"img/gold.png"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/getphonebook.html": {
+		"href": "html/mine/getphonebook.html",
+		"resources": [
+			"css/mui.min.css",
+			"img/icon_choose_nor.png",
+			"img/icon_choose_pre.png",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"js/mine/getphonebook.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/customerService.html": {
+		"href": "html/mine/customerService.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"js/mine/customerService.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/orderDetail.html": {
+		"href": "html/mine/orderDetail.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"js/mine/orderDetail.js"
+		],
+		"refer": [
+			"html/order/pay.html",
+			"html/goods/goodsDetail.html",
+			"html/mine/order.html",
+			"html/pay/pay.html"
+		],
+		"priority": 0
+	},
+	"html/mine/productFaceback.html": {
+		"href": "html/mine/productFaceback.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/login/feedback.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js",
+			"js/login/feedback.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/mine/updatePassword.html": {
+		"href": "html/mine/updatePassword.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/util.js",
+			"img/icon_password.png"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/home/teambenefits.html": {
+		"href": "html/home/teambenefits.html",
+		"resources": [
+			"css/common/swiper.min.css",
+			"css/common/minirefresh.css",
+			"css/common/common.css",
+			"css/mui.min.css",
+			"css/mine/order.css",
+			"js/common/swiper.min.js",
+			"js/common/minirefresh.js",
+			"js/common/common.js",
+			"js/mui.min.js",
+			"js/common/vue.min.js",
+			"js/common/Config.js",
+			"js/common/util.js",
+			"js/home/teambenefits.js"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/goods/detail.html": {
+		"href": "html/goods/detail.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/goods/detail.css",
+			"js/common/vue.min.js",
+			"js/jquery.min.js",
+			"js/common/Config.js",
+			"js/mui.min.js",
+			"js/goods/detail.js",
+			"img/icon_news2.png",
+			"img/icon_mood_nor.png",
+			"img/icon_order1.png",
+			"img/icon_mail.png"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"html/goods/onecontainer_multilist.html": {
+		"refer": [
+			"html/classify/classify.html"
+		]
+	},
+	"html/classify/categoryList.html": {
+		"refer": [
+			"html/goods/detail.html",
+			"html/goods/goodsDetail.html"
+		],
+		"resources": [
+			"js/common/jquery.js",
+			"js/classify/categoryList.js",
+			"img/icon_arrow_down.png",
+			"js/common/common.js",
+			"img/icon_arrow_nor.png",
+			"fonts/mui.ttf",
+			"js/common/minirefresh.js",
+			"css/common/common.css",
+			"css/common/minirefresh.css",
+			"img/shade.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/mui.help.js",
+			"js/common/util.js",
+			"js/common/Config.js",
+			"js/common/vue.min.js",
+			"js/common/global.js",
+			"js/jquery.min.js"
+		]
+	},
+	"html/mine/collectList.html": {
+		"refer": [
+			"html/goods/goodsDetail.html"
+		],
+		"resources": [
+			"js/mine/collectList.js"
+		]
+	},
+	"html/goods/goodsDetail.html": {
+		"refer": [
+			"html/mine/customerService.html",
+			"html/order/buy_now_confirm.html",
+			"html/login/login.html",
+			"html/home/home.html",
+			"html/classify/categoryList.html",
+			"html/mine/collectList.html"
+		],
+		"resources": [
+			"suit/js/ZsSuit.js",
+			"js/goods/detail.js",
+			"img/icon_mail.png",
+			"img/icon_news2.png",
+			"js/jquery.min.js",
+			"css/goods/detail.css",
+			"img/icon_order1.png",
+			"suit/css/suit.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/common/util.js",
+			"img/icon_mood_nor.png",
+			"js/mui.help.js",
+			"js/common/Config.js",
+			"js/common/vue.min.js",
+			"img/icon_mood_pre.png",
+			"img/icon_arrow_roght.png"
+		]
+	},
+	"html/order/buy_now_confirm.html": {
+		"refer": [
+			"html/pay/pay.html",
+			"html/address/address_list.html",
+			"html/goods/goodsDetail.html"
+		],
+		"resources": [
+			"js/address/address.js",
+			"js/order/order.js",
+			"css/order/order.css",
+			"css/mine/mine.css",
+			"js/mine/mine.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/common/util.js",
+			"css/common/common.css",
+			"js/common/Config.js",
+			"js/common/vue.min.js"
+		]
+	},
+	"html/mine/tixian_rule.html": {
+		"resources": [
+			"js/common/jquery.js",
+			"css/mine/mine.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/common/util.js",
+			"css/common/common.css",
+			"js/common/Config.js",
+			"js/common/vue.min.js"
+		]
+	},
+	"html/address/address.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js"
+		],
+		"refer": [
+			"html/address/address_list.html"
+		]
+	},
+	"html/address/address_list.html": {
+		"refer": [
+			"html/address/address.html",
+			"html/mine/setting.html"
+		],
+		"resources": [
+			"img/icon_choose_pay_nor2.png",
+			"img/icon_choose_pre.png",
+			"js/common/global.js",
+			"js/jquery.min.js",
+			"js/wx_share/wx_share.js",
+			"js/address/address.js",
+			"js/mui.min.js",
+			"js/common/util.js",
+			"js/mui.help.js",
+			"js/common/Config.js",
+			"js/common/vue.min.js",
+			"js/mine/mine.js"
+		]
+	},
+	"html/pay/pay.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/pay/pay.js",
+			"js/order/beecloud.js"
+		],
+		"refer": [
+			"html/mine/mine.html",
+			"html/mine/order.html"
+		]
+	}
+}

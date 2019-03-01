@@ -1,0 +1,127 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li {if $op == 'display'} class="active" {/if}><a href="{php echo $this->createWebUrl('lottery',array('op'=>'display'))}">期数列表</a></li>
+	<li {if $op == 'add'}class="active"{/if}><a href="{php echo $this->createWebUrl('lottery',array('op'=>'add'))}">添加</a></li>
+	<li {if $op == 'edit'}class="active"{/if}{if $op != 'edit'}style="display:none"{/if}><a href="{php echo $this->createWebUrl('lottery',array('op'=>'edit'))}">编辑</a></li>
+	<li {if $op == 'lottery_number'}class="active"{/if}{if $op != 'lottery_number'}style="display:none"{/if}><a href="javascript:;">号码设置</a></li>
+	<li {if $op == 'detail'}class="active"{/if}{if $op != 'detail'}style="display:none"{/if}><a href="javascript:;">中奖详情</a></li>
+
+</ul>
+{if $op == 'detail'}
+
+<div class="panel panel-info">
+    <div class="panel-body">
+		<form action="" method="post" class="form-horizontal" role="form">
+			<input type="hidden" name="period_id" value="{$_GPC['id']}">
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">开奖期数</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11 ">
+					<label class="control-label">{$item['periods']}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">一等奖</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<label class="control-label">{$item['first_no']}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">二等奖</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<label class="control-label">{$item['second_no']}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">三等奖</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<label class="control-label">{$item['third_no']}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">特等奖</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<label class="control-label">{$item['special_no']}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">安慰奖</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<label class="control-label">{$item['consolation_no']}</label>
+				</div>
+ 			</div>
+
+
+
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">一等奖名单</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<div class="row">
+						{loop $first $f}
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{$f['id']}:{$f['nickname']}</div>
+						{/loop}
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">二等奖名单</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<div class="row">
+						{loop $second $f}
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{$f['id']}:{$f['nickname']}</div>
+						{/loop}
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">三等奖名单</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<div class="row">
+						{loop $third $f}
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{$f['id']}:{$f['nickname']}</div>
+						{/loop}
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">特等奖名单</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<div class="row">
+						{loop $special $f}
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{$f['id']}:{$f['nickname']}</div>
+						{/loop}
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label">安慰奖名单</label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					<div class="row">
+						{loop $consolation $f}
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{$f['id']}:{$f['nickname']}</div>
+						{/loop}
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4  col-sm-4 col-md-4 col-lg-1 control-label"></label>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-11">
+					 <input type="button" class="btn btn-success sendBtn" value="发送中奖消息">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	$('.sendBtn').click(function(){
+		var id = $('input[name=period_id]').val();
+	    $.post("{php echo $this->createWebUrl('lottery',array('op'=>'send_msg'))}",{period_id:id},function(response){
+	        alert(response.msg);
+		},'json');
+	});
+ </script>
+{/if}
+{template 'common/footer'}

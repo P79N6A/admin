@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../addons/purchasing/static/css/bootstrap.min.css">
+	<link href="../addons/purchasing/template/mobile/css/mui.min.css" rel="stylesheet" />
+	<style>
+		*{margin:0;padding:0;}
+		.account-head{width: 100%;background-color: #fff;border-bottom: 1px solid #eee;}
+		.account{background-color:#eee; }
+		.qishu{width: 100%;background-color: #fff;border-bottom: 1px solid #eee;}
+		.qishu a{text-decoration: none;color: black;text-align: center;}
+		.baobiaomain{background-color:#fff;}
+		.baobiaomain-table{text-align: center;border-style: none;width: 100%;}
+		.baobiaomain tr{width: 100% }
+		.baobiaomain td{background-color:#fff;border-bottom: 1px solid #eee;line-height: 3vw;}
+	</style>
+</head>
+<body style="width: 100%;height: 100% ;background-color: #ffffff;">
+	<div class="account-head ">
+		<div style="width: 7%;background-color: white;float: left;text-align: center;">
+				<a href="javascript:void(0)"class="mui-icon mui-icon-left-nav mui-pull-left" style="background-color: white;" onclick="history.go(-1)"></a>
+			</div>
+			<div style="width: 93%;">
+				<h2 id="account-date" style="font-weight: normal;text-align: center;">第{$periods}期</h2>
+			</div>
+	</div>
+	<div class="baobiaomain">
+		<table class="table table-bordered">
+		<tr>
+			<td>来</td>
+			<td>下线佣金</td>
+			<td>下线中奖</td>
+			<td>下线净</td>
+			<td>花红</td>
+			<td>NET</td>
+			<td>出给上线</td>
+			<td>出给上线佣</td>
+			<td>出给上线中奖</td>
+			<td>出给上线净</td>
+			<td>花红</td>
+			<td>NET</td>
+			<td>佣金赚</td>
+			<td>奖金赚</td>
+			<td>彩金</td>
+		</tr>
+		{loop $list $item}
+		<tr>
+			<td>{$item['sum_bet']}</td>
+			<td>{$item['cashback']}</td>
+			<td>{$item['pay_award']}</td>
+			<td>{$item['profit']}</td>
+			<td>{$item['bonus']}</td>
+			<td>{$item['net']}</td>
+			<td>{$item['sum_bet']}</td>
+			<td>{$item['upline_cashback']}</td>
+			<td>{$item['pay_award']}</td>
+			<td>{$item['upline_profit']}</td>
+			<td>{$item['bonus']}</td>
+			<td>{$item['net']}</td>
+			<td>{$item['cashback_profit']}</td>
+			<td>{$item['award_profit']}</td>
+			<td>{$item['sum_bet']}</td>
+		</tr>
+		{/loop}
+		</table>
+	</div>
+</body>
+</html>

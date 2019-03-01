@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="feedback">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/login/feedback.css" />
+		<style type="text/css">
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.btn-radius-25 {
+				/*圆角按钮(复用)*/
+				margin-left: 8%;
+				width: 84%;
+				height: 11vw;
+				font-size: 4vw;
+				font-weight: 700;
+				text-align: center;
+				border-radius: 25px;
+				color: white;
+			}
+			
+			.btn_login {
+				border: 1px solid #ffde00;
+				background-color: #ffde00;
+			}
+			
+			.btn_login:enabled:active {
+				border: 1px solid #e2c714;
+				background-color: #e2c714;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">反馈</h1>
+		</header>
+
+		<div class="mui-content" style="background-color: #fafafa;">
+			<div class="mui-content-padded">
+				<div class="mui-inline">问题和意见</div>
+				<a class="mui-pull-right mui-inline" href="#popover">
+					快捷输入
+					<span class="mui-icon mui-icon-arrowdown"></span>
+				</a>
+				<!--快捷输入具体内容，开发者可自己替换常用语-->
+				<div id="popover" class="mui-popover">
+					<div class="mui-popover-arrow"></div>
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view">
+								<!--仅流应用环境下显示-->
+								<li class="mui-table-view-cell stream">
+									<a href="#">桌面快捷方式创建失败</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">界面显示错乱</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">启动缓慢，卡出翔了</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">偶发性崩溃</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">UI无法直视，丑哭了</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的问题和意见..."></textarea>
+			</div>
+			<p>图片(选填,提供问题截图,总大小10M以下)</p>
+			<div id='image-list' class="row image-list"></div>
+			<button id='saveAvatar' type="button" class="btn-radius-25 btn_login" style="margin-top: 15px;">
+					提交
+				</button>
+		</div>
+		</form>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/login/feedback.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+       <script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+
+			mui_plusReady(function() {
+				document.getElementById('saveAvatar').addEventListener('tap', function() {
+					closeCurrentPage();
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

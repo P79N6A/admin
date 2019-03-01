@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<link rel="stylesheet" href="../../css/common/common.css" />
+		<style type="text/css">
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色*/
+				color: #666666;
+			}
+			
+			.mui-table-view:before {
+				/*重写mui表格顶部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-table-view:after {
+				/*重写mui表格底部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-table-view-cell:after {
+				/*重写mui表格内部边框颜色*/
+				background-color: #fafafa;
+			}
+			
+			.mui-input-row label {
+				padding: 11px 0;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">我要提现</h1>
+		</header>
+
+		<div class="mui-content" style="background-color: white;">
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id='zfb_id' class="mui-navigate-right">
+						支付宝账号
+						<span id="nickname-value" class="mui-pull-right" style="display: inline-block;margin-right: 8vw;"></span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row" style="padding-left: 0;">
+						<label class="label_title">提现余额</label>
+						<input type="text" placeholder="请输入提现余额" id="balance" onkeyup="clearNoNum(this)" />
+					</div>
+				</li>
+
+			</ul>
+			<div style="margin-top:10vw ;text-align: center;color: red;">
+				<a href="javascript:;" class="tixian_rule" style="text-align: center;color: red;">提现规则</a>
+			</div>
+
+			<div class="mui-content-padded" style="background: white;">
+				<button type="button" class="btn-radius-25 btn_login" onclick="do_balance();">提现</button>
+
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var state = getState();
+
+			function do_balance() {
+
+				var money = $('#balance').val().trim();
+				if(money <= 0) {
+					mui.toast('请输入提现余额');
+					return;
+				}
+				var param = {
+					money: money
+				};
+				interface_aes_login(HTTP_USER_URL + 'tixian', param, function(response) {
+					//				mui.post(HTTP_USER_URL+'tixian',{user_id:state.id,token:state.token,money:money},
+					//				function(response){
+					mui.toast(response.info);
+					if(response.status == 200) {
+						mui.openWindow({
+							url: 'presentrecord.html',
+						});
+
+					}
+				}, 'json');
+			}
+
+			function clearNoNum(obj) {
+				obj.value = obj.value.replace(/[^\d.]/g, ""); //清除“数字”和“.”以外的字符   
+				obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的   
+				obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+				obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'); //只能输入两个小数   
+				if(obj.value.indexOf(".") < 0 && obj.value != "") { //以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额  
+					obj.value = parseFloat(obj.value);
+				}
+			}
+
+			$('.tixian_rule').click(function() {
+				console.log('tixian rule')
+				mui.openWindow({
+					url: '../rule/tixian_rule.html',
+					id: 'tixian_rule_win',
+					show: {
+						autoShow: true,
+						aniShow: 'pop-in',
+						duration: 300
+					}
+				});
+
+			});
+			mui_plusReady(function() {
+				interface_aes_login(HTTP_USER_URL + 'sellercenter', {}, function(data) {
+					//				mui.post(HTTP_USER_URL + "sellercenter", {
+					//						user_id: state.id,
+					//						token: state.token
+					//					},
+					//					function(data) {
+					var balance = data.credit;
+					$('#balance').attr('placeholder', '可提现余额' + balance + '元');
+				}, 'json');
+				interface_aes_login(HTTP_USER_URL + 'iszfb', {}, function(data) {
+					//				mui.post(HTTP_USER_URL + "iszfb", {
+					//						user_id: state.id,
+					//						token: state.token
+					//					},
+					//					function(data) {
+					var alipay_name = data.zfb;
+					$('#nickname-value').html(alipay_name);
+				}, 'json');
+
+				$('#zfb_id').click(function() {
+					interface_aes_login(HTTP_USER_URL + 'isbindmobile', {}, function(response) {
+						//					mui.post(HTTP_USER_URL + 'isbindmobile', {
+						//							user_id: state.id,
+						//							token: state.token
+						//						},
+						//						function(response) {
+						mui.toast(response.info);
+						if(response.status == 200) {
+							if(response.had_bind == 1) {
+								//closePageById();
+								mui.openWindow({
+									url: 'bindzfb.html',
+									id: 'bindzfb',
+									show: {
+										autoShow: true,
+										aniShow: 'pop-in',
+										duration: 200
+									}
+								});
+							} else {
+								mui.openWindow({
+									url: 'bind_mobile.html',
+									id: 'bind_mobile',
+									show: {
+										autoShow: true,
+										aniShow: 'pop-in',
+										duration: 200
+									}
+								});
+							}
+						}
+					}, 'json');
+				});
+			});
+		</script>
+	</body>
+
+</html>

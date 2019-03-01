@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/common/minirefresh.css" />
+		<link rel="stylesheet" href="../../css/common/common.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+
+		<style>
+			.mui-table-view-cell:after {
+				background-color: transparent;
+			}
+			
+			.active p {
+				color: #ffde00;
+			}
+			
+			.sort {
+				font-size: 5vw;
+				font-family: '黑体';
+				color: #999;
+			}
+			
+			.sort_img {
+				width: 15%;
+				margin-left: 1vw;
+				vertical-align: middle;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色 (复用)*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色(复用)*/
+				color: #666666;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">我的收藏</h1>
+		</header>
+
+		<div class="content">
+			<div id="minirefresh" class="minirefresh-wrap">
+				<div class="minirefresh-scroll">
+					<ul id="collect" class="data-list">
+						<li class="mui-col-xs-6" v-for="item in collectList" @tap="openProductDetail(item.productId)" style="float: left;padding: 3vw;">
+							<img class="" style="display:block;width: 44vw;height: 50vw;position:absolute;z-index: 1;" src="../../img/shade.png">
+							<p class="" style="color: white;padding-left:15px;padding-top:155px;position: absolute;z-index: 2;font-size: 4.5vw;" v-text="item.name"> </p>
+							<img class="" style="display:block;width: 44vw;height: 50vw;" v-bind:src="item.thumb">
+							<span class="" style="float:left; color: red;font-size: 4vw;" v-text="'¥'+item.price"> </span>
+							<span class="" style="float:right; font-size: 4vw;" v-text="item.order_num+'单'"> </span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script type="text/javascript" src="../../js/common/vue.min.js"></script>
+		<script type="text/javascript" src="../../js/common/Config.js"></script>
+		<script type="text/javascript" src="../../js/crypto/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/common/util.js"></script>
+		<script type="text/javascript" src="../../js/common/minirefresh.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/mine/collectList.js"></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script>
+			//			webRefreshCurrentPage();
+		</script>
+	</body>
+
+</html>

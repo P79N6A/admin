@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="http://global.zuzuche.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <link rel="stylesheet" href="../../css/mui.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/share/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/share/register.css" type="text/css"/>
+    <title>注册页面</title>
+</head>
+<body>
+
+<div class="main">
+    <div class="register-form-box form-group">
+        <div class="form-control phone_box" >
+            <div class="input-box">
+                <input type="tel" id="phone" class="J-phoneInput" placeholder="手机号码"/>
+            </div>
+        </div>
+        <div class="form-control code_box">
+          
+            <div class="input-box">
+                <input id="code" type="number" class="J-authCodeInput" placeholder="验证码"/>
+            </div>
+            <a href="javascript:;" class="auth-code J-authCode">获取验证码</a>
+        </div>
+        <div class="form-control password_box">
+            
+            <div class="input-box">
+                <input id="password" type="password" class="J-passwordInput" placeholder="密码（6~20个数字或字母）"/>
+            </div>
+        </div>
+        <a href="javascript:;" class=" register-btn J-registerBtn"></a>
+    </div>
+    <a href="javascript:;" class="register-tip" onclick="register_rule();">注册即同意 < 用户注册协议 > </a>
+    <div style="width: 100%;height: 10vw;;"></div>
+</div>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/mui.help.js"></script>
+<script src="../../js/common/vue.min.js"></script>
+<script src="../../js/common/Config.js"></script>
+<script src="../../js/common/util.js"></script>
+<script src="../../js/common/md5.js"></script>
+<script src="../../js/crypto/crypto-js.js"></script>
+<script src="../../js/common/rem.js"></script>
+<script src="../../js/common/zepto.min.js"></script>
+<script src="../../js/share/common.js"></script>
+<script src="../../js/share/api.js"></script>
+<script src="../../js/share/register.js"></script>
+
+<!--分享-->
+<script>
+	 mui.init({
+		keyEventBind: {
+			backbutton: false //关闭back按键监听
+		}
+	});	
+	function register_rule(){
+		mui.openWindow({
+			url:'../rule/register_rule.html'
+		});
+	}
+</script>
+</body>
+</html>
+

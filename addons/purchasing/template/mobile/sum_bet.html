@@ -1,0 +1,41 @@
+{template 'header'}
+{loop $company $com}
+{if count($com['list']) > 0}
+<div class="col-xs-12" style="padding: 0 0 10px;">
+	<p>{$com['name']}</p>
+	{loop $com['list'] $i $item}
+	{if count($item) > 0}
+	<table class="table table-bordered" style="float: left;width: 10%;">
+		<tr><td colspan="2">共：{php echo count($item)}</td></tr>
+		<tr><td colspan="2">{$i}<span style="float: right;">总计：{php echo number_format($com['total'][$i],2)}</span></td></tr>
+		<tr>
+			<td>号码</td>
+			<td>投注额</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="padding: 0;">
+				<div style="overflow-y: auto;max-height: 300px;">
+					<table class="table table-bordered">
+						{loop $item $it}
+						{if $it['money'] > 0}
+						<tr>
+							<td>
+								<a href="javascript:void(0);">
+									{$it['number']}
+								</a>
+							</td>
+							<td><a href="javascript:void(0);">{php echo number_format($it['money'],2)}</a></td>
+						</tr>
+						{/if}
+						{/loop}
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	{/if}
+	{/loop}
+</div>
+{/if}
+{/loop}
+{template 'footer'}

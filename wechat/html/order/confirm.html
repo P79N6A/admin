@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mine/mine.css" />
+		<link href="../../css/order/order.css" rel="stylesheet" />
+		<link href="../../css/common/common.css" rel="stylesheet" />
+		<style type="text/css">
+			.txt_r {
+				text-align: right;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色 (复用)*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色(复用)*/
+				color: #666666;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">确认订单</h1>
+		</header>
+		<div class="mui-content" style="background-color: white;">
+			<ul class="mui-table-view" onclick="choose_adddress();">
+				<li class="mui-table-view-cell" id="address_info">
+					<a class="mui-navigate-right">
+						<input type="hidden" id="address_id" :value="address_id" />
+						<p class="default_address_info">
+							<span id="address_username"> </span> &nbsp;&nbsp;&nbsp;&nbsp;
+							<span id="address_phone"> </span>
+						</p>
+						<p class="default_address_info">
+							<span id="address_detail"> </span>
+						</p>
+					</a>
+				</li>
+			</ul>
+			<div id="product_list">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media" v-for="list in product_list">
+						<a href="javascript:;">
+							<div class="mui-media-body">
+								<div class="order_left">
+									<img class="mui-media-object mui-pull-left" :src="list.thumb" style="width: 20vw;height: 20vw;">
+									<p class="order_goods_attr" v-text="list.name"> </p>
+									<p class=" order_goods_attr" v-for=" vl in list.property " v-if="vl.title !='' " v-text="vl.title +':'+vl.value">
+									</p>
+								</div>
+								<div class="order_right">
+									<p class="order_goods_attr txt_r" v-text="'￥'+list.price"></p>
+									<p class="order_goods_attr txt_r" v-text="'×'+list.product_number+'个'"></p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="order_total_price" v-text="'合计:￥'+total_price+'（含运费:￥'+freight+')'"> </div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<ul class="mui-table-view table_view_mt">
+				<li class="mui-table-view-cell">
+					<div class="mui-input-row  ">
+						<label style="font-size: 14px;width: 20%;padding: 0px;">留言：</label>
+						<textarea placeholder="请输入你的留言" id="comments" style="width: 80%;height:100%; font-size: 14px;padding: 0;"></textarea>
+					</div>
+				</li>
+			</ul>
+			<div class="mui-content-padded">
+				<button type="button" class="btn-radius-25 btn_login" onclick="confirm_order();">确认下单</button>
+				<input type="hidden" id="cart_id" value="0" />
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/mine/mine.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/address/address.js"></script>
+		<script src="../../js/order/order.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+		<script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: true //关闭back按键监听
+				}
+			});
+			//接收购物车页面的数据
+			mui_plusReady(function() {
+				var req = mui_storage_get('confirm_order_form_data');
+				var cart_id = null;
+				console.log("购物车选择地址后返回1=" + JSON.stringify(req));
+				
+				//如果没有数据从本地获取
+				if(req == undefined) {
+					req = JSON.parse(localStorage.getItem('cart_id_req'));
+					console.log("购物车选择地址后返回2=" + req);
+				} 
+				
+				cart_id = req.cart_id;
+				localStorage.setItem('cart_id_req', JSON.stringify(req));  //保存数据
+		
+
+				console.log("购物车" + cart_id);
+				$('#cart_id').val(cart_id.toString());
+				
+				console.log("马上取购物车" + localStorage.getItem('cart_id'));
+				localStorage.setItem('address_back_type', 2);
+				appClosePageById('goodsDetail');
+				appClosePageById('address_list');
+				console.log("confirm cart_id:" + cart_id);
+				confirm_order_load(cart_id);
+			});
+		</script>
+	</body>
+
+</html>

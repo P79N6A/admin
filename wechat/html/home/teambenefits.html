@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="../../css/common/swiper.min.css" />
+		<link rel="stylesheet" href="../../css/common/minirefresh.css" />
+		<link rel="stylesheet" href="../../css/common/common.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<!--从上到下的加载顺序,重写的样式要在原来的css后面-->
+		<link rel="stylesheet" href="../../css/mine/order.css" />
+		
+		<style type="text/css">
+			.nav-control p{
+				width: 17%;
+			}
+			
+			.top_header {
+				color: white;
+				text-align: center;
+				margin-top: 3vw;
+				font-weight: bolder;
+				font-size: 3.5vw;
+			}
+			.item_style {
+				text-align: center;
+				border-left: 1px solid #e3e3e3;
+				height: 13vw;
+				font-size: 3.7vw;
+				line-height: 13vw;
+				overflow: hidden;
+			}
+			.item_avatar_style{
+				width: 25%;
+				padding-left: 3px;
+				font-size: 3.7vw;
+				border-left: 1px solid #e3e3e3;
+				height: 13vw;
+				font-size: 3.7vw;
+				line-height: 13vw;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">我的团队</h1>
+		</header>
+		<div class="content">
+			<div class="nav-control">
+				<p class="active" list-type="0">当天</p>
+				<p list-type="1">昨天</p>
+				<p list-type="2">本月</p>
+				<p list-type="3">上月</p>
+				<p list-type="4">今年</p>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div id="minirefresh1" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<div style="background-color: #ffde00;">
+									<div class="mui-col-xs-12" style="height: 12vw;">
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 25%;">成员</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 15%;">分享人数</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">团队总收益</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">总收益</div>
+									</div>
+								</div>
+								<ul class="data-list" id="time1">
+									<li v-for="item in listTime1" class="mui-col-xs-12 " style="height: 13vw;border-bottom: 1px solid #e3e3e3;">
+										<div class="mui-col-xs-3 mui-pull-left item-style item_avatar_style" >
+											<img v-bind:src="item.avatar" style="width: 8vw;height: 8vw;vertical-align: middle;border-radius:100px;"/>
+											<span style="margin-left: 3px;" v-text="item.nickname"> </span>
+										</div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 15%;" v-text="item.shareNumber"> </div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.teamIncome"> </div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.allIncome"> </div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh2" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<div style="background-color: #ffde00;">
+									<div class="mui-col-xs-12" style="height: 12vw;">
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 25%;">成员</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 15%;">分享人数</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">团队总收益</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">总收益</div>
+									</div>
+								</div>
+								<ul class="data-list" id="time2">
+									<li v-for="item in listTime2" class="mui-col-xs-12 " style="height: 13vw;border-bottom: 1px solid #e3e3e3;">
+										<div class="mui-col-xs-3 mui-pull-left item-style item_avatar_style" >
+											<img v-bind:src="item.avatar" style="width: 8vw;height: 8vw;vertical-align: middle;border-radius:100px;"/>
+											<span style="margin-left: 3px;" v-text="item.nickname"> </span>
+										</div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 15%;" v-text="item.shareNumber"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.teamIncome"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.allIncome"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh3" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<div style="background-color: #ffde00;">
+									<div class="mui-col-xs-12" style="height: 12vw;">
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 25%;">成员</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 15%;">分享人数</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">团队总收益</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">总收益</div>
+									</div>
+								</div>
+								<ul class="data-list" id="time3">
+									<li v-for="item in listTime3" class="mui-col-xs-12 " style="height: 13vw;border-bottom: 1px solid #e3e3e3;">
+										<div class="mui-col-xs-3 mui-pull-left item-style item_avatar_style" >
+											<img v-bind:src="item.avatar" style="width: 8vw;height: 8vw;vertical-align: middle;border-radius:100px;"/>
+											<span style="margin-left: 3px;" v-text="item.nickname"> </span>
+										</div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 15%;" v-text="item.shareNumber"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.teamIncome"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.allIncome"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh4" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<div style="background-color: #ffde00;">
+									<div class="mui-col-xs-12" style="height: 12vw;">
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 25%;">成员</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 15%;">分享人数</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">团队总收益</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">总收益</div>
+									</div>
+								</div>
+								<ul class="data-list" id="time4">
+									<li v-for="item in listTime4" class="mui-col-xs-12 " style="height: 13vw;border-bottom: 1px solid #e3e3e3;">
+										<div class="mui-col-xs-3 mui-pull-left item-style item_avatar_style" >
+											<img v-bind:src="item.avatar" style="width: 8vw;height: 8vw;vertical-align: middle;border-radius:100px;"/>
+											<span style="margin-left: 3px;" v-text="item.nickname"> </span>
+										</div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 15%;" v-text="item.shareNumber"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.teamIncome"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.allIncome"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh5" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<div style="background-color: #ffde00;">
+									<div class="mui-col-xs-12" style="height: 12vw;">
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 25%;">成员</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 15%;">分享人数</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">团队总收益</div>
+										<div class="mui-col-xs-3 mui-pull-left top_header" style="width: 30%;">总收益</div>
+									</div>
+								</div>
+								<ul class="data-list" id="time5">
+									<li v-for="item in listTime5" class="mui-col-xs-12 " style="height: 13vw;border-bottom: 1px solid #e3e3e3;">
+										<div class="mui-col-xs-3 mui-pull-left item-style item_avatar_style">
+											<img v-bind:src="item.avatar" style="width: 8vw;height: 8vw;vertical-align: middle;border-radius:100px;"/>
+											<span style="margin-left: 3px;" v-text="item.nickname"> </span>
+										</div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 15%;" v-text="item.shareNumber"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.teamIncome"></div>
+										<div class="mui-col-xs-3 mui-pull-left item-style item_style" style="width: 30%;" v-text="'¥'+item.allIncome"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/common/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/common/minirefresh.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script type="text/javascript" src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/home/teambenefits.js"></script>
+       <script src="../../js/wx_share/wx_share.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

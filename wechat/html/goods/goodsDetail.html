@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/goods/detail.css" />
+		<link rel="stylesheet" href="../../suit/css/suit.css" />
+		<style>
+			.buy-now,
+			.buy-now-disabled {
+				text-decoration: none;
+				margin: 0 auto;
+				font: 14px/45px "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1";
+				text-align: center;
+				color: #fff;
+			}
+			
+			.buy-now:hover {
+				color: #fff;
+				text-decoration: none;
+			}
+			
+			.buy-now-disabled {
+				background: #d9d9d9;
+			}
+			
+			.mui-bar .mui-btn-link {
+				/*重写mui返回键颜色 (复用)*/
+				color: black;
+			}
+			
+			.mui-btn-link.mui-active:enabled,
+			.mui-btn-link:enabled:active {
+				/*重写mui返回键点击颜色(复用)*/
+				color: #666666;
+			}
+			
+			.cart_pay_btn {
+				width: 50%;
+				display: inline-block;
+				background: #ffde00;
+				text-align: center;
+				font-size: 5vw;
+				color: #fff;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: #fafafa;">
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">商品详情</h1>
+			<a id="shareregoodsdetail" class="mui-icon mui-pull-right">
+				<img src="../../img/mart_icon_share_black.png" style="width: 5vw;height: 5vw;" />
+			</a>
+		</header>
+		<input type="hidden" id="goods_id" value="0" />
+		<input type="hidden" value="0" id="contrast_id" />
+		<input type="hidden" value="0" id="contrast_num" />
+		<div class="mui-content" style="background-color: #fafafa;">
+			<div id="detail" class="mui-col-xs-12">
+				<div v-for="item in list">
+					<div class="mui-col-xs-12" style="height: 100vw;">
+						<img v-bind:src="item.thumb" style="height: 100%;width: 100%;" />
+					</div>
+
+					<div class="mui-col-xs-12" style="background: #fff;padding: 5vw 0;">
+						<h4 style="text-indent: 1em;" v-text="item.name"></h4>
+						<p class="price" v-text="'￥'+item.price +'/'+ item.unit "></p>
+						<div class="mui-col-xs-11" style="height: 1px;background: #ccc;margin: 0 auto;"></div>
+						<div class="mui-col-xs-11" style="margin: 0 auto;height: 8vw;">
+							<div class="mui-col-xs-4" style="height: 5vw;margin-top: 3vw;float: left;">
+								<img src="../../img/icon_order1.png" class="middle-icon" />
+								<span v-text="item.order_num +'单'"></span>
+							</div>
+							<div class="mui-col-xs-4" style="height: 5vw;margin-top: 3vw;float: left;">
+								<img src="../../img/icon_mail.png" class="middle-icon" />
+								<span v-text="'￥'+item.freight+'运费'"></span>
+							</div>
+						</div>
+					</div>
+					<div class="mui-col-xs-12" style="background: #fff;padding: 3vw 4vw;margin-top: 3vw;" onclick="$('#property').show();">
+						<p class="get-property">选择商品规格/属性</p>
+					</div>
+				</div>
+				<div style="width: 100%;margin-top: 3vw;margin-bottom: 15vw;" class="scroll_flag">
+					<div style="width: 100%;height: 12vw;background: #fff;" data-top="0" class="goods_desc">
+						<p style="text-align: center;line-height: 12vw;">详情</p>
+					</div>
+					<div id="detail_thumb"></div>
+				</div>
+				<div style="width: 100%;height: 15vw;background: #fff;position: fixed;bottom: 0;">
+					<div class="bottom-icon" onclick="get_phone();">
+						<img src="../../img/icon_news2.png" />
+						<p>客服</p>
+					</div>
+					<div class="bottom-icon" onclick="addCollect();">
+						<img src="../../img/icon_mood_nor.png" class="collect_icon" data-isCollect="2" />
+						<p>收藏</p>
+					</div>
+					<div style="width: 30%;background: #ffec70;height: 15vw;float: left;" onclick="$('#property').show();">
+						<p style="text-align: center;line-height: 15vw;color: #fff;font-size: 5vw;">加入购物车</p>
+					</div>
+					<div style="width: 30%;background: #ffde00;height: 15vw;float: left;">
+						<p style="text-align: center;line-height: 15vw;color: #fff;font-size: 5vw;" onclick="$('#property').show();">立即购买</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="property" style="">
+			<div style="width: 100%;height: 50%;position: absolute;top: 0;" onclick="$('#property').hide();"></div>
+			<div id="select-view" class="property-div">
+				<div style="width: 100%;height: 6vw;margin-top: 2vw;padding: 0 5vw;">
+					<span style="font-size: 6vw;float: right;color: #ddd;font-weight: 600;" onclick="$('#property').hide();">&times;</span>
+				</div>
+				<ul style="list-style: none;padding: 0;padding: 0 5vw;  ">
+
+					<li id="select-amount" style="padding-bottom: 5vw;">
+						<div id="property_zone" style="overflow: hidden;"></div>
+						<div style="clear: both;overflow: hidden;"></div>
+
+						<div style="width: 40%;margin-bottom: 10vw;clear: both;">
+							<p style="font-size: 4vw;margin-bottom: 3vw;">数量</p>
+							<span class="minus" onclick="minus()">&minus;</span>
+							<input type="text" name="amount" value="1" id="amount" disabled="disabled" />
+							<span class="plus" onclick="pluss()">&plus;</span>
+						</div>
+					</li>
+				</ul>
+				<div style="width: 100%;">
+					<p class="cart_pay_btn buy-now" style="background: #ffec70;" onclick="addCart();">加入购物车</p>
+					<p class="cart_pay_btn buy-now" onclick="buy_now(this);">立即购买</p>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../suit/js/ZsSuit.js"></script>
+		<script src="../../js/goods/detail.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="../../js/wx_share/cshare.js"></script>
+		<script src="../../js/share/common.js"></script>
+		<script type="text/javascript">
+			var url = location.href;
+			$.post(SHARE_PATH, {
+				url: url
+			}, function(response) {
+				if(response.status == 200) {
+					var we = response.signPackage;
+					wx.config({
+						debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId: we.appId, // 必填，公众号的唯一标识
+						timestamp: we.timestamp, // 必填，生成签名的时间戳
+						nonceStr: we.nonceStr, // 必填，生成签名的随机串
+						signature: we.signature, // 必填，签名，见附录1
+						jsApiList: [
+							"onMenuShareAppMessage",
+							"onMenuShareQQ",
+							"onMenuShareQZone",
+							"onMenuShareTimeline"
+
+						] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
+				}
+			}, 'json');
+			var goodsDetail = new Vue({
+				el: '#detail',
+				data: {
+					list: [],
+				}
+			});
+
+			var state = getState();
+			mui.init({
+				swipeBack: true
+			});
+
+			/**
+			 * 选择商品属性处理
+			 */
+			var goodsId;
+			mui_plusReady(function() {
+				var goodsDetailInfo = mui_storage_get('goods_detail_form_data');
+
+				var params = getParams();
+
+				goodsId = params.goodsId || goodsDetailInfo.goodsId;
+
+				console.log("商品详情页 post" + JSON.stringify(goodsDetailInfo) + " id=" + goodsId);
+				//				var goodsId = getHrefParam();
+				getData(goodsId);
+				//getThumb(goodsId);
+				getDescription(goodsId);
+				$('#goods_id').val(goodsId);
+				if(get_user_login_state()) {
+					//是否收藏
+					var param = {
+						product_id: goodsId
+					};
+					interface_aes_login(HTTP_USER_URL + 'is_collect', param, function(response) {
+						if(response.status == 200) {
+							if(response.is_collect == 1) {
+								$('.collect_icon').attr('src', '../../img/icon_mood_pre.png');
+								$('.collect_icon').attr('data-isCollect', 1);
+							}
+							//取消
+							if(response.is_collect == 2) {
+								$('.collect_icon').attr('src', '../../img/icon_mood_nor.png');
+								$('.collect_icon').attr('data-isCollect', 2);
+							}
+						}
+					}, 'json');
+				}
+			});
+
+			//加入购物车
+			function addCart() {
+				if(!get_user_login_state()) {
+					toLogin();
+				}
+				var goods_id = $('#goods_id').val();
+				var number = $('#amount').val();
+				var contrast_id = $('#contrast_id').val();
+				if(check_number(number)) {
+					mui.toast('请选择数量');
+					return;
+				}
+
+				var contrast_num = $('#contrast_num').val();
+				if(contrast_num > 0) {
+					if(contrast_id < 1) {
+						mui.toast('请选择商品规格属性');
+						return;
+					}
+				}
+				console.log("===加入购物车=== goods_id " + goods_id + " === contrast_id " + contrast_id);
+				var param = {
+					product_id: goods_id,
+					contrast_id: contrast_id,
+					number: number
+				};
+				interface_aes_login(HTTP_ORDER_FLOW_URL + 'join_car', param, function(response) {
+					mui.toast(response.info);
+					if(response.status == 200) {
+						location.reload();
+					}
+				}, 'json');
+			}
+
+			//收藏
+			function addCollect() {
+				if(!get_user_login_state()) {
+					toLogin();
+				}
+				var goods_id = $('#goods_id').val();
+				var type = $('.collect_icon').attr('data-isCollect');
+				console.log(goods_id + ' ' + type)
+				var ctype = 2;
+				if(type == 2) {
+					ctype = 1;
+				}
+				var param = {
+					product_id: goods_id,
+					type: ctype
+				};
+				interface_aes_login(HTTP_USER_URL + 'collect_product', param, function(data) {
+					mui.toast(data.info);
+					if(data.status == 200) {
+						if(ctype == 1) {
+							$('.collect_icon').attr('src', '../../img/icon_mood_pre.png');
+							$('.collect_icon').attr('data-isCollect', 1);
+						}
+						//取消
+						if(ctype == 2) {
+							$('.collect_icon').attr('src', '../../img/icon_mood_nor.png');
+							$('.collect_icon').attr('data-isCollect', 2);
+						}
+						//						appRefreshPageById('collect');
+					}
+				}, 'json');
+			}
+
+			//立即购买
+			function buy_now(obj) {
+				if(!get_user_login_state()) {
+					toLogin();
+					return;
+				}
+				if($(obj).hasClass('buy-now-disabled')) {
+					mui.toast('请选择属性');
+					return;
+				}
+
+				var goods_id = $('#goods_id').val();
+				var number = $('#amount').val();
+				var contrast_id = $('#contrast_id').val();
+				if(check_number(number)) {
+					mui.toast('请选择数量');
+					return;
+				}
+				var contrast_num = $('#contrast_num').val();
+				if(contrast_num > 0) {
+					if(contrast_id < 1) {
+						mui.toast('请选择商品规格属性');
+						return;
+					}
+				}
+
+				var extras = {
+					product_id: goods_id,
+					number: number,
+					contrast_id: contrast_id
+				};
+				//				alert("立即购买2" + goods_id);
+				mui_storage_set('buy_now_confirm_form_data', extras);
+				mui.openWindow({
+					url: '../order/buy_now_confirm.html',
+					id: 'buy_now_confirm',
+					extras: {
+						buy_now_confirm_form_data: extras
+					}
+				});
+			}
+
+			function get_phone() {
+				if(!get_user_login_state()) {
+					toLogin();
+				} else {
+					mui.openWindow({
+						id: '.customerService',
+						url: '../mine/customerService.html',
+						show: {
+							autoShow: true,
+							aniShow: 'pop-in',
+							duration: 300
+						}
+					});
+				}
+			}
+			/*
+			 * 分享
+			 */
+			if(isApp()) {
+				$('#shareregoodsdetail').show();
+				document.getElementById('shareregoodsdetail').addEventListener('tap', function() {
+					shareHref();
+				});
+
+				document.addEventListener("plusready", function() {
+					//获取分享列表
+					plus.share.getServices(function(ss) {
+						//获取成功
+						shares = {};
+						for(var i in ss) {
+							var t = ss[i];
+							shares[t.id] = t;
+						}
+					}, function(e) {
+						//获取分享列表失败
+					});
+				}, false);
+				/*判断是否授权*/
+				function shareAction(id, ex) {
+					var s = null;
+					if(!id || !(s = shares[id])) {
+						mui.toast("无效的分享服务！");
+						return;
+					}
+					if(!s) {
+						console.log("无效的分享服务！");
+						return;
+					}
+					if(s.authenticated) {
+						console.log("---已授权---");
+						shareMessage(s, ex);
+					} else {
+						console.log("---未授权---");
+						s.authorize(function() {
+							shareMessage(s, ex);
+						}, function(e) {
+							console.log("认证授权失败：" + e.code + " - " + e.message);
+						});
+					}
+				}
+
+				function shareMessage(s, ex) {
+					//http://download.sdk.mob.com/web/images/2018/01/30/09/1517276913964/242_242_46.6.png
+					var msg = {
+						href: SHARE_GOODS_DETAIL + '?goodsId=' + goodsId,
+						title: '共享提成',
+						content: '商品详情',
+						thumbs: ['http://kake.gangbengkeji.cn/attachment/images/4/2018/03/123.png'],
+						pictures: ['http://kake.gangbengkeji.cn/attachment/images/4/2018/03/123.png'],
+						extra: {
+							scene: ex
+						}
+					};
+					s.send(msg, function() {
+						mui.toast("分享到\"" + s.description + "\"成功！ ");
+					}, function(e) {
+						mui.toast("分享到\"" + s.description + "\"失败");
+					});
+				}
+
+				/**
+				 * 分享按钮点击事件
+				 */
+				function shareHref() {
+					var ids = [{
+							id: "weixin",
+							ex: "WXSceneSession" /*微信好友*/
+						}, {
+							id: "weixin",
+							ex: "WXSceneTimeline" /*微信朋友圈*/
+						}, {
+							id: "qq" /*QQ好友*/
+						}],
+						bts = [{
+							title: "发送给微信好友"
+						}, {
+							title: "分享到微信朋友圈"
+						}, {
+							title: "分享到QQ"
+						}];
+					plus.nativeUI.actionSheet({
+							cancel: "取消",
+							buttons: bts
+						},
+						function(e) {
+							var i = e.index;
+							if(i > 0) {
+								shareAction(ids[i - 1].id, ids[i - 1].ex);
+							}
+						}
+					);
+				}
+			} else {
+				$('#shareregoodsdetail').hide();
+			}
+		</script>
+	</body>
+
+</html>

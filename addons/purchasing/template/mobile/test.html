@@ -1,0 +1,28 @@
+{template 'header'}
+<table class="table table-bordered">
+	<tr>
+		<td colspan="4">共：{$all_total} 条：{$count}</td>
+	</tr>
+	<tr>
+		<td>单ID</td>
+		<td>用户ID</td>
+		<td>佣金</td>
+		<td>佣金和</td>
+		<td>反水</td>
+	</tr>
+	{loop $ordercash $order}
+	<tr>
+		<td>{$order['id']}</td>
+		<td>{$order['user_id']}</td>
+		<td>
+			{loop $order['cash'] $key $cash}
+			&nbsp;{$key}:{$cash['cashback']}&nbsp;反水：{$cash['percent']}&nbsp;
+			{/loop}
+		</td>
+		<td>
+			{$order['total']}
+		</td>
+		<td>{php echo json_encode($order['percent'])}</td>
+	</tr>
+	{/loop}
+</table>

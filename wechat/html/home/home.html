@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/home/home.css" />
+		<link rel="stylesheet" href="../../css/common/index.css" />
+		<style type="text/css">
+			html,
+			body {
+				background-color: white;
+			}
+			
+			.mui-table-view:before {
+				/*重写mui表格顶部边框线*/
+				background-color: #fff;
+			}
+			
+			.mui-table-view:after {
+				/*重写mui表格底部边框线*/
+				background-color: #fff;
+			}
+			
+			.line-vertical {
+				/*垂直分割线*/
+				width: 1px;
+				height: 15vw;
+				float: left;
+				background: #eee;
+				margin-top: 4vw;
+				margin-left: 3px;
+			}
+			
+			.no-net {
+				height: 100%;
+				visibility: visible;
+			}
+			
+			.has-net {
+				display: none;
+			}
+			
+			.line10 {
+				border-top: 10px solid #fafafa;
+			}
+		</style>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+		<script src="../../js/common/global.js"></script>
+		<script src="../../js/common/vue.min.js"></script>
+		<script src="../../js/common/Config.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/home/home.js"></script>
+		<script src="../../js/home/home-refresh.js"></script>
+
+	</head>
+
+	<body>
+		<div id='app' class="mui-content mui-scroll-wrapper" style="background: white;overflow-y: scroll;margin-bottom: 12vw;">
+			<!--<div id="noNet">
+				<h5 style="text-align: center;line-height: 50;">加载失败,点击重试</h5>
+			</div>-->
+			<div class="mui-scroll" style="visibility: visible;">
+				<div id="slider" class="mui-slider"></div>
+				<div class="line10"></div>
+				<!--<div class="mui-col-xs-12" style="height: 52vw;">
+					<div id="earning" class="mui-col-xs-6 mui-pull-left" style="width:49%;height: 100%;padding-left: 3vw;padding-top: 3vw;">
+						<img style="width:45vw;height: 45vw;" src="../../img/myIncome.png" />
+					</div>
+					<div id="teambenefits" class="mui-col-xs-6 mui-pull-left" style="width:49%;height: 100%;padding-left: 3vw;padding-top: 3vw;">
+						<img style="width:45vw;height: 45vw;" src="../../img/myTeam.png" />
+					</div>
+				</div>-->
+				<div class="line10"></div>
+				<ul id="classify" class="mui-table-view mui-grid-view">
+					<div v-for="itemclassify in classifyList">
+						<li @tap="openCategoryList(itemclassify)">
+							<p style="height: 10vw;line-height: 10vw;padding-top:1.5vw;text-align: center;font-size: 4.5vw;color:#333333;padding-left: 20vw;">
+								<span v-text="itemclassify.title"></span>
+								<i style="width: 2vw;background: url(../../img/icon_arrow_roght.png) no-repeat;background-position: 97% 45%;background-size: auto 50%;height: 11vw;margin-right:2vw;float: right;"></i>
+								<span style="float: right;margin-right: 2vw;font-size: 4vw;color: #666666;">更多</span>
+							</p>
+						</li>
+						<li v-for="item in itemclassify.subnewitems" class="mui-table-view-cell mui-media mui-col-xs-6" @tap="openProductDetail(item.productId)" style="padding: 5px 0 0 14px;">
+							<a style="width:48vw;height: 62vw;background-size: contain;">
+								<img class="" style="display:block;width: 44vw;height: 50vw;position:absolute;z-index: 1;border-radius: 5px;" src="../../img/shade.png">
+								<p class="" style="color: white;padding-left:15px;padding-top:155px;position: absolute;z-index: 2;font-size: 4.5vw;" v-text="item.productName"></p>
+								<img class="" style="display:block;width: 44vw;height: 50vw;border-radius: 5px;" v-bind:src="item.productSrc">
+								<span class="" style="float:left;color: red;font-size: 4vw;padding-top:1.7vw;">{{item.productPrice*1| money("")}}</span>
+								<span class="" style="float:right; font-size: 4vw;padding-top:1.7vw;" v-text="item.productOrderNum +'单'"></span>
+							</a>
+						</li>
+						<div class="line10"></div>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div id="index">
+			<nav class="mui-bar mui-bar-tab" style="background: white;">
+				<a class="mui-tab-item mui-active" href="home.html" @tap="aa();">
+					<span class="mui-icon tab-botton-icon icon-home"></span>
+					<span class="tab-bottom">首页</span>
+				</a>
+				<a class="mui-tab-item" href="../classify/classify.html">
+					<span class="mui-icon tab-botton-icon icon-fenlei"></span>
+					<span class="tab-bottom">分类</span>
+				</a>
+				<a class="mui-tab-item" href="../shopping/shopping.html">
+					<span class="mui-icon tab-botton-icon icon-car"></span>
+					<span class="tab-bottom">购物车</span>
+				</a>
+				<a class="mui-tab-item" href="../mine/mine.html">
+					<span class="mui-icon tab-botton-icon icon-wode"></span>
+					<span class="tab-bottom">我的</span>
+				</a>
+			</nav>
+		</div>
+		<script src="../../js/common/global.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="../../js/common/util.js"></script>
+		<script src="../../js/wx_share/cshare.js"></script>
+		<script>
+			var url = location.href;
+			$.post(SHARE_PATH, {
+				url: url
+			}, function(response) {
+				if(response.status == 200) {
+					var we = response.signPackage;
+					wx.config({
+						debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId: we.appId, // 必填，公众号的唯一标识
+						timestamp: we.timestamp, // 必填，生成签名的时间戳
+						nonceStr: we.nonceStr, // 必填，生成签名的随机串
+						signature: we.signature, // 必填，签名，见附录1
+						jsApiList: [
+							"onMenuShareAppMessage",
+							"onMenuShareQQ",
+							"onMenuShareQZone",
+							"onMenuShareTimeline"
+
+						] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
+				}
+			}, 'json');
+
+			mui.init({
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+
+			//首页分类数据
+			var category = new Vue({
+				el: '#category',
+				data: {
+					categoryList: []
+				}
+			});
+			//首页分类列表数据
+			var classify = new Vue({
+				el: '#classify',
+				data: {
+					classifyList: []
+				}
+			});
+			//获取首页数据
+			getHomeData();
+
+			//			document.getElementById('teambenefits').addEventListener('tap', function() {
+			//				/*我的团队*/
+			//				mui.openWindow({
+			//					id: 'teambenefits',
+			//					url: 'teambenefits.html',
+			//					show: {
+			//						autoShow: true,
+			//						aniShow: 'pop-in',
+			//						duration: 200
+			//					}
+			//				});
+			//			});
+			//
+			//			document.getElementById('earning').addEventListener('tap', function() {
+			//				if(!get_user_login_state()) {
+			//						toLogin();
+			//					} else {
+			//						mui.openWindow({
+			//						id: 'earning',
+			//						url: '../mine/earning.html',
+			//						show: {
+			//							autoShow: true,
+			//							aniShow: 'pop-in',
+			//							duration: 200
+			//						}
+			//				});
+			//					}
+			//				
+			//			});
+		</script>
+
+	</body>
+
+</html>

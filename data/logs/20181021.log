@@ -1,0 +1,91 @@
+2018-10-21 14:05:29 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_manji_member_odds` SET `odds_B` =  :odds_B_1 , `odds_S` =  :odds_S_2 , `odds_A` =  :odds_A_3 , `odds_C2` =  :odds_C2_4 , `odds_C3` =  :odds_C3_5 , `odds_C4` =  :odds_C4_6 , `odds_C5` =  :odds_C5_7 , `odds_EC` =  :odds_EC_8 , `odds_3ABC` =  :odds_3ABC_9 , `odds_4A` =  :odds_4A_10 , `odds_4B` =  :odds_4B_11 , `odds_4C` =  :odds_4C_12 , `odds_4D` =  :odds_4D_13 , `odds_4E` =  :odds_4E_14 , `odds_EA` =  :odds_EA_15 , `odds_4ABC` =  :odds_4ABC_16 , `odds_2A` =  :odds_2A_17 , `odds_2B` =  :odds_2B_18 , `odds_2C` =  :odds_2C_19 , `odds_2D` =  :odds_2D_20 , `odds_2E` =  :odds_2E_21 , `odds_EX` =  :odds_EX_22 , `odds_2ABC` =  :odds_2ABC_23 , `odds_5D` =  :odds_5D_24 , `odds_6D` =  :odds_6D_25 , `commission` =  :commission_26 , `member_id` =  :member_id_27 , `cid` =  :cid_28 , `pid` =  :pid_29<hr/>Params: <br/>array (
+  ':odds_B_1' => '2000|1500|500|180|90',
+  ':odds_S_2' => '3000|2000|1500',
+  ':odds_A_3' => '670',
+  ':odds_C2_4' => '670',
+  ':odds_C3_5' => '670',
+  ':odds_C4_6' => '670',
+  ':odds_C5_7' => '670',
+  ':odds_EC_8' => '291.30434782608694',
+  ':odds_3ABC_9' => '216.6667|216.6667|216.6667',
+  ':odds_4A_10' => '6700',
+  ':odds_4B_11' => '6700',
+  ':odds_4C_12' => '6700',
+  ':odds_4D_13' => '6700',
+  ':odds_4E_14' => '6700',
+  ':odds_EA_15' => '2913.0434782608695',
+  ':odds_4ABC_16' => '2166.6667|2166.6667|2166.6667',
+  ':odds_2A_17' => '67',
+  ':odds_2B_18' => '67',
+  ':odds_2C_19' => '67',
+  ':odds_2D_20' => '67',
+  ':odds_2E_21' => '67',
+  ':odds_EX_22' => '29.130434782608695',
+  ':odds_2ABC_23' => '21.6667|21.6667|21.6667',
+  ':odds_5D_24' => '17000|5000|3000|500|20|5',
+  ':odds_6D_25' => '115000|3000|300|30|3',
+  ':commission_26' => '["1","1","1","1","1","1","1","1","1","1"]',
+  ':member_id_27' => '1',
+  ':cid_28' => '1',
+  ':pid_29' => '4',
+)<hr/>SQL Error: <br/>Unknown column 'commission' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/purchasing/inc/mobile/add_player.inc.php; line: 81; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-21 14:11:58 SQL Error :
+------------
+String:
+SQL: <br/>INSERT INTO `ims_manji_member_odds` SET `odds_B` =  :odds_B_1 , `odds_S` =  :odds_S_2 , `odds_A` =  :odds_A_3 , `odds_C2` =  :odds_C2_4 , `odds_C3` =  :odds_C3_5 , `odds_C4` =  :odds_C4_6 , `odds_C5` =  :odds_C5_7 , `odds_EC` =  :odds_EC_8 , `odds_3ABC` =  :odds_3ABC_9 , `odds_4A` =  :odds_4A_10 , `odds_4B` =  :odds_4B_11 , `odds_4C` =  :odds_4C_12 , `odds_4D` =  :odds_4D_13 , `odds_4E` =  :odds_4E_14 , `odds_EA` =  :odds_EA_15 , `odds_4ABC` =  :odds_4ABC_16 , `odds_2A` =  :odds_2A_17 , `odds_2B` =  :odds_2B_18 , `odds_2C` =  :odds_2C_19 , `odds_2D` =  :odds_2D_20 , `odds_2E` =  :odds_2E_21 , `odds_EX` =  :odds_EX_22 , `odds_2ABC` =  :odds_2ABC_23 , `odds_5D` =  :odds_5D_24 , `odds_6D` =  :odds_6D_25 , `commission` =  :commission_26 , `member_id` =  :member_id_27 , `cid` =  :cid_28 , `pid` =  :pid_29<hr/>Params: <br/>array (
+  ':odds_B_1' => '2000|1500|500|180|90',
+  ':odds_S_2' => '3000|2000|1500',
+  ':odds_A_3' => '670',
+  ':odds_C2_4' => '670',
+  ':odds_C3_5' => '670',
+  ':odds_C4_6' => '670',
+  ':odds_C5_7' => '670',
+  ':odds_EC_8' => '291.30434782608694',
+  ':odds_3ABC_9' => '216.6667|216.6667|216.6667',
+  ':odds_4A_10' => '6700',
+  ':odds_4B_11' => '6700',
+  ':odds_4C_12' => '6700',
+  ':odds_4D_13' => '6700',
+  ':odds_4E_14' => '6700',
+  ':odds_EA_15' => '2913.0434782608695',
+  ':odds_4ABC_16' => '2166.6667|2166.6667|2166.6667',
+  ':odds_2A_17' => '67',
+  ':odds_2B_18' => '67',
+  ':odds_2C_19' => '67',
+  ':odds_2D_20' => '67',
+  ':odds_2E_21' => '67',
+  ':odds_EX_22' => '29.130434782608695',
+  ':odds_2ABC_23' => '21.6667|21.6667|21.6667',
+  ':odds_5D_24' => '17000|5000|3000|500|20|5',
+  ':odds_6D_25' => '115000|3000|300|30|3',
+  ':commission_26' => '{"B":"1","S":"1","A":"1","3ABC":"1","4A":"1","4ABC":"1","2A":"1","2ABC":"1","5D":"1","6D":"1"}',
+  ':member_id_27' => '2',
+  ':cid_28' => '1',
+  ':pid_29' => '4',
+)<hr/>SQL Error: <br/>Unknown column 'commission' in 'field list'<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 115; <br />file: /framework/class/db.class.php; line: 285; <br />file: /framework/function/pdo.func.php; line: 71; <br />file: /addons/purchasing/inc/mobile/add_player.inc.php; line: 81; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-21 14:35:21 SQL Error :
+------------
+String:
+SQL: <br/>select commission from `ims_agent_odds` where agent_id in () and pid=:id<hr/>Params: <br/>array (
+  ':id' => '1',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and pid='1'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/common.php; line: 4472; <br />file: /addons/purchasing/inc/mobile/get_odds.inc.php; line: 30; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-21 14:46:09 SQL Error :
+------------
+String:
+SQL: <br/>select commission from `ims_agent_odds` where agent_id in () and pid=:id<hr/>Params: <br/>array (
+  ':id' => '1',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and pid='1'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/common.php; line: 4472; <br />file: /addons/purchasing/inc/mobile/get_odds.inc.php; line: 30; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-21 14:58:18 SQL Error :
+------------
+String:
+SQL: <br/>select commission from `ims_agent_odds` where agent_id in () and pid=:id<hr/>Params: <br/>array (
+  ':id' => '1',
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and pid='1'' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/common.php; line: 4472; <br />file: /addons/purchasing/inc/mobile/get_odds.inc.php; line: 30; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

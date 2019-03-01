@@ -1,0 +1,1 @@
+["42S02",1146,"Table 'kake.ims_manji_total_report' doesn't exist"]

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="../../css/common/swiper.min.css" />
+		<link rel="stylesheet" href="../../css/common/minirefresh.css" />
+		<link rel="stylesheet" href="../../css/common/common.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<!--从上到下的加载顺序,重写的样式要在原来的css后面-->
+		<link rel="stylesheet" href="../../css/mine/order.css" />
+	
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: white;">
+			<button type="button" class="mui-left mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-arrowleft"></span>
+				</button>
+			<h1 class="mui-title">我的订单</h1>
+		</header>
+		<div class="content">
+			<div class="nav-control">
+				<p class="active" list-type="0">全部</p>
+				<p list-type="1">待支付</p>
+				<p list-type="2">待发货</p>
+				<p list-type="3">待收货</p>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div id="minirefresh0" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<ul class="data-list" id="order0">
+									<li v-for="itemOrder in orderAllList">
+										<div class="item_order_top">
+											<span class="item_order_top_time" v-text="itemOrder.orderTime"></span>
+											<span v-if="itemOrder.orderStatus==1" class="item_order_top_status">待支付</span>
+											<span v-if="itemOrder.orderStatus==2" class="item_order_top_status">待发货</span>
+											<span v-if="itemOrder.orderStatus==3" class="item_order_top_status">待收货</span>
+											<span v-if="itemOrder.orderStatus==4" class="item_order_top_status">待评价</span>
+										</div>
+										<div class="line1"></div>
+										<div v-for="itemProduct in itemOrder.productList" @tap="open_detail(itemOrder)" class="item_order_middle">
+											<div class="mui-pull-left item_order_middle_img_div">
+												<img v-bind:src="itemProduct.src" class="item_order_middle_img" />
+											</div>
+											<div class="mui-pull-left item_order_middle_product">
+												<span class="item_order_middle_product_name" v-text="itemProduct.productName"></span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>0" v-text="itemProduct.propertyList[0].propertyTitle+':'+itemProduct.propertyList[0].propertyValue"></span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>1" v-text="itemProduct.propertyList[1].propertyTitle+':'+itemProduct.propertyList[1].propertyValue"></span>
+											</div>
+											<div class="item_order_middle_product_right_div">
+												<span class="item_order_middle_product_right_font" v-text="'¥'+itemProduct.productPrice"></span>
+												<span class="item_order_middle_product_right_font" v-text="'x'+itemProduct.productNumber+'个'"></span>
+											</div>
+										</div>
+
+										<div class="line1"></div>
+										<div class="item_order_bottom_deposit" v-text="'定金:'+itemOrder.orderDeposit">
+											 
+										</div>
+										<div class="item_order_bottom_price">
+											合计: {{itemOrder.orderTotalPrice*1| money("")}}(含运费{{itemOrder.orderFreight*1| money("")}})
+										</div>
+										<div v-if="itemOrder.orderStatus==1||itemOrder.orderStatus==3" class="item_order_bottom">
+											<!--
+												1,待支付状态,可以取消和支付
+												2,待发货无操作
+												3,待收货,可以收货
+												4,待评价,可以评价
+											-->
+											<!--<button id='settlement' type="button" class="btn-radius-25 btn_order mui-pull-right" style="">查看物流(目前不显示)</button>-->
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_pay(itemOrder)">支付</button>
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_cancel mui-pull-right" @tap="order_cancel(itemOrder)">取消</button>
+											<button v-if="itemOrder.orderStatus==3" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_receipt(itemOrder)">收货</button>
+											<button v-if="itemOrder.orderStatus==4" type="button" class="btn-order-radius-25 btn_order mui-pull-right">评价</button>
+										</div>
+										<div class="line5"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh1" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<ul class="data-list" id="order1">
+									<li v-for="itemOrder in orderPayList">
+										<div class="item_order_top">
+											<span class="item_order_top_time" v-text="itemOrder.orderTime"></span>
+											<span v-if="itemOrder.orderStatus==1" class="item_order_top_status">待支付</span>
+											<span v-if="itemOrder.orderStatus==2" class="item_order_top_status">待发货</span>
+											<span v-if="itemOrder.orderStatus==3" class="item_order_top_status">待收货</span>
+											<span v-if="itemOrder.orderStatus==4" class="item_order_top_status">待评价</span>
+										</div>
+										<div class="line1"></div>
+										<div v-for="itemProduct in itemOrder.productList" @tap="open_detail(itemOrder)" class="item_order_middle">
+											<div class="mui-pull-left item_order_middle_img_div">
+												<img v-bind:src="itemProduct.src" class="item_order_middle_img" />
+											</div>
+											<div class="mui-pull-left item_order_middle_product">
+												<span class="item_order_middle_product_name" v-text="itemProduct.productName"> </span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>0" v-text="itemProduct.propertyList[0].propertyTitle+':'+itemProduct.propertyList[0].propertyValue"></span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>1" v-text="itemProduct.propertyList[1].propertyTitle+':'+itemProduct.propertyList[1].propertyValue"></span>
+											</div>
+											<div class="item_order_middle_product_right_div">
+												<span class="item_order_middle_product_right_font" v-text="'¥'+itemProduct.productPrice"></span>
+												<span class="item_order_middle_product_right_font" v-text="'x'+itemProduct.productNumber+'个'"></span>
+											</div>
+										</div>
+
+										<div class="line1"></div>
+										<div class="item_order_bottom_deposit" v-text="'定金:'+itemOrder.orderDeposit">
+										 
+										</div>
+										<div class="item_order_bottom_price">
+											合计: {{itemOrder.orderTotalPrice*1| money("")}}(含运费{{itemOrder.orderFreight*1| money("")}})
+										</div>
+										<div v-if="itemOrder.orderStatus==1||itemOrder.orderStatus==3" class="item_order_bottom">
+											<!--
+												1,待支付状态,可以取消和支付
+												2,待发货无操作
+												3,待收货,可以收货
+												4,待评价,可以评价
+											-->
+											<!--<button id='settlement' type="button" class="btn-radius-25 btn_order mui-pull-right" style="">查看物流(目前不显示)</button>-->
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_pay(itemOrder)">支付</button>
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_cancel mui-pull-right" @tap="order_cancel(itemOrder)">取消</button>
+											<button v-if="itemOrder.orderStatus==3" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_receipt(itemOrder)">收货</button>
+											<button v-if="itemOrder.orderStatus==4" type="button" class="btn-order-radius-25 btn_order mui-pull-right">评价</button>
+										</div>
+										<div class="line5"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh2" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<ul class="data-list" id="order2">
+									<li v-for="itemOrder in orderConsignmentList">
+										<div class="item_order_top">
+											<span class="item_order_top_time"  >{{itemOrder.orderTime}}</span>
+											<span v-if="itemOrder.orderStatus==1" class="item_order_top_status">待支付</span>
+											<span v-if="itemOrder.orderStatus==2" class="item_order_top_status">待发货</span>
+											<span v-if="itemOrder.orderStatus==3" class="item_order_top_status">待收货</span>
+											<span v-if="itemOrder.orderStatus==4" class="item_order_top_status">待评价</span>
+										</div>
+										<div class="line1"></div>
+										<div v-for="itemProduct in itemOrder.productList" @tap="open_detail(itemOrder)" class="item_order_middle">
+											<div class="mui-pull-left item_order_middle_img_div">
+												<img v-bind:src="itemProduct.src" class="item_order_middle_img" />
+											</div>
+											<div class="mui-pull-left item_order_middle_product">
+												<span class="item_order_middle_product_name" v-text="itemProduct.productName"> </span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>0" v-text="itemProduct.propertyList[0].propertyTitle+':'+itemProduct.propertyList[0].propertyValue"></span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>1" v-text="itemProduct.propertyList[1].propertyTitle+':'+itemProduct.propertyList[1].propertyValue"></span>
+											</div>
+											<div class="item_order_middle_product_right_div">
+												<span class="item_order_middle_product_right_font" v-text="'¥'+itemProduct.productPrice"></span>
+												<span class="item_order_middle_product_right_font" v-text="'x'+itemProduct.productNumber+'个'"></span>
+											</div>
+										</div>
+
+										<div class="line1"></div>
+										<div class="item_order_bottom_deposit" v-text="'定金:'+itemOrder.orderDeposit">
+											 
+										</div>
+										<div class="item_order_bottom_price">
+											合计: {{itemOrder.orderTotalPrice*1| money("")}}(含运费{{itemOrder.orderFreight*1| money("")}})
+										</div>
+										<div v-if="itemOrder.orderStatus==1||itemOrder.orderStatus==3" class="item_order_bottom">
+											<!--
+												1,待支付状态,可以取消和支付
+												2,待发货无操作
+												3,待收货,可以收货
+												4,待评价,可以评价
+											-->
+											<!--<button id='settlement' type="button" class="btn-radius-25 btn_order mui-pull-right" style="">查看物流(目前不显示)</button>-->
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_pay(itemOrder)">支付</button>
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_cancel mui-pull-right" @tap="order_cancel(itemOrder)">取消</button>
+											<button v-if="itemOrder.orderStatus==3" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_receipt(itemOrder)">收货</button>
+											<button v-if="itemOrder.orderStatus==4" type="button" class="btn-order-radius-25 btn_order mui-pull-right">评价</button>
+										</div>
+										<div class="line5"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div id="minirefresh3" class="minirefresh-wrap">
+							<div class="minirefresh-scroll">
+								<ul class="data-list" id="order3">
+									<li v-for="itemOrder in orderEvaluateList">
+										<div class="item_order_top">
+											<span class="item_order_top_time" v-text="itemOrder.orderTime"> </span>
+											<span v-if="itemOrder.orderStatus==1" class="item_order_top_status">待支付</span>
+											<span v-if="itemOrder.orderStatus==2" class="item_order_top_status">待发货</span>
+											<span v-if="itemOrder.orderStatus==3" class="item_order_top_status">待收货</span>
+											<span v-if="itemOrder.orderStatus==4" class="item_order_top_status">待评价</span>
+										</div>
+										<div class="line1"></div>
+										<div v-for="itemProduct in itemOrder.productList" @tap="open_detail(itemOrder)" class="item_order_middle">
+											<div class="mui-pull-left item_order_middle_img_div">
+												<img v-bind:src="itemProduct.src" class="item_order_middle_img" />
+											</div>
+											<div class="mui-pull-left item_order_middle_product">
+												<span class="item_order_middle_product_name" v-text="itemProduct.productName"> </span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>0" v-text="itemProduct.propertyList[0].propertyTitle+':'+itemProduct.propertyList[0].propertyValue"></span>
+												<span class="item_order_middle_product_property" v-if="itemProduct.propertyList.length>1" v-text="itemProduct.propertyList[1].propertyTitle+':'+itemProduct.propertyList[1].propertyValue"></span>
+											</div>
+											<div class="item_order_middle_product_right_div">
+												<span class="item_order_middle_product_right_font" v-text="'¥'+itemProduct.productPrice"></span>
+												<span class="item_order_middle_product_right_font" v-text="'x'+itemProduct.productNumber+'个'"></span>
+											</div>
+										</div>
+
+										<div class="line1"></div>
+										<div class="item_order_bottom_deposit" v-text="'定金:'+itemOrder.orderDeposit">
+											 
+										</div>
+										<div class="item_order_bottom_price">
+											合计: {{itemOrder.orderTotalPrice*1| money("")}}(含运费{{itemOrder.orderFreight*1| money("")}})
+										</div>
+										<div v-if="itemOrder.orderStatus==1||itemOrder.orderStatus==3" class="item_order_bottom">
+											<!--
+												1,待支付状态,可以取消和支付
+												2,待发货无操作
+												3,待收货,可以收货
+												4,待评价,可以评价
+											-->
+											<!--<button id='settlement' type="button" class="btn-radius-25 btn_order mui-pull-right" style="">查看物流(目前不显示)</button>-->
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_pay(itemOrder)">支付</button>
+											<button v-if="itemOrder.orderStatus==1" type="button" class="btn-order-radius-25 btn_cancel mui-pull-right" @tap="order_cancel(itemOrder)">取消</button>
+											<button v-if="itemOrder.orderStatus==3" type="button" class="btn-order-radius-25 btn_order mui-pull-right" @tap="order_receipt(itemOrder)">收货</button>
+											<button v-if="itemOrder.orderStatus==4" type="button" class="btn-order-radius-25 btn_order mui-pull-right">评价</button>
+										</div>
+										<div class="line5"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.help.js"></script>
+		<script type="text/javascript" src="../../js/common/global.js"></script>
+		<script type="text/javascript" src="../../js/common/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/common/minirefresh.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/common/vue.min.js"></script>
+		<script type="text/javascript" src="../../js/common/Config.js"></script>
+		<script type="text/javascript" src="../../js/common/util.js"></script>
+		<script src="../../js/crypto/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/mine/order.js"></script>
+		<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+       <script src="../../js/wx_share/wx_share.js"></script>
+		<script>
+			mui.init();
+		</script>
+	</body>
+
+</html>

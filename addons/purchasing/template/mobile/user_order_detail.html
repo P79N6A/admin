@@ -1,0 +1,44 @@
+{template 'header'}
+<div class="col-xs-12">
+	<table class="table table-bordered">
+		<tr>
+			<td>#单号</td>
+			<td>状态</td>
+			<td>公司</td>
+			<td>号码</td>
+			<td>时间</td>
+			<td>输入法</td>
+			<td>投注额</td>
+		</tr>
+		{loop $list $item}
+		<tr>
+			<td>#{$item['uordersn']}</td>
+			<td>
+				{if $item['status'] == 1}
+				OK
+				{else}
+				CANCEL
+				{/if}
+			</td>
+			<td>{$item['company']}</td>
+			<td>
+				{if $item['mode'] == 0}
+				{$item['number']}
+				{elseif $item['mode'] == 1}
+				{{$item['number']}}
+				{elseif $item['mode'] == 2}
+				IB{{$item['number']}}
+				{elseif	$item['mode'] == 3}
+				{0~9}{php echo substr($item['number'],1)}
+				{elseif	$item['mode'] == 4}
+				{php echo substr($item['number'],0,strlen($item['number'])-1)}{0~9}
+				{/if}
+			</td>
+			<td>{php echo date('d/m/Y H:i',$item['createtime'])}</td>
+			<td>{$item['rule']}</td>
+			<td>{$item['amount']}</td>
+		</tr>
+		{/loop}
+	</table>
+</div>
+{template 'footer'}

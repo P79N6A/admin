@@ -1,0 +1,648 @@
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(1)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(2)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(3)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(4)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(5)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(6)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(7)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_B) as B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_S) as S from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_S) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_S) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4A) as 4A from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_4A) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4A) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4B) as 4B from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_4B) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4B) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4C) as 4C from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_4C) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4C) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4D) as 4D from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_4D) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4D) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4E) as 4E from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_4E) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4E) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_EA) as EA from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_EA) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_EA) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+
+2018-10-20 16:13:15 SQL Error :
+------------
+String:
+SQL: <br/>select number,sum(pay_4ABC) as 4ABC from `ims_manji_order` where length(number)=:length and status=1 and createtime between :start and :end and cid like '%(8)%'  and user_id in ()  group by number order by sum(pay_4ABC) desc limit 0,500<hr/>Params: <br/>array (
+  ':start' => 1539964800,
+  ':end' => 1540051199,
+  ':length' => 4,
+)<hr/>SQL Error: <br/>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  group by number order by sum(pay_4ABC) desc limit 0,500' at line 1<hr/>Traces: <br/>file: /framework/class/db.class.php; line: 194; <br />file: /framework/function/pdo.func.php; line: 44; <br />file: /addons/purchasing/inc/mobile/manager.inc.php; line: 787; <br />file: /framework/class/account.class.php; line: 1076; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/source/entry/site.ctrl.php; line: 12; <br />file: /app/index.php; line: 115; <br />
+

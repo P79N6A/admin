@@ -1,0 +1,85 @@
+<div class="col-xs-12">
+	特别号码：
+	<select name="special">
+		<option value="A" {if $number[0] == 'A'}selected{/if}>A</option>
+		<option value="B" {if $number[0] == 'B'}selected{/if}>B</option>
+		<option value="C" {if $number[0] == 'C'}selected{/if}>C</option>
+		<option value="D" {if $number[0] == 'D'}selected{/if}>D</option>
+		<option value="E" {if $number[0] == 'E'}selected{/if}>E</option>
+		<option value="F" {if $number[0] == 'F'}selected{/if}>F</option>
+		<option value="G" {if $number[0] == 'G'}selected{/if}>G</option>
+		<option value="H" {if $number[0] == 'H'}selected{/if}>H</option>
+		<option value="I" {if $number[0] == 'I'}selected{/if}>I</option>
+		<option value="J" {if $number[0] == 'J'}selected{/if}>J</option>
+		<option value="K" {if $number[0] == 'K'}selected{/if}>K</option>
+		<option value="L" {if $number[0] == 'L'}selected{/if}>L</option>
+		<option value="M" {if $number[0] == 'M'}selected{/if}>M</option>
+	</select>
+	-
+	<select name="special">
+		<option value="A" {if $number[1] == 'A'}selected{/if}>A</option>
+		<option value="B" {if $number[1] == 'B'}selected{/if}>B</option>
+		<option value="C" {if $number[1] == 'C'}selected{/if}>C</option>
+		<option value="D" {if $number[1] == 'D'}selected{/if}>D</option>
+		<option value="E" {if $number[1] == 'E'}selected{/if}>E</option>
+		<option value="F" {if $number[1] == 'F'}selected{/if}>F</option>
+		<option value="G" {if $number[1] == 'G'}selected{/if}>G</option>
+		<option value="H" {if $number[1] == 'H'}selected{/if}>H</option>
+		<option value="I" {if $number[1] == 'I'}selected{/if}>I</option>
+		<option value="J" {if $number[1] == 'J'}selected{/if}>J</option>
+		<option value="K" {if $number[1] == 'K'}selected{/if}>K</option>
+		<option value="L" {if $number[1] == 'L'}selected{/if}>L</option>
+		<option value="M" {if $number[1] == 'M'}selected{/if}>M</option>
+	</select>
+	-
+	<select name="special">
+		<option value="A" {if $number[2] == 'A'}selected{/if}>A</option>
+		<option value="B" {if $number[2] == 'B'}selected{/if}>B</option>
+		<option value="C" {if $number[2] == 'C'}selected{/if}>C</option>
+		<option value="D" {if $number[2] == 'D'}selected{/if}>D</option>
+		<option value="E" {if $number[2] == 'E'}selected{/if}>E</option>
+		<option value="F" {if $number[2] == 'F'}selected{/if}>F</option>
+		<option value="G" {if $number[2] == 'G'}selected{/if}>G</option>
+		<option value="H" {if $number[2] == 'H'}selected{/if}>H</option>
+		<option value="I" {if $number[2] == 'I'}selected{/if}>I</option>
+		<option value="J" {if $number[2] == 'J'}selected{/if}>J</option>
+		<option value="K" {if $number[2] == 'K'}selected{/if}>K</option>
+		<option value="L" {if $number[2] == 'L'}selected{/if}>L</option>
+		<option value="M" {if $number[2] == 'M'}selected{/if}>M</option>
+	</select>
+</div>
+<div>
+	<table class="table table-bordered">
+		<tr>
+			<td>
+				开奖分水线：
+			</td>
+			<td>
+				<input type="text" name="dividing" value="{$lot_limmit}">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<button type="button" class="btn" onclick="save_post()">保存</button>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	function save_post() {
+		var special = [];
+		var dividing = [];
+		$('select').each(function() {
+			special.push($(this).val());
+		});
+		$('input').each(function() {
+			dividing.push($(this).val());
+		})
+		$.post("{php echo $this->createMobileUrl('manager',array('op'=>'lottery','tab'=>'special'));}",{special:special,dividing:dividing},function(result) {
+			alert(result.info);
+			if (result.status == 1) {
+				window.location.reload();
+			}
+		},'JSON');
+	}
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body style="background-color: white;"></body>
+	    <script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.help.js"></script>
+        <script src="js/common/vue.min.js"></script>
+    	<script src="js/jquery.min.js"></script>
+		<script src="js/common/Config.js"></script>
+		<script src="js/common/util.js"></script>
+		<script> 
+			var query = getParams();
+			var appid = 'wx22fab3bdb295ac12';
+		    var appkey ='d1c4390c6138be2c2856b97acd5929b2';
+		    var reuri = location.href;
+		    
+    		if(is_weixin()){
+    			if(query.code!=undefined){
+ 
+  				     var url1 = 'http://kake.gangbengkeji.cn/app/index.php?i=6&c=entry&m=distribution_user&do=wechat_auth';
+    				 $.post( url1,  {code:query.code},
+                      function (response) {
+                      	
+                         var url = 'http://kake.gangbengkeji.cn/app/index.php?i=6&c=entry&m=distribution_user&do=thirdlogin'; 
+	    			    //第2步 ：微信access_token
+	    				 $.post(url,{openid:response.openid,access_token:response.access_token,unionid:response.unionid,type:1},function(response){
+	    				 	  if(response.status==200){
+	    				 	  	localStorage.setItem('openid',response.openid);
+	    				 	  	localStorage.setItem('unionid',response.unionid);
+	    				 	  	location.href = 'html/login/bind_weixin.html';
+	    				 	  }
+	    				 },'json');
+		             
+                	},'json');
+    			 
+    			} else{
+    			 
+	    		    var openid = localStorage.getItem('openid')||"";
+	    		    var unionid = localStorage.getItem('unionid')||"";
+	    		    if(unionid==''){
+	    		    	//第一步 ：微信授权
+						var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid
+						+'&redirect_uri='+ decodeURI(reuri) +'&response_type=code&scope=snsapi_userinfo&state=123456&connect_redirect=1#wechat_redirect';
+					    location.href = url;					  
+		    		}else{
+		    			
+		    			var url ='http://kake.gangbengkeji.cn/app/index.php?i=6&c=entry&m=distribution_user&do=is_bind_wechat';
+		    			 $.ajax({url,data:{unionid:unionid},success:function(response){
+		    	         
+	    				 	  if(response.status==200){
+		    				 	  	if(response.is_bind==1){
+		    				 	   		location.href = 'html/home/home.html';	
+		    				 	  	}else{
+		    				 	  		location.href = 'html/login/bind_weixin.html';
+		    				 	  	}
+	    				 	  }else{
+	    				 	  	  mui.toast('服务器繁忙！');
+	    				 	  }
+	    				 	  
+    				    },error:function(e){alert(JSON.stringify(e))}});
+		    		     
+		    		}
+    			}
+    					
+    		}else{
+    			location.href = 'html/home/home.html';
+    		}
+    		
+    		
+    		
+	</script>
+</html>

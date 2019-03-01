@@ -1,0 +1,70 @@
+/**
+* 底部导航栏
+ */
+
+.mui-bar-tab .mui-tab-item {
+	/*重写mui底部导航未选中的字体颜色*/
+	color: #333333
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+	/*重写mui底部导航选中的字体颜色*/
+	color: #333333
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon {
+	/*重写mui底部导航图片大小*/
+	width: 21px;
+	height: 21px;
+}
+
+.mui-bar {
+	/*重写mui底部导航分割线颜色*/
+	box-shadow: 0 0 1px #eeeeee;
+}
+
+.tab-botton-icon {
+	/*图片完全显示,不会被裁减*/
+	background-size: contain;
+}
+
+.icon-home {
+	/*默认背景图*/
+	content: url(../../img/btn_home_nor.png);
+}
+
+.icon-fenlei {
+	content: url(../../img/btn_class_nor.png);
+}
+
+.icon-car {
+	content: url(../../img/btn_car_nor.png);
+}
+
+.icon-wode {
+	content: url(../../img/btn_mine_nor.png);
+}
+
+.tab-bottom {
+	/*底部导航文字大小*/
+	font-size: 13px;
+	/*垂直*/
+	display: block;
+}
+
+.mui-active .icon-home {
+	/*选中背景图*/
+	content: url(../../img/btn_home_pre.png);
+}
+
+.mui-active .icon-fenlei {
+	content: url(../../img/btn_class_pre.png);
+}
+
+.mui-active .icon-car {
+	content: url(../../img/btn_car_pre.png);
+}
+
+.mui-active .icon-wode {
+	content: url(../../img/btn_mine_pre.png);
+}
